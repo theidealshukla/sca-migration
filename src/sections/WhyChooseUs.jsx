@@ -129,6 +129,10 @@ export default function WhyChooseUs() {
                   src="https://images.unsplash.com/photo-1521618755572-156ae0cdd74d?w=800&q=80&auto=format"
                   alt="Best solar company in Indore team installing panels"
                   className="w-full h-full object-cover"
+                  loading="lazy"
+                  decoding="async"
+                  width="800"
+                  height="600"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-night-950/60 to-transparent" />
                 <p className="absolute bottom-4 left-4 right-4 text-white text-xs font-medium leading-relaxed">

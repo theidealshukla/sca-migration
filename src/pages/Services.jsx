@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { SEOHead } from '../utils/seo'
+import Breadcrumb from '../components/Breadcrumb'
 import { Home, Building2, Factory, Wrench, ShieldCheck, Zap, ArrowRight, CheckCircle2 } from 'lucide-react'
 
 const services = [
@@ -8,7 +9,7 @@ const services = [
     icon: Home,
     title: 'Residential Solar',
     tagline: 'Your home, powered by the sun.',
-    desc: 'Complete end-to-end rooftop solar solutions for homes in Indore and surrounding areas. We handle site survey, design, installation, DISCOM net metering, and PM Surya Ghar subsidy processing.',
+    desc: 'SCA Tech Solar installs 3kW to 10kW residential rooftop systems in Indore with PM Surya Ghar subsidy up to ₹78,000 processed end-to-end. With 16+ years of experience and 2,000+ installations across MP, we deliver net-metered on-grid, off-grid and hybrid solutions that cut household electricity bills by up to 93%.',
     points: ['On-grid, Off-grid & Hybrid systems', '3 kW to 10 kW capacity range', 'PM Surya Ghar subsidy up to ₹78,000', 'MPEZ net metering registration included', '25-year performance warranty', 'AMC plans available'],
     img: 'https://images.unsplash.com/photo-1615400610825-7f1b9d573c09?w=800&q=85&auto=format',
     color: 'bg-solar-50',
@@ -17,7 +18,7 @@ const services = [
     icon: Building2,
     title: 'Commercial Solar',
     tagline: 'Turn your rooftop into a revenue stream.',
-    desc: 'Solar solutions for offices, hospitals, schools, malls and retail outlets. Reduce peak demand charges, earn REC credits and hit ESG targets while cutting operating costs.',
+    desc: 'SCA Tech Solar delivers 10kW to 500kW commercial solar systems for offices, hospitals, schools and retail across Madhya Pradesh. Backed by 45 MW of installed capacity and 16+ years of expertise, our turnkey solutions reduce peak demand charges, generate REC credits, and help businesses meet ESG targets with rapid ROI.',
     points: ['10 kW to 500 kW systems', 'Peer-to-peer energy trading', 'REC and carbon credit advisory', 'OPEX and CAPEX models available', 'Remote monitoring dashboard', 'Dedicated project manager'],
     img: 'https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?w=800&q=85&auto=format',
     color: 'bg-sky-50',
@@ -26,7 +27,7 @@ const services = [
     icon: Factory,
     title: 'Industrial Solar',
     tagline: 'Large-scale clean power for industry.',
-    desc: 'Ground-mount, rooftop and carport solar for factories, warehouses, cold storage and industrial parks across MP. We specialise in high-load industrial connections.',
+    desc: 'Our engineering team handles complex 500kW to 5MW+ industrial solar projects including ground-mount and carport installations across MP. With 2,000+ successful deployments and deep HT/LT connection expertise, SCA Tech is Central India\'s most experienced industrial solar EPC contractor.',
     points: ['500 kW to 5 MW+ projects', 'Ground-mount & elevated carport', 'HT/LT connection expertise', 'PPA and third-party financing', 'Priority DISCOM liaison', 'Dedicated O&M team'],
     img: 'https://images.unsplash.com/photo-1497440001374-f26997328c1b?w=800&q=85&auto=format',
     color: 'bg-night-50',
@@ -64,14 +65,29 @@ export default function Services() {
   return (
     <div className="pt-20">
       <SEOHead
-        title="Solar Installation Services in Indore | SAC-TECH Solar"
-        description="SAC-TECH offers rooftop solar installation for homes (3-10kW), businesses (10-500kW) and industries (500kW-5MW) across Indore and Madhya Pradesh."
+        title="Solar Services in Indore & MP | SCA Tech Solar"
+        description="SCA Tech Solar offers rooftop solar for homes (3-10kW), businesses (10-500kW) and industries (500kW-5MW) across Indore and Madhya Pradesh."
         path="/services"
       />
+      <Breadcrumb items={[{ label: 'Home', path: '/' }, { label: 'Services', path: '/services' }]} />
       {/* Hero */}
       <div className="relative py-24 md:py-32 bg-night-950 overflow-hidden">
         <div className="absolute inset-0 opacity-20">
-          <img src="https://images.unsplash.com/photo-1509391366360-2e959784a276?w=1800&q=80&auto=format" alt="Solar Installation Services in Indore & MP background" className="w-full h-full object-cover" />
+          <img 
+            src="https://images.unsplash.com/photo-1509391366360-2e959784a276?w=1200&q=80&auto=format&fit=crop" 
+            srcSet="
+              https://images.unsplash.com/photo-1509391366360-2e959784a276?w=640&q=75&auto=format&fit=crop 640w,
+              https://images.unsplash.com/photo-1509391366360-2e959784a276?w=1024&q=80&auto=format&fit=crop 1024w,
+              https://images.unsplash.com/photo-1509391366360-2e959784a276?w=1200&q=80&auto=format&fit=crop 1200w
+            "
+            sizes="100vw"
+            alt="Solar Installation Services in Indore & MP background" 
+            className="w-full h-full object-cover" 
+            loading="lazy"
+            decoding="async"
+            width="1200"
+            height="800"
+          />
         </div>
         <div className="absolute inset-0 bg-gradient-to-r from-night-950 via-night-950/90 to-night-950/60" />
         <div className="relative max-w-7xl mx-auto px-5 md:px-8">
@@ -122,7 +138,7 @@ export default function Services() {
                   </Link>
                 </div>
                 <div className={`rounded-3xl overflow-hidden h-72 md:h-96 ${i % 2 === 1 ? 'lg:order-1' : ''}`}>
-                  <img src={svc.img} alt={svc.title} className="w-full h-full object-cover" />
+                  <img src={svc.img} alt={svc.title} className="w-full h-full object-cover" loading="lazy" decoding="async" width="800" height="600" />
                 </div>
               </div>
             )

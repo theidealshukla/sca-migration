@@ -7,21 +7,21 @@ const slides = [
     tagline: 'SOLAR ENERGY · INDORE, MP',
     heading: ['Solar Panel', 'Installation in', 'Indore.'],
     sub: 'As a leading Solar EPC company MP, we deliver premium rooftop solar installations for homes and businesses across Madhya Pradesh.',
-    bg: 'https://images.unsplash.com/photo-1509391366360-2e959784a276?w=1800&q=85&auto=format',
+    bg: 'https://images.unsplash.com/photo-1509391366360-2e959784a276',
     alt: 'Rooftop solar panel installation in Indore by SCA Tech Solar'
   },
   {
     tagline: 'CLEAN ENERGY · 300+ SUNNY DAYS',
     heading: ['Invest in', 'Clean, Affordable', 'Energy.'],
     sub: 'Discover the most transparent solar system cost Indore. With 300+ sunny days, your solar investment pays back faster than ever.',
-    bg: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1800&q=85&auto=format',
+    bg: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64',
     alt: 'Residential solar system for home Indore'
   },
   {
     tagline: 'INDUSTRIAL & COMMERCIAL',
     heading: ['Scale Up Your', 'Business with', 'Solar.'],
     sub: 'Industrial rooftop, ground-mount and carport solar solutions. Reduce operating costs and hit your ESG targets.',
-    bg: 'https://images.unsplash.com/photo-1466611653911-95081537e5b7?w=1800&q=85&auto=format',
+    bg: 'https://images.unsplash.com/photo-1466611653911-95081537e5b7',
     alt: 'Commercial solar installation Indore'
   },
 ]
@@ -49,10 +49,19 @@ export default function Hero() {
           className={`absolute inset-0 transition-opacity duration-1000 ${i === active ? 'opacity-100' : 'opacity-0'}`}
         >
           <img
-            src={s.bg}
+            src={`${s.bg}?w=1200&q=80&auto=format&fit=crop`}
+            srcSet={`
+              ${s.bg}?w=640&q=75&auto=format&fit=crop 640w,
+              ${s.bg}?w=1024&q=80&auto=format&fit=crop 1024w,
+              ${s.bg}?w=1200&q=80&auto=format&fit=crop 1200w
+            `}
+            sizes="100vw"
             alt={s.alt}
             className="w-full h-full object-cover scale-105"
             loading={i === 0 ? 'eager' : 'lazy'}
+            decoding="async"
+            width="1200"
+            height="800"
           />
         </div>
       ))}

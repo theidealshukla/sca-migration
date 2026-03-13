@@ -16,34 +16,29 @@ import ContactSection from '../sections/ContactSection'
 
 const localBusinessSchema = {
   "@context": "https://schema.org",
-  "@type": "SolarInstallationService",
+  "@type": "LocalBusiness",
   "name": "SCA Tech Solar",
-  "description": "Indore's trusted solar installation company offering GoodWe inverters, TOPCon bifacial panels, PM Surya Ghar subsidy support & MPEB net metering.",
+  "description": "Indore's trusted solar installation company offering rooftop solar for homes, businesses, and industries across Madhya Pradesh.",
+  "url": "https://scatech.netlify.app",
+  "telephone": "+919826035454",
+  "email": "info@scatechsolar.com",
   "address": {
     "@type": "PostalAddress",
-    "streetAddress": "149 Shrawan Chambers, RNT Marg, Chhoti Gwaltol",
+    "streetAddress": "149, Shrawan Chambers, RNT Marg, Chhoti Gwaltol",
     "addressLocality": "Indore",
-    "postalCode": "452001",
     "addressRegion": "Madhya Pradesh",
+    "postalCode": "452001",
     "addressCountry": "IN"
   },
-  "telephone": "+91 98260 35454",
   "geo": {
     "@type": "GeoCoordinates",
-    "latitude": 22.7196,
-    "longitude": 75.8577
+    "latitude": "22.7196",
+    "longitude": "75.8577"
   },
-  "url": "https://scatech.netlify.app/",
   "image": "https://scatech.netlify.app/favicon.svg",
   "priceRange": "₹₹",
-  "openingHoursSpecification": {
-    "@type": "OpeningHoursSpecification",
-    "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
-    "opens": "09:00",
-    "closes": "18:00"
-  },
-  "areaServed": ["Indore", "Bhopal", "Dewas", "Ujjain", "Pithampur"],
-  "serviceType": "Solar Energy Installation",
+  "openingHours": "Mo-Sa 09:00-18:00",
+  "areaServed": ["Indore", "Bhopal", "Ujjain", "Dewas", "Ratlam", "Dhar", "Pithampur", "Mhow"],
   "sameAs": [
     "https://www.facebook.com/scatechsolar",
     "https://www.instagram.com/scatech.indore",
@@ -55,8 +50,8 @@ export default function Home() {
   return (
     <>
       <SEOHead
-        title="SAC-TECH | Top Solar EPC Company MP & Indore"
-        description="SCA Tech Solar – Indore's trusted solar installation company. GoodWe inverters, TOPCon bifacial panels, PM Surya Ghar subsidy support & MPEB net metering. Free site survey."
+        title="SCA Tech Solar | #1 Solar Panel Installation in Indore"
+        description="SCA Tech Solar – Indore's trusted solar company & GoodWe dealer. PM Surya Ghar subsidy support, 2000+ installs, 16+ yrs experience."
         path="/"
       >
         <meta name="keywords" content="solar panel installation in Indore, solar company in Indore, rooftop solar Indore, GoodWe inverter dealer Indore, solar subsidy Indore, PM Surya Ghar Yojana Indore" />

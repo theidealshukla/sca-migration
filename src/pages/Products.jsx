@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { SEOHead } from '../utils/seo'
+import Breadcrumb from '../components/Breadcrumb'
 import { ArrowRight, Filter } from 'lucide-react'
 
 const allProducts = [
@@ -25,10 +26,11 @@ export default function Products() {
   return (
     <div className="pt-20">
       <SEOHead
-        title="GoodWe Inverters & TOPCon Solar Panels in Indore | SAC-TECH"
-        description="Buy GoodWe DNS G4, MS G3 inverters and 590W-595W TOPCon bifacial solar panels in Indore. Tier 1 products at best prices from SAC-TECH Solar."
+        title="GoodWe Inverters & TOPCon Panels | SCA Tech Solar"
+        description="Buy GoodWe DNS G4, MS G3 inverters and 590W-595W TOPCon bifacial solar panels in Indore. Tier 1 products at best prices from SCA Tech Solar."
         path="/products"
       />
+      <Breadcrumb items={[{ label: 'Home', path: '/' }, { label: 'Products', path: '/products' }]} />
       {/* Hero */}
       <div className="py-20 md:py-28 bg-night-50">
         <div className="max-w-7xl mx-auto px-5 md:px-8">
@@ -63,7 +65,7 @@ export default function Products() {
           {filtered.map((p, i) => (
             <Link to="/contact" key={i} className="bg-white rounded-2xl overflow-hidden border border-night-100 card-hover group block">
               <div className="relative h-48 overflow-hidden bg-night-50">
-                <img src={p.img} alt={`${p.name} available in Indore`} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
+                <img src={p.img} alt={`${p.name} available in Indore`} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" loading="lazy" decoding="async" width="600" height="400" />
                 <span className="absolute top-3 left-3 px-2.5 py-1 rounded-full bg-night-900 text-white text-xs font-bold">{p.badge}</span>
               </div>
               <div className="p-5">

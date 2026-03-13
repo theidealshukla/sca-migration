@@ -1,5 +1,6 @@
 import React from 'react'
 import { SEOHead } from '../utils/seo'
+import Breadcrumb from '../components/Breadcrumb'
 import { MapPin, MessageCircle } from 'lucide-react'
 import ContactSection from '../sections/ContactSection'
 
@@ -7,14 +8,29 @@ export default function Contact() {
   return (
     <div className="pt-20">
       <SEOHead
-        title="Contact SAC-TECH | Top Solar Installer Near Me In Indore"
-        description="Get in touch with SAC-TECH for a free site survey and quote. Located at 149 Shrawan Chambers, RNT Marg, Chhoti Gwaltol, Indore 452001."
+        title="Contact SCA Tech Solar | Free Survey Indore"
+        description="Contact SCA Tech Solar for a free site survey and quote. Located at 149 Shrawan Chambers, RNT Marg, Chhoti Gwaltol, Indore 452001."
         path="/contact"
       />
+      <Breadcrumb items={[{ label: 'Home', path: '/' }, { label: 'Contact', path: '/contact' }]} />
       {/* Page Hero */}
       <div className="py-20 md:py-28 bg-night-950 relative overflow-hidden">
         <div className="absolute inset-0 opacity-10">
-          <img src="https://images.unsplash.com/photo-1466611653911-95081537e5b7?w=1800&q=80&auto=format" alt="Solar panels on a roof" className="w-full h-full object-cover" />
+          <img 
+            src="https://images.unsplash.com/photo-1466611653911-95081537e5b7?w=1200&q=80&auto=format&fit=crop" 
+            srcSet="
+              https://images.unsplash.com/photo-1466611653911-95081537e5b7?w=640&q=75&auto=format&fit=crop 640w,
+              https://images.unsplash.com/photo-1466611653911-95081537e5b7?w=1024&q=80&auto=format&fit=crop 1024w,
+              https://images.unsplash.com/photo-1466611653911-95081537e5b7?w=1200&q=80&auto=format&fit=crop 1200w
+            "
+            sizes="100vw"
+            alt="Solar panels on a roof" 
+            className="w-full h-full object-cover" 
+            loading="lazy"
+            decoding="async"
+            width="1200"
+            height="800"
+          />
         </div>
         <div className="relative max-w-7xl mx-auto px-5 md:px-8">
           <p className="section-tag text-white/40">Get In Touch</p>
@@ -33,15 +49,14 @@ export default function Contact() {
       {/* Map Embed */}
       <div className="bg-night-100 h-[400px] w-full relative overflow-hidden">
         <iframe 
-          title="SCA Tech Solar Office Location"
-          src="https://maps.google.com/maps?q=149,+Shrawan+Chambers,+Rnt+Marg,+Chhoti+Gwaltol,+Indore-452001,+Madhya+Pradesh&t=&z=15&ie=UTF8&iwloc=&output=embed" 
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3680.1!2d75.8577!3d22.7196!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2s149+Shrawan+Chambers+RNT+Marg+Indore!5e0!3m2!1sen!2sin!4v1234567890"
           width="100%" 
-          height="100%" 
-          style={{ border: 0 }} 
+          height="400" 
+          style={{ border: 0, borderRadius: '16px' }} 
           allowFullScreen="" 
-          loading="lazy" 
-          referrerPolicy="no-referrer-when-downgrade"
-        ></iframe>
+          loading="lazy"
+          title="SCA Tech Solar office location in Indore">
+        </iframe>
       </div>
 
       {/* WhatsApp CTA */}

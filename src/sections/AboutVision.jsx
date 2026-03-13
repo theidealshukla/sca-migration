@@ -96,7 +96,7 @@ export default function AboutVision() {
                 style={{ width: '80vw', minWidth: '280px', maxWidth: '340px' }}
               >
                 <div className="h-40 flex-shrink-0 overflow-hidden">
-                  <img src={card.img} alt={card.alt} className="w-full h-full object-cover" />
+                  <img src={card.img} alt={card.alt} className="w-full h-full object-cover" loading="lazy" decoding="async" width="400" height="400" />
                 </div>
                 <div className="p-5 flex flex-col flex-grow">
                   <span className={`text-[10px] font-bold tracking-widest uppercase ${card.accent}`}>{card.pill}</span>
@@ -114,7 +114,7 @@ export default function AboutVision() {
           {cards.map((card, i) => (
             <div key={i} className={`rounded-2xl border overflow-hidden group card-hover flex flex-col ${card.color}`}>
               <div className="h-44 md:h-52 overflow-hidden flex-shrink-0">
-                <img src={card.img} alt={card.alt} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+                <img src={card.img} alt={card.alt} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" loading="lazy" decoding="async" width="600" height="600" />
               </div>
               <div className="p-6 flex flex-col flex-grow">
                 <span className={`text-xs font-bold tracking-widest uppercase ${card.accent}`}>{card.pill}</span>

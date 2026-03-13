@@ -8,7 +8,7 @@ const faqs = [
   },
   {
     q: 'What is the payback period for solar in Indore?',
-    a: 'With Indore\'s 300+ sunny days and MPEZ tariff of \u20B97.5\u20139/unit, payback periods are typically 3\u20135 years for residential and 2.5\u20134 years for commercial. After payback, you generate free electricity for the remaining 20+ years.',
+    a: 'With Indore\'s 300+ sunny days and MPEZ tariff of ₹7.5–9/unit, payback periods are typically 3–5 years for residential and 2.5–4 years for commercial. After payback, you generate free electricity for the remaining 20+ years.',
   },
   {
     q: 'Will solar work during power cuts?',
@@ -24,7 +24,7 @@ const faqs = [
   },
   {
     q: 'What maintenance is required for solar panels?',
-    a: 'Solar panels require minimal maintenance \u2014 mainly periodic cleaning to remove dust. Indore\'s dusty climate means cleaning every 2\u20133 months.We offer Annual Maintenance Contracts(AMC) starting \u20B93, 500/year including 2 cleanings and performance health checks.',
+    a: 'Solar panels require minimal maintenance — mainly periodic cleaning to remove dust. Indore\'s dusty climate means cleaning every 2–3 months. We offer Annual Maintenance Contracts starting ₹3,500/year including 2 cleanings and performance health checks.',
   },
   {
     q: 'What warranties do you provide?',
@@ -32,7 +32,7 @@ const faqs = [
   },
   {
     q: 'Can I get solar installed on a rented property?',
-    a: 'You can install solar on a rented property with the landlord\'s written consent.The system can be transferred if you move.Many landlords are agreeable as it increases property value.',
+    a: 'You can install solar on a rented property with the landlord\'s written consent. The system can be transferred if you move. Many landlords are agreeable as it increases property value.',
   },
 ]
 
@@ -67,8 +67,8 @@ export default function FAQ() {
             <p className="text-night-500 text-sm leading-relaxed mt-4">
               Have a question not covered here? Our experts are available Mon–Sat 9am–6pm.
             </p>
-            <a href="tel:+917312345678" className="inline-flex items-center gap-2 mt-6 text-sm font-bold text-solar-600 hover:text-solar-700 transition-colors">
-              Call us: +91 731 234 5678 →
+            <a href="tel:+919826035454" className="inline-flex items-center gap-2 mt-6 text-sm font-bold text-solar-600 hover:text-solar-700 transition-colors">
+              Call us: +91 98260 35454 →
             </a>
           </div>
           <div className="lg:col-span-2">

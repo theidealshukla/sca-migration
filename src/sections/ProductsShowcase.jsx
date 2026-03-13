@@ -128,6 +128,10 @@ export default function ProductsShowcase() {
                   src={p.img}
                   alt={p.name + ' available in Indore'}
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                  loading="lazy"
+                  decoding="async"
+                  width="600"
+                  height="450"
                 />
                 {/* Category pill on hover */}
                 <div className="absolute top-4 left-4 px-3 py-1 bg-white/90 backdrop-blur-md rounded-full text-[10px] font-bold tracking-wider uppercase text-night-900 opacity-0 -translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-500">

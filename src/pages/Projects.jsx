@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { SEOHead } from '../utils/seo'
+import Breadcrumb from '../components/Breadcrumb'
 import { MapPin, Zap, Calendar, ArrowRight } from 'lucide-react'
 
 const projects = [
@@ -32,10 +33,11 @@ export default function Projects() {
   return (
     <div className="pt-20">
       <SEOHead
-        title="Solar Installation Projects in Indore & MP | SAC-TECH Portfolio"
-        description="View completed solar projects across Indore, Bhopal, Pithampur, Dewas and Central India. Residential, commercial and industrial installations by SAC-TECH."
+        title="Solar Projects in Indore & MP | SCA Tech Solar"
+        description="View completed solar projects across Indore, Bhopal, Pithampur, Dewas and Central India. Residential, commercial and industrial installations by SCA Tech Solar."
         path="/projects"
       />
+      <Breadcrumb items={[{ label: 'Home', path: '/' }, { label: 'Projects', path: '/projects' }]} />
       {/* Hero */}
       <div className="relative py-24 bg-night-50 overflow-hidden">
         <div className="max-w-7xl mx-auto px-5 md:px-8">
@@ -73,7 +75,7 @@ export default function Projects() {
           {filtered.map((p, i) => (
             <div key={i} className="rounded-2xl overflow-hidden bg-white border border-night-100 card-hover group">
               <div className="relative h-52 overflow-hidden">
-                <img src={p.img} alt={`${p.title} ${p.type} solar installation ${p.location}`} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
+                <img src={p.img} alt={`${p.title} ${p.type} solar installation ${p.location}`} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" loading="lazy" decoding="async" width="600" height="400" />
                 <span className={`absolute top-3 left-3 px-2.5 py-1 rounded-full text-white text-xs font-bold ${typeColors[p.type] || 'bg-night-500'}`}>{p.type}</span>
                 <div className="absolute top-3 right-3 bg-night-950/80 backdrop-blur-sm rounded-full px-3 py-1.5 flex items-center gap-1.5">
                   <Zap className="w-3 h-3 text-white/60" />

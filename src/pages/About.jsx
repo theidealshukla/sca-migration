@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { SEOHead } from '../utils/seo'
+import Breadcrumb from '../components/Breadcrumb'
 import { ArrowRight, Sun, Users, Award, Leaf } from 'lucide-react'
 
 const team = [
@@ -23,14 +24,29 @@ export default function About() {
   return (
     <div className="pt-20">
       <SEOHead
-        title="About SAC-TECH Solar | Top Solar EPC Company MP & Indore"
-        description="SAC-TECH Solar, based in Indore, specializes in GoodWe inverters and TOPCon bifacial solar panels. MNRE empanelled. Serving Central India since inception."
+        title="About SCA Tech Solar | Trusted Solar EPC Indore"
+        description="SCA Tech Solar, based in Indore, specializes in GoodWe inverters and TOPCon bifacial solar panels. MNRE empanelled. Serving Central India since inception."
         path="/about"
       />
+      <Breadcrumb items={[{ label: 'Home', path: '/' }, { label: 'About Us', path: '/about' }]} />
       {/* Hero */}
       <div className="relative min-h-[70vh] flex items-end overflow-hidden bg-night-950">
         <div className="absolute inset-0">
-          <img src="https://images.unsplash.com/photo-1521618755572-156ae0cdd74d?w=1800&q=80&auto=format" alt="About SCA Tech Solar - Indore's Trusted Solar Company" className="w-full h-full object-cover opacity-30" />
+          <img 
+            src="https://images.unsplash.com/photo-1521618755572-156ae0cdd74d?w=1200&q=80&auto=format&fit=crop" 
+            srcSet="
+              https://images.unsplash.com/photo-1521618755572-156ae0cdd74d?w=640&q=75&auto=format&fit=crop 640w,
+              https://images.unsplash.com/photo-1521618755572-156ae0cdd74d?w=1024&q=80&auto=format&fit=crop 1024w,
+              https://images.unsplash.com/photo-1521618755572-156ae0cdd74d?w=1200&q=80&auto=format&fit=crop 1200w
+            "
+            sizes="100vw"
+            alt="About SCA Tech Solar - Indore's Trusted Solar Company" 
+            className="w-full h-full object-cover opacity-30" 
+            loading="lazy"
+            decoding="async"
+            width="1200"
+            height="800"
+          />
           <div className="absolute inset-0 bg-gradient-to-t from-night-950 via-night-950/50 to-transparent" />
         </div>
         <div className="relative max-w-7xl mx-auto px-5 md:px-8 pb-20">
@@ -109,7 +125,7 @@ export default function About() {
             {team.map((member, i) => (
               <div key={i} className="bg-white rounded-2xl overflow-hidden border border-night-100 card-hover group">
                 <div className="h-52 overflow-hidden">
-                  <img src={member.img} alt={member.name} className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500" />
+                  <img src={member.img} alt={member.name} className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500" loading="lazy" decoding="async" width="400" height="400" />
                 </div>
                 <div className="p-5">
                   <h3 className="font-black text-night-900">{member.name}</h3>

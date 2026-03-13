@@ -8,21 +8,24 @@ const stats = [
 ]
 
 function CountUp({ target, suffix, duration = 2000 }) {
-  const [count, setCount] = useState(0)
-  const [started, setStarted] = useState(false)
+  // FIX 6: Initialize with the target value so SSG renders actual numbers, not zeros.
+  const [count, setCount] = useState(target)
+  const [hasAnimated, setHasAnimated] = useState(false)
   const ref = useRef(null)
 
   useEffect(() => {
+    // On client hydration, reset to 0 and prepare to animate on scroll
+    setCount(0)
     const observer = new IntersectionObserver(
-      ([entry]) => { if (entry.isIntersecting && !started) setStarted(true) },
+      ([entry]) => { if (entry.isIntersecting && !hasAnimated) setHasAnimated(true) },
       { threshold: 0.5 }
     )
     if (ref.current) observer.observe(ref.current)
     return () => observer.disconnect()
-  }, [started])
+  }, []) // eslint-disable-line react-hooks/exhaustive-deps
 
   useEffect(() => {
-    if (!started) return
+    if (!hasAnimated) return
     const start = performance.now()
     const tick = (now) => {
       const elapsed = now - start
@@ -32,7 +35,7 @@ function CountUp({ target, suffix, duration = 2000 }) {
       if (progress < 1) requestAnimationFrame(tick)
     }
     requestAnimationFrame(tick)
-  }, [started, target, duration])
+  }, [hasAnimated, target, duration])
 
   return (
     <span ref={ref} className="tabular-nums">

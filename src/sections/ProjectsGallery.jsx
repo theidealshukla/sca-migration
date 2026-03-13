@@ -73,6 +73,10 @@ export default function ProjectsGallery() {
                 src={p.img}
                 alt={`${p.title} - ${p.type} solar installation in ${p.location}`}
                 className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                loading="lazy"
+                decoding="async"
+                width="600"
+                height="400"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-night-950/90 via-night-950/20 to-transparent" />
               <div className="absolute inset-0 p-5 flex flex-col justify-end">

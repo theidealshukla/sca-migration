@@ -118,13 +118,13 @@ export default function Footer() {
       {/* Bottom bar */}
       <div className="max-w-7xl mx-auto px-5 md:px-8 py-5 flex flex-col md:flex-row items-center justify-between gap-3">
         <p className="text-night-600 text-xs">
-          © 2024 SCA Tech. All rights reserved.
+          © 2026 SCA Tech Solar. All rights reserved.
         </p>
         <div className="flex items-center gap-5">
-          <a href="#" className="text-night-600 text-xs hover:text-night-400 transition-colors">Privacy Policy</a>
-          <a href="#" className="text-night-600 text-xs hover:text-night-400 transition-colors">Terms of Service</a>
-          <a href="#" className="text-night-600 text-xs hover:text-night-400 transition-colors">Sitemap</a>
-          <Link to="/admin" className="flex items-center gap-1.5 text-night-600 text-xs hover:text-night-400 transition-colors">
+          <a href="/privacy-policy" className="text-night-600 text-xs hover:text-night-400 transition-colors">Privacy Policy</a>
+          <a href="/terms-of-service" className="text-night-600 text-xs hover:text-night-400 transition-colors">Terms of Service</a>
+          <a href="/sitemap.xml" className="text-night-600 text-xs hover:text-night-400 transition-colors">Sitemap</a>
+          <Link to="/admin" rel="nofollow" className="flex items-center gap-1.5 text-night-600 text-xs hover:text-night-400 transition-colors">
             <Lock className="w-3 h-3" />
             Admin Login
           </Link>
