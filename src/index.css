@@ -1,0 +1,158 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply font-sans text-night-900 bg-white antialiased;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  /* Use Inter for all headings — heavier weights + tight tracking for impact */
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Inter', system-ui, sans-serif;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply inline-flex items-center gap-2 bg-night-900 text-white px-7 py-3.5 rounded-full font-semibold text-sm tracking-wide hover:bg-night-800 transition-all duration-300 hover:shadow-lg hover:shadow-night-900/20 hover:-translate-y-0.5 active:translate-y-0;
+  }
+
+  .btn-outline {
+    @apply inline-flex items-center gap-2 border-2 border-night-900 text-night-900 px-7 py-3.5 rounded-full font-semibold text-sm tracking-wide hover:bg-night-900 hover:text-white transition-all duration-300 hover:-translate-y-0.5;
+  }
+
+  .btn-outline-white {
+    @apply inline-flex items-center gap-2 border-2 border-white/60 text-white px-7 py-3.5 rounded-full font-semibold text-sm tracking-wide hover:bg-white hover:text-night-900 transition-all duration-300;
+  }
+
+  .section-tag {
+    @apply inline-flex items-center gap-2 text-xs font-semibold tracking-[0.2em] uppercase text-night-400 mb-4;
+  }
+
+  .section-tag::before {
+    content: '';
+    @apply block w-6 h-px bg-night-400;
+  }
+
+  .card-hover {
+    @apply transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+
+  .clip-diagonal {
+    clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
+  }
+
+  .noise-bg {
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 5px;
+}
+::-webkit-scrollbar-track {
+  background: #f5f5f5;
+}
+::-webkit-scrollbar-thumb {
+  background: #a3a3a3;
+  border-radius: 3px;
+}
+
+/* Marquee animation */
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.marquee-inner {
+  animation: marquee 25s linear infinite;
+  display: flex;
+  width: max-content;
+}
+
+.marquee-inner:hover {
+  animation-play-state: paused;
+}
+
+/* Number counter */
+@keyframes countUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.count-animate {
+  animation: countUp 0.6s ease-out forwards;
+}
+
+/* Gradient text — subtle monochrome */
+.gradient-text {
+  background: linear-gradient(135deg, #525252 0%, #171717 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.gradient-text-solar {
+  background: linear-gradient(135deg, #a3a3a3 0%, #737373 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Hero image overlay */
+.hero-overlay {
+  background: linear-gradient(
+    to bottom,
+    rgba(10, 10, 10, 0.15) 0%,
+    rgba(10, 10, 10, 0.05) 40%,
+    rgba(10, 10, 10, 0.55) 100%
+  );
+}
+
+/* Card glass */
+.glass-card {
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255,255,255,0.9);
+}
+
+/* Solar glow — now a subtle neutral shadow */
+.solar-glow {
+  box-shadow: 0 0 40px rgba(0, 0, 0, 0.08), 0 20px 60px rgba(0, 0, 0, 0.06);
+}
+
+/* Hero animation keyframes (referenced in inline styles) */
+@keyframes fadeUp {
+  0% { opacity: 0; transform: translateY(30px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
