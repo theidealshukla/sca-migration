@@ -16,7 +16,7 @@ import ContactSection from '../sections/ContactSection'
 
 const localBusinessSchema = {
   "@context": "https://schema.org",
-  "@type": "LocalBusiness",
+  "@type": "SolarInstallationService",
   "name": "SCA Tech Solar",
   "description": "Indore's trusted solar installation company offering GoodWe inverters, TOPCon bifacial panels, PM Surya Ghar subsidy support & MPEB net metering.",
   "address": {
@@ -46,7 +46,8 @@ const localBusinessSchema = {
   "serviceType": "Solar Energy Installation",
   "sameAs": [
     "https://www.facebook.com/scatechsolar",
-    "https://www.instagram.com/scatech.indore"
+    "https://www.instagram.com/scatech.indore",
+    "https://www.indiamart.com/sca-tech/"
   ]
 }
 
@@ -54,7 +55,7 @@ export default function Home() {
   return (
     <>
       <SEOHead
-        title="Solar Panel Installation in Indore | SCA Tech Solar | GoodWe Dealer"
+        title="SAC-TECH | Top Solar EPC Company MP & Indore"
         description="SCA Tech Solar – Indore's trusted solar installation company. GoodWe inverters, TOPCon bifacial panels, PM Surya Ghar subsidy support & MPEB net metering. Free site survey."
         path="/"
       >

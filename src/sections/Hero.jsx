@@ -6,14 +6,14 @@ const slides = [
   {
     tagline: 'SOLAR ENERGY · INDORE, MP',
     heading: ['Solar Panel', 'Installation in', 'Indore.'],
-    sub: 'Premium rooftop solar installations for homes and businesses across Madhya Pradesh. Zero electricity bills, guaranteed.',
+    sub: 'As a leading Solar EPC company MP, we deliver premium rooftop solar installations for homes and businesses across Madhya Pradesh.',
     bg: 'https://images.unsplash.com/photo-1509391366360-2e959784a276?w=1800&q=85&auto=format',
     alt: 'Rooftop solar panel installation in Indore by SCA Tech Solar'
   },
   {
     tagline: 'CLEAN ENERGY · 300+ SUNNY DAYS',
     heading: ['Invest in', 'Clean, Affordable', 'Energy.'],
-    sub: 'With 300+ sunny days in Indore, solar pays back faster than anywhere else. Start saving from day one.',
+    sub: 'Discover the most transparent solar system cost Indore. With 300+ sunny days, your solar investment pays back faster than ever.',
     bg: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1800&q=85&auto=format',
     alt: 'Residential solar system for home Indore'
   },

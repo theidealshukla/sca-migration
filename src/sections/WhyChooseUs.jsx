@@ -14,7 +14,7 @@ const reasons = [
   {
     stat: 'MP Native',
     title: 'Local Expertise',
-    desc: 'Indore-headquartered with deep knowledge of local utility rules, subsidies and grid conditions.',
+    desc: 'Looking for a reliable solar installer near me? We are Indore-headquartered with deep knowledge of local utility rules, subsidies and grid conditions.',
   },
   {
     stat: '365 Days',
@@ -29,7 +29,7 @@ const reasons = [
   {
     stat: '₹78,000+',
     title: 'Subsidy & EMI Support',
-    desc: 'We handle PM Surya Ghar subsidy paperwork end-to-end. No-cost EMIs available through our bank partners.',
+    desc: 'Navigating the rooftop solar subsidy India can be confusing. We handle PM Surya Ghar subsidy paperwork end-to-end. No-cost EMIs available through our bank partners.',
   },
 ]
 

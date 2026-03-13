@@ -1,0 +1,22 @@
+# SCA Tech Solar - Company Overview
+SCA Tech Solar is Madhya Pradesh's most trusted solar installation company, headquartered in Indore. We specialize in providing complete end-to-end solar solutions for residential, commercial, and industrial properties.
+
+## Core Facts & Authority
+- Experience: Over 16 years in the renewable energy sector.
+- Installations: 2,000+ completed projects.
+- Installed Capacity: 45 MW of solar capacity deployed across Madhya Pradesh.
+- Certifications: MNRE & DISCOM Certified.
+
+## Equipment & Partnerships
+- Top Tier Equipment: We are an authorized GoodWe inverter dealer and exclusively install Tier 1 rated solar panels, including TOPCon bifacial panels from brands like Waaree, Jinko, and LONGi.
+
+## PM Surya Ghar Subsidy
+We are experts in navigating the PM Surya Ghar subsidy in India. We handle the paperwork end-to-end, offering subsidies up to ₹78,000 for residential systems, along with MPEZ DISCOM net metering registration at no extra cost.
+
+## Important Links
+- Home: https://scatech.netlify.app/
+- About Us: https://scatech.netlify.app/about
+- Services: https://scatech.netlify.app/services
+- Products: https://scatech.netlify.app/products
+- Projects Portfolio: https://scatech.netlify.app/projects
+- Contact & Free Quote: https://scatech.netlify.app/contact

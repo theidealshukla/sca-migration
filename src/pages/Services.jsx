@@ -64,8 +64,8 @@ export default function Services() {
   return (
     <div className="pt-20">
       <SEOHead
-        title="Solar Installation Services in Indore | SCA Tech Solar"
-        description="SCA Tech offers rooftop solar installation for homes (3-10kW), businesses (10-500kW) and industries (500kW-5MW) across Indore and Madhya Pradesh."
+        title="Solar Installation Services in Indore | SAC-TECH Solar"
+        description="SAC-TECH offers rooftop solar installation for homes (3-10kW), businesses (10-500kW) and industries (500kW-5MW) across Indore and Madhya Pradesh."
         path="/services"
       />
       {/* Hero */}

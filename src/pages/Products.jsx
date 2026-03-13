@@ -25,8 +25,8 @@ export default function Products() {
   return (
     <div className="pt-20">
       <SEOHead
-        title="GoodWe Inverters & TOPCon Solar Panels in Indore | SCA Tech Solar"
-        description="Buy GoodWe DNS G4, MS G3 inverters and 590W-595W TOPCon bifacial solar panels in Indore. Tier 1 products at best prices from SCA Tech Solar."
+        title="GoodWe Inverters & TOPCon Solar Panels in Indore | SAC-TECH"
+        description="Buy GoodWe DNS G4, MS G3 inverters and 590W-595W TOPCon bifacial solar panels in Indore. Tier 1 products at best prices from SAC-TECH Solar."
         path="/products"
       />
       {/* Hero */}

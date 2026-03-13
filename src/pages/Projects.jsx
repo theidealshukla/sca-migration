@@ -32,8 +32,8 @@ export default function Projects() {
   return (
     <div className="pt-20">
       <SEOHead
-        title="Solar Installation Projects in Indore & MP | SCA Tech Solar Portfolio"
-        description="View completed solar projects across Indore, Bhopal, Pithampur, Dewas and Central India. Residential, commercial and industrial installations by SCA Tech."
+        title="Solar Installation Projects in Indore & MP | SAC-TECH Portfolio"
+        description="View completed solar projects across Indore, Bhopal, Pithampur, Dewas and Central India. Residential, commercial and industrial installations by SAC-TECH."
         path="/projects"
       />
       {/* Hero */}

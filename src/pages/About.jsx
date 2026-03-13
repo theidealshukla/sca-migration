@@ -23,8 +23,8 @@ export default function About() {
   return (
     <div className="pt-20">
       <SEOHead
-        title="About SCA Tech Solar — Indore's Trusted Solar Company | SCA Tech Solar"
-        description="SCA Tech Solar, based in Indore, specializes in GoodWe inverters and TOPCon bifacial solar panels. MNRE empanelled. Serving Central India since inception."
+        title="About SAC-TECH Solar | Top Solar EPC Company MP & Indore"
+        description="SAC-TECH Solar, based in Indore, specializes in GoodWe inverters and TOPCon bifacial solar panels. MNRE empanelled. Serving Central India since inception."
         path="/about"
       />
       {/* Hero */}

@@ -7,8 +7,8 @@ export default function Contact() {
   return (
     <div className="pt-20">
       <SEOHead
-        title="Contact SCA Tech Solar in Indore | Free Site Survey & Quote"
-        description="Get in touch with SCA Tech Solar for a free site survey and quote. Located at 149 Shrawan Chambers, RNT Marg, Chhoti Gwaltol, Indore 452001."
+        title="Contact SAC-TECH | Top Solar Installer Near Me In Indore"
+        description="Get in touch with SAC-TECH for a free site survey and quote. Located at 149 Shrawan Chambers, RNT Marg, Chhoti Gwaltol, Indore 452001."
         path="/contact"
       />
       {/* Page Hero */}
@@ -22,7 +22,7 @@ export default function Contact() {
             Contact SCA Tech Solar<br /><span className="font-light text-white/50">in Indore.</span>
           </h1>
           <p className="text-night-400 max-w-lg text-lg leading-relaxed">
-            Whether you're ready to install or just curious about solar — we're here. Get a free site survey and zero-obligation quote from Indore's most trusted solar team.
+            Stop searching for a 'solar installer near me' — our local engineering team is based right here in Indore. We are ready to dispatch for a free site assessment and provide the most accurate solar panels price Indore.
           </p>
         </div>
       </div>
@@ -30,22 +30,18 @@ export default function Contact() {
       {/* Contact section */}
       <ContactSection />
 
-      {/* Map placeholder */}
-      <div className="bg-night-100 h-72 relative overflow-hidden">
-        <div className="absolute inset-0 flex items-center justify-center">
-          <div className="text-center">
-            <MapPin className="w-10 h-10 text-night-400 mx-auto mb-3" />
-            <p className="font-bold text-night-700">149, Shrawan Chambers, RNT Marg, Chhoti Gwaltol, Indore — 452001</p>
-            <a href="https://maps.google.com" target="_blank" rel="noopener noreferrer" className="text-night-500 text-sm font-semibold mt-2 inline-block hover:underline">
-              Open in Google Maps →
-            </a>
-          </div>
-        </div>
-        <img
-          src="https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?w=1600&q=80&auto=format"
-          alt="Indore city"
-          className="w-full h-full object-cover opacity-20"
-        />
+      {/* Map Embed */}
+      <div className="bg-night-100 h-[400px] w-full relative overflow-hidden">
+        <iframe 
+          title="SCA Tech Solar Office Location"
+          src="https://maps.google.com/maps?q=149,+Shrawan+Chambers,+Rnt+Marg,+Chhoti+Gwaltol,+Indore-452001,+Madhya+Pradesh&t=&z=15&ie=UTF8&iwloc=&output=embed" 
+          width="100%" 
+          height="100%" 
+          style={{ border: 0 }} 
+          allowFullScreen="" 
+          loading="lazy" 
+          referrerPolicy="no-referrer-when-downgrade"
+        ></iframe>
       </div>
 
       {/* WhatsApp CTA */}
