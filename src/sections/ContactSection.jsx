@@ -27,8 +27,8 @@ export default function ContactSection() {
           {/* Info cards */}
           <div className="lg:col-span-2 flex flex-col gap-5">
             {[
-              { icon: Phone, label: 'Call Us', value: '[PLACEHOLDER: phone]', sub: 'Mon–Sat, 9am–7pm IST', href: 'tel:0000000000' },
-              { icon: Mail, label: 'Email', value: '[PLACEHOLDER: email]', sub: 'We reply quickly', href: 'mailto:info@domain.com' },
+              { icon: Phone, label: 'Call Us', value: '+91 98260 35454', sub: 'Mon–Sat, 9am–7pm IST', href: 'tel:+919826035454' },
+              { icon: Mail, label: 'Email', value: 'info@scatechsolar.com', sub: 'We reply quickly', href: 'mailto:info@scatechsolar.com' },
               { icon: MapPin, label: 'Office', value: '149, Shrawan Chambers, RNT Marg', sub: 'Chhoti Gwaltol, Indore — 452001', href: '#' },
               { icon: Clock, label: 'Survey Hours', value: '9:00 AM – 6:00 PM', sub: 'Monday to Saturday', href: '#' },
             ].map(({ icon: Icon, label, value, sub, href }) => (

@@ -82,7 +82,7 @@ export default function WhyChooseUs() {
             </h2>
           </div>
           <p className="text-night-400 text-base md:text-lg leading-relaxed lg:max-w-md lg:ml-auto">
-            With [PLACEHOLDER: years_exp]+ years, [PLACEHOLDER: installations]+ installations and [PLACEHOLDER: capacity] MW deployed across Madhya Pradesh, our track record speaks for itself.
+            With 16+ years, 2,000+ installations and 45 MW deployed across Madhya Pradesh, our track record speaks for itself.
           </p>
         </div>
 

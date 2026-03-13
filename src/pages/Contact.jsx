@@ -53,7 +53,7 @@ export default function Contact() {
         <div className="max-w-4xl mx-auto px-5 md:px-8 text-center">
           <div className="inline-flex items-center gap-3 bg-night-900 text-white px-8 py-4 rounded-full font-bold text-lg hover:bg-night-800 transition-colors cursor-pointer">
             <MessageCircle className="w-6 h-6" />
-            Chat with us on WhatsApp — [PLACEHOLDER: phone number]
+            Chat with us on WhatsApp — +91 98260 35454
           </div>
           <p className="text-night-400 text-sm mt-4">Fastest response: typically under 15 minutes during business hours</p>
         </div>

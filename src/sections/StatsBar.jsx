@@ -1,9 +1,9 @@
 import React, { useEffect, useRef, useState } from 'react'
 
 const stats = [
-  { value: '[PLACEHOLDER: years_exp]', suffix: '+', label: 'Years Experience', sub: 'Since [PLACEHOLDER: year]' },
-  { value: '[PLACEHOLDER: capacity]', suffix: 'MW', label: 'Installed Capacity', sub: 'Across Central India' },
-  { value: '[PLACEHOLDER: installs_k]', suffix: 'k+', label: 'Happy Families', sub: 'Zero electricity bills' },
+  { value: 16, suffix: '+', label: 'Years Experience', sub: 'Since 2008' },
+  { value: 45, suffix: 'MW', label: 'Installed Capacity', sub: 'Across Central India' },
+  { value: 2, suffix: 'k+', label: 'Happy Families', sub: 'Zero electricity bills' },
   { value: 99, suffix: '%', label: 'Client Satisfaction', sub: '5-star rated support' },
 ]
 

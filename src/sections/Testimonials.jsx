@@ -70,7 +70,7 @@ export default function Testimonials() {
                 <div className="flex">
                   {[...Array(5)].map((_, i) => <Star key={i} className="w-4 h-4 text-night-900 fill-night-900" />)}
                 </div>
-                <p className="text-sm text-night-500 mt-0.5">[PLACEHOLDER: reviews]+ verified reviews</p>
+                <p className="text-sm text-night-500 mt-0.5">1,200+ verified reviews</p>
               </div>
             </div>
 

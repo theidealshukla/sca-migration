@@ -47,16 +47,16 @@ export default function Footer() {
               </div>
             </Link>
             <p className="text-night-400 text-sm leading-relaxed mb-6 max-w-xs">
-              Powering Madhya Pradesh's clean energy future since [PLACEHOLDER: year]. Supplier of GoodWe inverters and TOPCon bifacial panels.
+              Powering Madhya Pradesh's clean energy future since 2008. Supplier of GoodWe inverters and TOPCon bifacial panels.
             </p>
             <div className="flex flex-col gap-3 mb-8">
-              <a href="tel:000000000" className="flex items-center gap-3 text-sm text-night-400 hover:text-white transition-colors">
+              <a href="tel:+919826035454" className="flex items-center gap-3 text-sm text-night-400 hover:text-white transition-colors">
                 <Phone className="w-4 h-4 text-night-500 flex-shrink-0" />
-                [PLACEHOLDER: phone]
+                +91 98260 35454
               </a>
-              <a href="mailto:info@domain.com" className="flex items-center gap-3 text-sm text-night-400 hover:text-white transition-colors">
+              <a href="mailto:info@scatechsolar.com" className="flex items-center gap-3 text-sm text-night-400 hover:text-white transition-colors">
                 <Mail className="w-4 h-4 text-night-500 flex-shrink-0" />
-                [PLACEHOLDER: email]
+                info@scatechsolar.com
               </a>
               <div className="flex items-start gap-3 text-sm text-night-400">
                 <MapPin className="w-4 h-4 text-night-500 flex-shrink-0 mt-0.5" />

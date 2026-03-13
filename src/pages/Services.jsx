@@ -83,7 +83,7 @@ export default function Services() {
             Solar Installation Services<br /><span className="gradient-text-solar font-display italic">in Indore & MP.</span>
           </h1>
           <p className="text-night-300 max-w-xl text-lg leading-relaxed mb-8">
-            From a single rooftop to industrial mega-parks — SCA Tech delivers turnkey solar solutions backed by [PLACEHOLDER: years_exp] years of Madhya Pradesh expertise.
+            From a single rooftop to industrial mega-parks — SCA Tech delivers turnkey solar solutions backed by 16 years of Madhya Pradesh expertise.
           </p>
           <Link to="/contact" className="btn-primary">
             Book Free Survey <ArrowRight className="w-4 h-4" />

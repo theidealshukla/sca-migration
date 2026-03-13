@@ -11,12 +11,12 @@ const team = [
 ]
 
 const milestones = [
-  { year: '[PLACEHOLDER: year]', event: 'Founded in Indore with a 5-person team and a dream to power MP with solar.' },
+  { year: '2008', event: 'Founded in Indore with a 5-person team and a dream to power MP with solar.' },
   { year: '2015', event: 'Crossed 100 installations. First commercial project — a 50kW factory in Pithampur.' },
   { year: '2018', event: '500 installations milestone. Expanded to Bhopal and Ujjain.' },
   { year: '2020', event: 'Launched proprietary monitoring platform and 24/7 O&M service.' },
   { year: '2022', event: 'Crossed 1,000 installations. Entered industrial & ground-mount segment.' },
-  { year: '2024', event: "[PLACEHOLDER: installations]+ installations. [PLACEHOLDER: capacity] MW total capacity. MP's #1 solar installer." },
+  { year: '2024', event: "2,000+ installations. 45 MW total capacity. MP's #1 solar installer." },
 ]
 
 export default function About() {
@@ -57,16 +57,16 @@ export default function About() {
                   Seeing the gap in quality installations and genuine after-sales support, our founding engineers set out to build a company that puts engineering ethics first. We introduced global Tier-1 brands like GoodWe and TOPCon to the local market when others were still pushing outdated technologies.
                 </p>
                 <p>
-                  Today we're Madhya Pradesh's most trusted solar installer, having delivered over [PLACEHOLDER_CAPACITY] MW of clean capacity across [PLACEHOLDER_INSTALLS]+ projects. But our work is just beginning.
+                  Today we're Madhya Pradesh's most trusted solar installer, having delivered over 45 MW of clean capacity across 2,000+ projects. But our work is just beginning.
                 </p>
               </div>
             </div>
             <div className="grid grid-cols-2 gap-4">
               {[
-                { icon: Sun, label: 'Installations', value: '[PLACEHOLDER: installations]+', color: 'bg-solar-50 border-solar-100', iconColor: 'text-solar-500' },
+                { icon: Sun, label: 'Installations', value: '2,000+', color: 'bg-solar-50 border-solar-100', iconColor: 'text-solar-500' },
                 { icon: Leaf, label: 'CO₂ Offset/Year', value: '15,000 T', color: 'bg-green-50 border-green-100', iconColor: 'text-green-500' },
                 { icon: Users, label: 'Happy Families', value: '1,100+', color: 'bg-sky-50 border-sky-100', iconColor: 'text-sky-500' },
-                { icon: Award, label: 'Years Experience', value: '[PLACEHOLDER: years_exp]+', color: 'bg-purple-50 border-purple-100', iconColor: 'text-purple-500' },
+                { icon: Award, label: 'Years Experience', value: '16+', color: 'bg-purple-50 border-purple-100', iconColor: 'text-purple-500' },
               ].map(({ icon: Icon, label, value, color, iconColor }) => (
                 <div key={label} className={`rounded-2xl border p-6 ${color}`}>
                   <Icon className={`w-6 h-6 mb-3 ${iconColor}`} />

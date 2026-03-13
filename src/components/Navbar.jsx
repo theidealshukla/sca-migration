@@ -118,7 +118,7 @@ export default function Navbar() {
             <div className="border-t border-night-100 pt-6 flex flex-col gap-3">
               <a href="tel:00000000" className="flex items-center gap-3 px-4 py-3 rounded-xl bg-night-50 text-night-700 font-medium text-sm transition-colors">
                 <Phone className="w-4 h-4 text-night-400" />
-                [PLACEHOLDER: phone]
+                +91 98260 35454
               </a>
               <Link to="/contact" className="btn-primary justify-center">
                 Get Free Quote
