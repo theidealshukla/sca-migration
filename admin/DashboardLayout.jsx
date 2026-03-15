@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from 'react'
 import { usePathname, useRouter } from 'next/navigation'
 import Link from 'next/link'
-import { LayoutDashboard, Users, BarChart3, LogOut, Bell, Sun, Menu, X, ChevronRight, Zap } from 'lucide-react'
+import { LayoutDashboard, Users, BarChart3, LogOut, Bell, Sun, Menu, X, ChevronRight, Zap, ExternalLink, Home } from 'lucide-react'
 
 const navItems = [
   { path: '/admin/dashboard', label: 'Overview', icon: LayoutDashboard, desc: "Today's summary" },
@@ -144,8 +144,22 @@ export default function DashboardLayout({ children }) {
         </div>
       )}
 
-      {/* Bottom */}
-      <div className="p-3 border-t border-white/5 flex-shrink-0">
+      {/* Bottom Nav Actions */}
+      <div className="p-3 border-t border-white/5 flex-shrink-0 space-y-1">
+        <Link
+          href="/"
+          target="_blank"
+          className={`flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium text-night-400 hover:text-white hover:bg-white/5 transition-all duration-200 w-full ${collapsed && !mobileOpen ? 'justify-center' : ''}`}
+        >
+          <Home className="w-[18px] h-[18px] flex-shrink-0" />
+          {(!collapsed || mobileOpen) && (
+            <div className="flex flex-1 items-center justify-between">
+              <span>View Website</span>
+              <ExternalLink className="w-3.5 h-3.5 opacity-50" />
+            </div>
+          )}
+        </Link>
+        
         <button
           onClick={handleLogout}
           className={`flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium text-night-500 hover:text-red-400 hover:bg-red-500/10 transition-all duration-200 w-full ${collapsed && !mobileOpen ? 'justify-center' : ''}`}
@@ -158,7 +172,7 @@ export default function DashboardLayout({ children }) {
   )
 
   return (
-    <div className="flex h-screen overflow-hidden bg-night-100">
+    <div className="flex h-[100dvh] w-full overflow-hidden bg-night-100">
 
       {/* Desktop Sidebar */}
       <aside className={`hidden md:flex ${collapsed ? 'w-[72px]' : 'w-[260px]'} bg-night-950 flex-col transition-all duration-300 flex-shrink-0 border-r border-white/5`}>
@@ -223,7 +237,7 @@ export default function DashboardLayout({ children }) {
         </header>
 
         {/* Page Content */}
-        <div className="flex-1 overflow-y-auto p-4 md:p-6">
+        <div className="flex-1 min-h-0 overflow-y-auto overflow-x-hidden p-4 md:p-6 w-full">
           {loading ? (
             // Loading skeleton
             <div className="animate-pulse space-y-4">
