@@ -1,7 +1,7 @@
 "use client";
 
-import React, { useState, useEffect, useRef } from 'react'
-import { Users, UserPlus, TrendingUp, Target, ArrowUpRight, ArrowDownRight, Flame, Clock } from 'lucide-react'
+import React, { useState, useEffect } from 'react'
+import { Users, TrendingUp, Target, ArrowUpRight, ArrowDownRight, Flame, Clock } from 'lucide-react'
 import { getLeads, getStatsForDashboard, getLeadsByDay, getLeadsByType, getLeadsByCity } from '../data/mockLeads'
 
 // ── Animated Counter ───────────────────────────────────────

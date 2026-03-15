@@ -1,8 +1,8 @@
 "use client";
-import { useRouter } from 'next/navigation';
+
 import React, { useState } from 'react'
-import Link from 'next/link';
-import { Sun, Eye, EyeOff, AlertCircle, ArrowRight, ArrowLeft } from 'lucide-react'
+import { useRouter } from 'next/navigation'
+import { Sun, Eye, EyeOff, AlertCircle, ArrowRight } from 'lucide-react'
 
 const ADMIN_USER = 'admin'
 const ADMIN_PASS = '123'
@@ -31,62 +31,51 @@ export default function AdminLogin() {
   }
 
   return (
-    <div className="min-h-[100dvh] bg-night-950 flex items-center justify-center p-5 relative overflow-hidden">
+    <div className="min-h-screen bg-night-950 flex items-center justify-center p-5 relative overflow-hidden">
       {/* Background gradient orbs */}
       <div className="absolute top-0 left-0 w-[600px] h-[600px] bg-night-900/40 rounded-full blur-[120px] -translate-x-1/2 -translate-y-1/2" />
       <div className="absolute bottom-0 right-0 w-[400px] h-[400px] bg-night-800/30 rounded-full blur-[100px] translate-x-1/3 translate-y-1/3" />
 
-      <div className="w-full max-w-sm relative z-10">
-        {/* Back to website link */}
-        <div className="mb-6 opacity-0" style={{ animation: 'fadeUp 0.7s 0.05s ease-out forwards' }}>
-          <Link
-            href="/"
-            className="inline-flex items-center gap-2 text-night-500 hover:text-white text-xs font-medium transition-colors duration-300"
-          >
-            <ArrowLeft className="w-3.5 h-3.5" />
-            Back to website
-          </Link>
-        </div>
-
+      <div className="w-full max-w-md relative z-10">
         {/* Logo */}
-        <div className="text-center mb-8 opacity-0" style={{ animation: 'fadeUp 0.7s 0.1s ease-out forwards' }}>
-          <div className="w-12 h-12 bg-white/10 backdrop-blur-sm rounded-2xl flex items-center justify-center mx-auto mb-3 border border-white/10">
-            <Sun className="w-6 h-6 text-white" />
+        <div className="text-center mb-10 opacity-0" style={{ animation: 'fadeUp 0.7s 0.1s ease-out forwards' }}>
+          <div className="w-14 h-14 bg-white/10 backdrop-blur-sm rounded-2xl flex items-center justify-center mx-auto mb-4 border border-white/10">
+            <Sun className="w-7 h-7 text-white" />
           </div>
-          <h1 className="text-white font-black text-xl tracking-tight">SCA Tech Solar</h1>
-          <p className="text-night-500 text-xs mt-1">Admin Dashboard</p>
+          <h1 className="text-white font-black text-2xl tracking-tight">SCA Tech Solar</h1>
+          <p className="text-night-500 text-sm mt-1">Admin Dashboard</p>
         </div>
 
         {/* Login Card */}
         <div
-          className="bg-night-900/60 backdrop-blur-xl rounded-2xl p-6 sm:p-7 border border-white/5 shadow-2xl opacity-0"
+          className="bg-night-900/60 backdrop-blur-xl rounded-3xl p-8 border border-white/5 shadow-2xl opacity-0"
           style={{ animation: 'fadeUp 0.7s 0.3s ease-out forwards' }}
         >
-          <h2 className="text-white font-bold text-base mb-0.5">Welcome back</h2>
-          <p className="text-night-500 text-sm mb-6">Sign in to access your dashboard</p>
+          <h2 className="text-white font-bold text-lg mb-1">Welcome back</h2>
+          <p className="text-night-500 text-sm mb-8">Sign in to access your dashboard</p>
 
           {error && (
-            <div className="flex items-center gap-2 bg-red-500/10 border border-red-500/20 text-red-400 text-xs px-3 py-2.5 rounded-xl mb-5">
-              <AlertCircle className="w-3.5 h-3.5 flex-shrink-0" />
+            <div className="flex items-center gap-2 bg-red-500/10 border border-red-500/20 text-red-400 text-sm px-4 py-3 rounded-xl mb-6">
+              <AlertCircle className="w-4 h-4 flex-shrink-0" />
               {error}
             </div>
           )}
 
           <form onSubmit={handleSubmit}>
             <div className="mb-4">
-              <label className="block text-[10px] font-bold text-night-400 uppercase tracking-wider mb-1.5">Username</label>
+              <label className="block text-xs font-bold text-night-400 uppercase tracking-wider mb-2">Username</label>
               <input
                 type="text"
                 value={username}
                 onChange={e => setUsername(e.target.value)}
                 placeholder="admin"
                 required
-                className="w-full px-3.5 py-3 rounded-xl bg-night-950/80 border border-white/10 focus:border-white/30 focus:ring-2 focus:ring-white/5 outline-none text-sm text-white placeholder-night-600 transition-all"
+                className="w-full px-4 py-3.5 rounded-xl bg-night-950/80 border border-white/10 focus:border-white/30 focus:ring-2 focus:ring-white/5 outline-none text-sm text-white placeholder-night-600 transition-all"
               />
             </div>
 
-            <div className="mb-5">
-              <label className="block text-[10px] font-bold text-night-400 uppercase tracking-wider mb-1.5">Password</label>
+            <div className="mb-6">
+              <label className="block text-xs font-bold text-night-400 uppercase tracking-wider mb-2">Password</label>
               <div className="relative">
                 <input
                   type={showPassword ? 'text' : 'password'}
@@ -94,12 +83,12 @@ export default function AdminLogin() {
                   onChange={e => setPassword(e.target.value)}
                   placeholder="••••••"
                   required
-                  className="w-full px-3.5 py-3 rounded-xl bg-night-950/80 border border-white/10 focus:border-white/30 focus:ring-2 focus:ring-white/5 outline-none text-sm text-white placeholder-night-600 transition-all pr-11"
+                  className="w-full px-4 py-3.5 rounded-xl bg-night-950/80 border border-white/10 focus:border-white/30 focus:ring-2 focus:ring-white/5 outline-none text-sm text-white placeholder-night-600 transition-all pr-12"
                 />
                 <button
                   type="button"
                   onClick={() => setShowPassword(!showPassword)}
-                  className="absolute right-3 top-1/2 -translate-y-1/2 text-night-500 hover:text-night-300 transition-colors p-1"
+                  className="absolute right-3 top-1/2 -translate-y-1/2 text-night-500 hover:text-night-300 transition-colors"
                 >
                   {showPassword ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
                 </button>
@@ -109,7 +98,7 @@ export default function AdminLogin() {
             <button
               type="submit"
               disabled={loading}
-              className="w-full bg-white text-night-900 py-3 rounded-xl font-semibold text-sm flex items-center justify-center gap-2 hover:bg-night-100 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
+              className="w-full bg-white text-night-900 py-3.5 rounded-xl font-semibold text-sm flex items-center justify-center gap-2 hover:bg-night-100 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
             >
               {loading ? (
                 <div className="w-5 h-5 border-2 border-night-300 border-t-night-900 rounded-full animate-spin" />
@@ -123,7 +112,7 @@ export default function AdminLogin() {
           </form>
         </div>
 
-        <p className="text-night-600 text-[10px] text-center mt-5 opacity-0" style={{ animation: 'fadeUp 0.7s 0.5s ease-out forwards' }}>
+        <p className="text-night-600 text-xs text-center mt-6 opacity-0" style={{ animation: 'fadeUp 0.7s 0.5s ease-out forwards' }}>
           Protected area — authorized personnel only.
         </p>
       </div>
