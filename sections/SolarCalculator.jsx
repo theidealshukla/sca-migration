@@ -349,7 +349,7 @@ export default function SolarCalculator() {
             <div className="mt-4 p-3 rounded-2xl bg-white/5 border border-white/10 flex items-start gap-2">
               <Info className="w-3.5 h-3.5 text-white/30 flex-shrink-0 mt-0.5" />
               <p className="text-white/40 text-[10px] leading-relaxed">
-                Based on MPCZ FY 2024-25 tariff slabs, Indore avg. {PEAK_SUN_HOURS} peak sun hours/day, &amp; PM Surya Ghar subsidy rates. 
+                Based on MPCZ FY 2024-25 tariff slabs, Indore avg. {PEAK_SUN_HOURS} peak sun hours/day, & PM Surya Ghar subsidy rates. 
                 Includes {((1 - SYSTEM_LOSSES) * 100).toFixed(0)}% system losses. Actual savings vary.
               </p>
             </div>
@@ -419,7 +419,7 @@ export default function SolarCalculator() {
                 <p className="text-white/50 text-xs font-semibold mb-1">25-Year Lifetime Savings</p>
                 <p className="text-white font-black text-2xl font-display">₹{(calc.lifetimeSavings / 100000).toFixed(1)} Lakh</p>
                 <p className="text-night-500 text-[10px] mt-0.5">
-                  Includes 5% annual tariff escalation &amp; 0.5% panel degradation
+                  Includes 5% annual tariff escalation & 0.5% panel degradation
                 </p>
               </div>
               <div className="text-right">

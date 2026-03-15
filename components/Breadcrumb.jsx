@@ -4,7 +4,7 @@ import React from 'react'
 import Link from 'next/link';
 import { ChevronRight } from 'lucide-react'
 
-const SITE_URL = 'https://scatech.netlify.app'
+const SITE_URL = 'https://scatechsolar.com'
 
 export default function Breadcrumb({ items }) {
   const schemaData = {

@@ -58,9 +58,10 @@ export default function FAQ() {
 
   return (
     <section id="faq" className="py-24 md:py-32 bg-white">
-      <script type="application/ld+json">
-        {JSON.stringify(faqSchema)}
-      </script>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
       <div className="max-w-7xl mx-auto px-5 md:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-16">
           <div>
@@ -71,7 +72,7 @@ export default function FAQ() {
             <p className="text-night-500 text-sm leading-relaxed mt-4">
               Have a question not covered here? Our experts are available Mon–Sat 9am–6pm.
             </p>
-            <a href="tel:{NAP.phone.replace(/\\s/g, '')}" className="inline-flex items-center gap-2 mt-6 text-sm font-bold text-solar-600 hover:text-solar-700 transition-colors">
+            <a href={`tel:${NAP.phone.replace(/\s/g, '')}`} className="inline-flex items-center gap-2 mt-6 text-sm font-bold text-solar-600 hover:text-solar-700 transition-colors">
               Call us: {NAP.phone} →
             </a>
           </div>
