@@ -5,7 +5,7 @@ import { NAP } from '../constants/contact'
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { Sun, Phone, Mail, MapPin, Facebook, Instagram, Youtube, Twitter, ArrowUpRight, Lock } from 'lucide-react'
+import { Sun, Phone, Mail, MapPin, Facebook, Instagram, Youtube, Twitter, ArrowUpRight } from 'lucide-react'
 
 const footerLinks = {
   Company: [
@@ -36,7 +36,6 @@ const footerLinks = {
 
 export default function Footer() {
   const pathname = usePathname();
-  if (pathname && pathname.startsWith('/admin')) return null;
   return (
     <footer className="bg-night-950 text-white overflow-hidden">
       {/* Top section */}
@@ -131,10 +130,6 @@ export default function Footer() {
           <a href="#" className="text-night-600 text-xs hover:text-night-400 transition-colors">Privacy Policy</a>
           <a href="#" className="text-night-600 text-xs hover:text-night-400 transition-colors">Terms of Service</a>
           <a href="/sitemap.xml" className="text-night-600 text-xs hover:text-night-400 transition-colors">Sitemap</a>
-          <Link href="/admin" rel="nofollow" className="flex items-center gap-1.5 text-night-600 text-xs hover:text-night-400 transition-colors">
-            <Lock className="w-3 h-3" />
-            Admin Login
-          </Link>
         </div>
       </div>
 

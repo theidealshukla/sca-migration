@@ -3,7 +3,7 @@
 import React, { useEffect, useState } from 'react'
 
 import Link from 'next/link';
-import { ArrowRight, Play, Sun, Zap, ChevronDown, Lock } from 'lucide-react'
+import { ArrowRight, Play, Sun, Zap, ChevronDown } from 'lucide-react'
 
 const slides = [
   {
@@ -132,10 +132,6 @@ export default function Hero() {
             <Link href="/projects" className="btn-outline-white text-sm">
               <Play className="w-4 h-4 fill-current" />
               View Our Work
-            </Link>
-            <Link href="/admin" className="inline-flex items-center gap-2 px-5 py-3.5 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 text-white/70 hover:text-white hover:bg-white/20 transition-all duration-300 text-sm font-semibold">
-              <Lock className="w-3.5 h-3.5" />
-              Admin
             </Link>
           </div>
 

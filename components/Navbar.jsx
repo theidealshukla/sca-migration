@@ -5,7 +5,7 @@ import { NAP } from '../constants/contact';
 import React, { useState, useEffect } from 'react'
 
 import Link from 'next/link';
-import { Menu, X, Sun, Phone, Lock } from 'lucide-react'
+import { Menu, X, Sun, Phone } from 'lucide-react'
 
 const navLinks = [
   { label: 'Home', path: '/' },
@@ -32,8 +32,6 @@ export default function Navbar() {
     setMenuOpen(false)
   }, [location])
 
-  if (location && location.startsWith('/admin')) return null;
-
   const transparent = isHome && !scrolled
 
   return (
@@ -57,7 +55,7 @@ export default function Navbar() {
             </div>
           </Link>
 
-          {/* Desktop Nav \u2014 pill-shaped like reference */}
+          {/* Desktop Nav — pill-shaped like reference */}
           <div className="hidden md:flex items-center gap-1">
             {navLinks.map(link => (
               <Link
@@ -78,7 +76,7 @@ export default function Navbar() {
           </div>
 
           <div className="hidden md:flex items-center gap-3">
-            <a href={`tel:${NAP.phone.replace(/\\s/g, '')}`} className={`flex items-center gap-2 text-sm font-semibold transition-colors duration-300 ${transparent ? 'text-white/70 hover:text-white' : 'text-night-500 hover:text-night-900'}`}>
+            <a href={`tel:${NAP.phone.replace(/\s/g, '')}`} className={`flex items-center gap-2 text-sm font-semibold transition-colors duration-300 ${transparent ? 'text-white/70 hover:text-white' : 'text-night-500 hover:text-night-900'}`}>
               <Phone className="w-3.5 h-3.5" />
               {NAP.phone}
             </a>
@@ -123,16 +121,12 @@ export default function Navbar() {
               </div>
             </div>
             <div className="border-t border-night-100 pt-6 flex flex-col gap-3">
-              <a href={`tel:${NAP.phone.replace(/\\s/g, '')}`} className="flex items-center gap-3 px-4 py-3 rounded-xl bg-night-50 text-night-700 font-medium text-sm transition-colors">
+              <a href={`tel:${NAP.phone.replace(/\s/g, '')}`} className="flex items-center gap-3 px-4 py-3 rounded-xl bg-night-50 text-night-700 font-medium text-sm transition-colors">
                 <Phone className="w-4 h-4 text-night-400" />
                 {NAP.phone}
               </a>
               <Link href="/contact" className="btn-primary justify-center">
                 Get Free Quote
-              </Link>
-              <Link href="/admin" className="flex items-center justify-center gap-2 px-4 py-3 rounded-xl bg-night-900/5 border border-night-200 text-night-500 hover:text-night-900 hover:bg-night-100 transition-all text-sm font-medium">
-                <Lock className="w-3.5 h-3.5" />
-                Admin Login
               </Link>
             </div>
             <div className="mt-8 p-4 bg-night-50 rounded-2xl border border-night-200">
