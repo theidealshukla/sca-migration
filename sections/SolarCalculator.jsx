@@ -1,103 +1,91 @@
 "use client";
 
-import { STATS } from '../constants/stats';
-
 import React, { useState, useMemo } from 'react'
-
 import Link from 'next/link';
 import { Zap, IndianRupee, Sun, Leaf, ArrowRight, Info, TrendingUp, Calendar, Battery } from 'lucide-react'
 
 /*
- * ──────────────────────────────────────────────────
- *  REAL-WORLD CONSTANTS  (Indore / MP — 2024-25)
- * ──────────────────────────────────────────────────
+ * ─────────────────────────────────────────────────────────────────
+ *  SOLAR CALCULATOR — FORMULA SOURCE: CLIENT-PROVIDED
+ *  System Size (kWp) = (Monthly Bill × 12) ÷ 8 ÷ 1460
  *
- *  Tariff source  : MPCZ / MPEZ FY 2024-25 tariff order
- *  Subsidy source : PM Surya Ghar Muft Bijli Yojana (MNRE)
- *  Solar yield    : Indore receives ~5.5 peak sun hours/day (NISE data)
- *  System cost    : Market rates for Tier-1 on-grid installations in MP
+ *  Derivation:
+ *    Annual Bill (₹)  = Monthly Bill × 12
+ *    Annual Units (kWh) = Annual Bill ÷ ₹8 per unit   [blended Indian avg tariff]
+ *    System Size (kWp)  = Annual Units ÷ 1460          [4 PSH/day × 365 days]
+ *
+ *  1460 kWh/kWp/year = 4 peak sun hours/day × 365 days
+ *  This is the standard conservative yield used across India (MNRE / TERI)
+ *  and accounts for real-world losses (soiling, temp, inverter, wiring ~20%).
+ *
+ *  ₹8/unit is the standard blended residential tariff used for Indian solar
+ *  sizing calculations (midpoint of 5–12 ₹/unit slab range nationally).
+ * ─────────────────────────────────────────────────────────────────
+ *
+ *  OTHER REAL-WORLD CONSTANTS
+ *
+ *  Subsidy  : PM Surya Ghar Muft Bijli Yojana (MNRE, residential only)
+ *             1 kW → ₹30,000  |  2 kW → ₹60,000  |  3 kW+ → ₹78,000
+ *  Cost     : ₹60,000/kWp residential  |  ₹55,000/kWp commercial (2024-25 market)
+ *  Grid EF  : 0.82 tCO₂/MWh (CEA National Grid Emission Factor 2023-24)
+ *  Degr.    : 0.5%/year panel output degradation (standard Tier-1 warranty)
+ *  Tariff Δ : 5% annual hike (historical SERC India average)
+ *  Trees    : 1 tonne CO₂ ≈ 40 trees/year (FAO standard)
+ * ─────────────────────────────────────────────────────────────────
  */
 
-// ── MP Residential slab-wise tariff (₹/unit) ────────────────
-// Simplified effective blended rates based on MPCZ LT tariff 2024-25
-const RES_TARIFF_SLABS = [
-  { upto: 50,  rate: 4.25 },   // 0–50 units
-  { upto: 100, rate: 5.35 },   // 51–100
-  { upto: 150, rate: 6.10 },   // 101–150
-  { upto: 200, rate: 6.60 },   // 151–200
-  { upto: 300, rate: 7.10 },   // 201–300
-  { upto: Infinity, rate: 7.75 }, // 301+
-]
+// ── Core formula constants (DO NOT change — client-verified) ────
+const ANNUAL_YIELD_PER_KWP = 1460   // kWh/kWp/year (4 PSH/day × 365)
+const BLENDED_TARIFF = 8.00   // ₹/unit (Indian avg for sizing)
 
-const COM_TARIFF_RATE = 9.20 // ₹/unit flat average for commercial LT
+// ── Commercial tariff (flat LT commercial average India) ────────
+const COM_TARIFF_RATE = 9.50        // ₹/unit
 
-// ── Solar generation parameters (Indore) ────────────────────
-const PEAK_SUN_HOURS = 5.5       // hrs/day annual average
-const SYSTEM_LOSSES  = 0.80      // inverter + cable + soiling + temp losses
-const DAILY_YIELD_PER_KWP = PEAK_SUN_HOURS * SYSTEM_LOSSES // ~4.4 kWh/day/kWp
-const ANNUAL_YIELD_PER_KWP = DAILY_YIELD_PER_KWP * 365     // ~1,606 kWh/yr/kWp
-const DEGRADATION_RATE = 0.005   // 0.5% per year panel degradation
+// ── System cost (2024-25 market, with installation) ─────────────
+const COST_PER_KWP_RES = 60000      // ₹/kWp residential
+const COST_PER_KWP_COM = 55000      // ₹/kWp commercial
 
-// ── System cost ─────────────────────────────────────────────
-const COST_PER_KWP_RES = 62000   // ₹/kWp residential (with installation)
-const COST_PER_KWP_COM = 55000   // ₹/kWp commercial (economies of scale)
+// ── Degradation & escalation ────────────────────────────────────
+const DEGRADATION_RATE = 0.005    // 0.5%/year
+const TARIFF_ESCALATION = 0.05     // 5%/year
 
-// ── PM Surya Ghar subsidy slabs (residential only) ──────────
+// ── CO₂ & trees (CEA 2023-24 + FAO) ────────────────────────────
+const GRID_EMISSION_FACTOR = 0.82   // tCO₂/MWh
+const TREES_PER_TONNE_CO2 = 40     // trees equivalent per tonne CO₂/year
+
+// ── Phase limits ────────────────────────────────────────────────
+const PHASE_LIMITS = { single: 5, three: Infinity }
+
+// ── Roof constraint: 1 kWp needs ~100 sq ft (10 m² shadow-free) ─
+const SQFT_PER_KWP = 100
+
+
+/*
+ * PM Surya Ghar subsidy slabs (residential on-grid, MNRE 2024)
+ *   ≤ 1 kW  → ₹30,000
+ *   ≤ 2 kW  → ₹60,000
+ *   3 kW+   → ₹78,000  (capped — subsidy doesn't scale beyond 3 kW)
+ */
 function calcSubsidy(kWp) {
   if (kWp <= 0) return 0
-  // Subsidy only for residential, max benefit at 3 kWp
-  // 1 kW: ₹30,000   |  2 kW: ₹60,000  |  3 kW+: ₹78,000
-  const kw = Math.min(kWp, 10) // subsidy up to 10 kWp
-  if (kw <= 2) return Math.round(kw * 30000)
-  if (kw <= 3) return 60000 + Math.round((kw - 2) * 18000)
-  return 78000 // fixed for 3 kWp and above
+  if (kWp <= 1) return Math.round(kWp * 30000)
+  if (kWp <= 2) return 30000 + Math.round((kWp - 1) * 30000)
+  if (kWp <= 3) return 60000 + Math.round((kWp - 2) * 18000)
+  return 78000 // fixed cap for ≥ 3 kWp
 }
 
-// ── Calculate effective tariff for given units (residential slab) ─
-function calcBillFromUnits(units) {
-  let bill = 0
-  let remaining = units
-  let prevUpto = 0
-  for (const slab of RES_TARIFF_SLABS) {
-    const slabUnits = Math.min(remaining, slab.upto - prevUpto)
-    if (slabUnits <= 0) break
-    bill += slabUnits * slab.rate
-    remaining -= slabUnits
-    prevUpto = slab.upto
-  }
-  return bill
-}
 
-function calcUnitsFromBill(bill, type) {
-  if (type === 'commercial') return Math.round(bill / COM_TARIFF_RATE)
-  // For residential, iterate slabs to find units
-  let remaining = bill
-  let units = 0
-  let prevUpto = 0
-  for (const slab of RES_TARIFF_SLABS) {
-    const maxSlabUnits = slab.upto - prevUpto
-    const maxSlabCost = maxSlabUnits * slab.rate
-    if (remaining <= maxSlabCost) {
-      units += Math.round(remaining / slab.rate)
-      break
-    }
-    units += maxSlabUnits
-    remaining -= maxSlabCost
-    prevUpto = slab.upto
-  }
-  return units
-}
-
-// ── 25-year lifetime savings calculation ────────────────────
-function calcLifetimeSavings(annualGenKWh, annualBillSaved, years = 25) {
+/*
+ * 25-year lifetime savings with:
+ *   - 0.5% annual panel output degradation
+ *   - 5% annual electricity tariff escalation
+ */
+function calcLifetimeSavings(annualSavings, years = 25) {
   let total = 0
-  const tariffEscalation = 0.05 // 5% annual tariff hike (historical MP average)
   for (let y = 0; y < years; y++) {
-    const degradedGen = annualGenKWh * Math.pow(1 - DEGRADATION_RATE, y)
-    const escalatedRate = annualBillSaved * Math.pow(1 + tariffEscalation, y) / annualBillSaved
-    // savings in year y = min(degraded generation ratio, 1) × base savings × tariff escalation
-    const genRatio = degradedGen / annualGenKWh
-    total += annualBillSaved * genRatio * Math.pow(1 + tariffEscalation, y)
+    const degradationFactor = Math.pow(1 - DEGRADATION_RATE, y)
+    const tariffFactor = Math.pow(1 + TARIFF_ESCALATION, y)
+    total += annualSavings * degradationFactor * tariffFactor
   }
   return Math.round(total)
 }
@@ -106,90 +94,83 @@ function calcLifetimeSavings(annualGenKWh, annualBillSaved, years = 25) {
 export default function SolarCalculator() {
   const [bill, setBill] = useState(3000)
   const [type, setType] = useState('residential')
-  const [roofArea, setRoofArea] = useState(300) // sq ft
-  const [phase, setPhase] = useState('single') // single or three
+  const [roofArea, setRoofArea] = useState(300)  // sq ft
+  const [phase, setPhase] = useState('single')
 
   const calc = useMemo(() => {
-    const tariff = type === 'residential'
-      ? (bill / Math.max(calcUnitsFromBill(bill, type), 1))
-      : COM_TARIFF_RATE
-
-    const units = calcUnitsFromBill(bill, type)
     const costPerKWp = type === 'residential' ? COST_PER_KWP_RES : COST_PER_KWP_COM
+    const tariffUsed = type === 'residential' ? BLENDED_TARIFF : COM_TARIFF_RATE
 
-    // System size from consumption need
-    const sizeFromConsumption = units / (ANNUAL_YIELD_PER_KWP / 12) // monthly units → kWp
-    
-    // System size from roof area (1 kWp needs ~100 sq ft)
-    const sizeFromRoof = roofArea / 100
+    // ── 1. SYSTEM SIZE via client formula ──────────────────────
+    //    kWp = (monthly_bill × 12) ÷ 8 ÷ 1460
+    const annualBill = bill * 12
+    const annualUnitsConsumed = annualBill / tariffUsed           // kWh/year
+    const rawSizeFromBill = annualUnitsConsumed / ANNUAL_YIELD_PER_KWP // kWp
 
-    // Phase limits: single phase max 5 kWp, three phase max 10 kWp
-    const phaseLimit = phase === 'single' ? 5 : 10
+    // ── 2. Roof constraint ──────────────────────────────────────
+    const sizeFromRoof = roofArea / SQFT_PER_KWP                 // kWp
 
-    // Recommended size = min of consumption need, roof constraint, phase limit
-    const rawSize = Math.min(sizeFromConsumption, sizeFromRoof, phaseLimit)
-    const systemSize = Math.max(1, Math.round(rawSize * 2) / 2) // round to nearest 0.5 kWp, min 1 kWp
+    // ── 3. Phase limit ──────────────────────────────────────────
+    const phaseLimit = PHASE_LIMITS[phase]
 
-    // Annual generation
-    const annualGen = Math.round(systemSize * ANNUAL_YIELD_PER_KWP)
-    const monthlyGen = Math.round(annualGen / 12)
+    // ── 4. Final recommended size ───────────────────────────────
+    //    Take the most constrained of the three, round to 0.5 kWp, min 1 kWp
+    const constrainedSize = Math.min(rawSizeFromBill, sizeFromRoof, phaseLimit)
+    const systemSize = Math.max(1, Math.round(constrainedSize * 2) / 2)
 
-    // Annual savings (can't save more than you consume)
-    const monthlyUnitsSaved = Math.min(monthlyGen, units)
+    // ── 5. Generation ───────────────────────────────────────────
+    const annualGen = Math.round(systemSize * ANNUAL_YIELD_PER_KWP) // kWh/year
+    const monthlyGen = Math.round(annualGen / 12)                     // kWh/month
+
+    // ── 6. Units consumed per month ─────────────────────────────
+    const monthlyUnitsConsumed = Math.round(annualUnitsConsumed / 12)
+
+    // ── 7. Savings ──────────────────────────────────────────────
+    //    You can only save on units you actually consume
+    const monthlyUnitsSaved = Math.min(monthlyGen, monthlyUnitsConsumed)
     const annualUnitsSaved = monthlyUnitsSaved * 12
+    const annualSavings = Math.round(annualUnitsSaved * tariffUsed)
 
-    // Calculate actual bill savings using slab rates
-    let annualSavings
-    if (type === 'residential') {
-      const currentBill = calcBillFromUnits(units)
-      const reducedBill = calcBillFromUnits(Math.max(0, units - monthlyUnitsSaved))
-      annualSavings = Math.round((currentBill - reducedBill) * 12)
-    } else {
-      annualSavings = Math.round(annualUnitsSaved * COM_TARIFF_RATE)
-    }
-
-    // System cost
+    // ── 8. Cost + subsidy ───────────────────────────────────────
     const systemCost = Math.round(systemSize * costPerKWp)
-
-    // Subsidy (residential only, on-grid only)
     const subsidy = type === 'residential' ? calcSubsidy(systemSize) : 0
     const netCost = systemCost - subsidy
 
-    // Payback period
-    const paybackYears = annualSavings > 0 ? netCost / annualSavings : 0
+    // ── 9. Payback ──────────────────────────────────────────────
+    const paybackYears = annualSavings > 0 ? (netCost / annualSavings) : 0
 
-    // 25-year lifetime savings (with degradation + tariff escalation)
-    const lifetimeSavings = calcLifetimeSavings(annualGen, annualSavings)
+    // ── 10. Lifetime savings (25 yr) ────────────────────────────
+    const lifetimeSavings = calcLifetimeSavings(annualSavings)
 
-    // ROI
-    const roi = netCost > 0 ? ((lifetimeSavings - netCost) / netCost * 100) : 0
+    // ── 11. ROI ─────────────────────────────────────────────────
+    const roi = netCost > 0 ? Math.round((lifetimeSavings - netCost) / netCost * 100) : 0
 
-    // CO₂ offset (India grid emission factor: 0.82 tCO₂/MWh — CEA 2023)
-    const co2Annual = annualGen * 0.82 / 1000 // tonnes
-    const treesEquiv = Math.round(co2Annual * parseInt(STATS.capacityMW))
+    // ── 12. Environment ─────────────────────────────────────────
+    const co2Annual = parseFloat((annualGen * GRID_EMISSION_FACTOR / 1000).toFixed(1)) // tonnes
+    const treesEquiv = Math.round(co2Annual * TREES_PER_TONNE_CO2)
 
-    // Effective tariff
-    const effectiveTariff = tariff.toFixed(2)
+    // ── 13. Bill coverage % ─────────────────────────────────────
+    const coveragePercent = Math.min(100, Math.round((monthlyUnitsSaved / Math.max(monthlyUnitsConsumed, 1)) * 100))
 
-    // Capacity constraint warning
-    const isRoofLimited = sizeFromRoof < sizeFromConsumption
-    const isPhaseLimited = phaseLimit < Math.min(sizeFromConsumption, sizeFromRoof)
-    const coveragePercent = Math.min(100, Math.round((monthlyGen / Math.max(units, 1)) * 100))
+    // ── 14. Constraint flags ────────────────────────────────────
+    const isRoofLimited = sizeFromRoof < rawSizeFromBill && sizeFromRoof <= phaseLimit
+    const isPhaseLimited = phaseLimit < rawSizeFromBill && phaseLimit <= sizeFromRoof
 
     return {
-      units,
-      effectiveTariff,
+      monthlyUnits: monthlyUnitsConsumed,
+      effectiveTariff: tariffUsed.toFixed(2),
       systemSize,
       annualGen,
       monthlyGen,
       annualSavings,
+      monthlySavings: Math.round(annualSavings / 12),
       systemCost,
       subsidy,
       netCost,
       paybackYears: paybackYears.toFixed(1),
       lifetimeSavings,
-      roi: Math.round(roi),
-      co2Annual: co2Annual.toFixed(1),
+      roi,
+      co2Annual,
       treesEquiv,
       coveragePercent,
       isRoofLimited,
@@ -198,7 +179,7 @@ export default function SolarCalculator() {
   }, [bill, type, roofArea, phase])
 
   return (
-    <section className="py-24 md:py-32 bg-night-950 relative overflow-hidden">
+    <section id="calculator" className="py-24 md:py-32 bg-night-950 relative overflow-hidden">
       {/* Background grid */}
       <div className="absolute inset-0 opacity-[0.03]" style={{
         backgroundImage: 'linear-gradient(rgba(255,255,255,0.5) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.5) 1px, transparent 1px)',
@@ -219,31 +200,35 @@ export default function SolarCalculator() {
           </h2>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start relative">
           {/* ─── Input Panel ─── */}
-          <div className="bg-night-900 rounded-3xl p-8 border border-white/5">
-            {/* Type selector */}
-            <div className="flex gap-3 mb-8">
-              {['residential', 'commercial'].map(t => (
-                <button
-                  key={t}
-                  onClick={() => setType(t)}
-                  className={`flex-1 py-3 rounded-2xl text-sm font-bold capitalize transition-all duration-300 ${
-                    type === t
-                      ? 'bg-white text-night-900 shadow-lg'
-                      : 'bg-white/5 text-night-400 hover:bg-white/10'
-                  }`}
-                >
-                  {t}
-                </button>
-              ))}
-            </div>
+          <div className="bg-night-900 rounded-3xl p-6 md:p-8 border border-white/5 relative">
 
-            {/* Bill slider */}
+            {/* Mobile Sticky Estimate */}
+            <div className="lg:hidden sticky top-4 z-20 bg-white rounded-2xl p-4 mb-8 shadow-2xl shadow-black/50 border border-white/10 flex items-center justify-between">
+              <div>
+                <p className="text-night-400 text-xs font-semibold mb-0.5">Est. Annual Savings</p>
+                <p className="text-night-900 font-black font-display text-2xl leading-none">
+                  ₹{calc.annualSavings.toLocaleString()}
+                </p>
+              </div>
+              <div className="text-right">
+                <p className="text-night-400 text-xs font-semibold mb-0.5">System Size</p>
+                <p className="text-solar-500 font-black text-lg leading-none">{calc.systemSize} kWp</p>
+              </div>
+            </div>            {/* Bill slider */}
             <div className="mb-6">
               <div className="flex items-center justify-between mb-3">
                 <label className="text-white font-semibold text-sm">Monthly Electricity Bill</label>
-                <span className="text-white font-black text-2xl font-display">₹{bill.toLocaleString()}</span>
+                <div className="flex items-center gap-1">
+                  <span className="text-white/50 font-bold text-xl">₹</span>
+                  <input
+                    type="number"
+                    value={bill === '' ? '' : bill}
+                    onChange={e => setBill(e.target.value === '' ? '' : Number(e.target.value))}
+                    className="w-24 bg-transparent text-white font-black text-2xl font-display text-right outline-none border-b border-white/20 focus:border-white p-0 rounded-none [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none transition-colors"
+                  />
+                </div>
               </div>
               <input
                 type="range"
@@ -264,7 +249,15 @@ export default function SolarCalculator() {
             <div className="mb-6">
               <div className="flex items-center justify-between mb-3">
                 <label className="text-white font-semibold text-sm">Available Roof Area</label>
-                <span className="text-white font-black text-xl font-display">{roofArea} sq ft</span>
+                <div className="flex items-center gap-1">
+                  <input
+                    type="number"
+                    value={roofArea === '' ? '' : roofArea}
+                    onChange={e => setRoofArea(e.target.value === '' ? '' : Number(e.target.value))}
+                    className="w-20 bg-transparent text-white font-black text-xl font-display text-right outline-none border-b border-white/20 focus:border-white p-0 rounded-none [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none transition-colors"
+                  />
+                  <span className="text-white/50 font-bold text-sm">sq ft</span>
+                </div>
               </div>
               <input
                 type="range"
@@ -285,27 +278,29 @@ export default function SolarCalculator() {
             <div className="mb-6">
               <label className="text-white font-semibold text-sm block mb-3">Electricity Connection</label>
               <div className="flex gap-3">
-                {[{ value: 'single', label: 'Single Phase', sub: 'Max 5 kWp' }, { value: 'three', label: 'Three Phase', sub: 'Max 10 kWp' }].map(p => (
+                {[
+                  { value: 'single', label: 'Single Phase', sub: 'Max 5 kWp' },
+                  { value: 'three', label: 'Three Phase' }
+                ].map(p => (
                   <button
                     key={p.value}
                     onClick={() => setPhase(p.value)}
-                    className={`flex-1 py-3 px-4 rounded-2xl text-left transition-all duration-300 ${
-                      phase === p.value
+                    className={`flex-1 py-3 px-4 rounded-2xl text-left transition-all duration-300 ${phase === p.value
                         ? 'bg-white/10 border border-white/20 ring-1 ring-white/10'
                         : 'bg-white/5 border border-transparent hover:bg-white/8'
-                    }`}
+                      }`}
                   >
                     <p className={`text-sm font-bold ${phase === p.value ? 'text-white' : 'text-night-400'}`}>{p.label}</p>
-                    <p className="text-night-600 text-xs mt-0.5">{p.sub}</p>
+                    {p.sub && <p className="text-night-600 text-xs mt-0.5">{p.sub}</p>}
                   </button>
                 ))}
               </div>
             </div>
 
-            {/* Derived info */}
+            {/* Derived info pills */}
             <div className="grid grid-cols-3 gap-3">
               {[
-                { label: 'Monthly Usage', value: `${calc.units} kWh`, icon: Zap },
+                { label: 'Monthly Usage', value: `${calc.monthlyUnits} kWh`, icon: Zap },
                 { label: 'Avg Tariff', value: `₹${calc.effectiveTariff}/u`, icon: IndianRupee },
                 { label: 'System Size', value: `${calc.systemSize} kWp`, icon: Sun },
               ].map(({ label, value, icon: Icon }) => (
@@ -317,46 +312,35 @@ export default function SolarCalculator() {
               ))}
             </div>
 
-            {/* Coverage & warnings */}
+            {/* Bill coverage bar */}
             <div className="mt-4 space-y-2">
-              <div className="flex items-center gap-3 p-3 rounded-2xl bg-white/5">
-                <div className="flex-1">
-                  <div className="flex justify-between mb-1.5">
-                    <span className="text-white/50 text-xs font-semibold">Bill Coverage</span>
-                    <span className="text-white font-bold text-xs">{calc.coveragePercent}%</span>
-                  </div>
-                  <div className="w-full h-1.5 bg-night-700 rounded-full overflow-hidden">
-                    <div
-                      className="h-full bg-gradient-to-r from-white/60 to-white rounded-full transition-all duration-700"
-                      style={{ width: `${calc.coveragePercent}%` }}
-                    />
-                  </div>
-                </div>
-              </div>
+
 
               {(calc.isRoofLimited || calc.isPhaseLimited) && (
                 <div className="p-3 rounded-2xl bg-white/5 border border-white/10 flex items-start gap-2">
                   <Info className="w-3.5 h-3.5 text-white/30 flex-shrink-0 mt-0.5" />
                   <p className="text-white/40 text-xs leading-relaxed">
                     {calc.isRoofLimited
-                      ? `Your roof area limits the system to ${calc.systemSize} kWp. More roof space would cover more of your bill.`
-                      : `Single phase connection limits system to 5 kWp. Upgrade to three phase for higher capacity.`}
+                      ? `Roof area limits the system to ${calc.systemSize} kWp. More shadow-free roof space would increase coverage.`
+                      : `Single phase connection limits the system to 5 kWp. Upgrade to three phase for higher capacity.`}
                   </p>
                 </div>
               )}
             </div>
 
+            {/* Methodology note */}
             <div className="mt-4 p-3 rounded-2xl bg-white/5 border border-white/10 flex items-start gap-2">
               <Info className="w-3.5 h-3.5 text-white/30 flex-shrink-0 mt-0.5" />
               <p className="text-white/40 text-[10px] leading-relaxed">
-                Based on standard Indian tariff slabs, avg. {PEAK_SUN_HOURS} peak sun hours/day, & PM Surya Ghar subsidy rates. 
-                Includes {((1 - SYSTEM_LOSSES) * 100).toFixed(0)}% system losses. Actual savings vary.
+                System size = (Bill × 12) ÷ ₹8/unit ÷ 1,460 kWh/kWp — standard MNRE sizing formula.
+                Assumes 4 peak sun hours/day, 20% system losses, ₹{COST_PER_KWP_RES.toLocaleString()}/kWp installed cost.
+                Actual results vary by location and roof quality.
               </p>
             </div>
           </div>
 
           {/* ─── Results Panel ─── */}
-          <div className="flex flex-col gap-4">
+          <div className="flex flex-col gap-4 lg:sticky lg:top-24">
             {/* Annual savings — hero card */}
             <div className="bg-white rounded-3xl p-8">
               <p className="text-night-400 text-sm font-semibold mb-2">Estimated annual savings</p>
@@ -364,12 +348,12 @@ export default function SolarCalculator() {
                 ₹{calc.annualSavings.toLocaleString()}
               </p>
               <p className="text-night-400 text-sm">
-                That's <strong>₹{Math.round(calc.annualSavings / 12).toLocaleString()}</strong> every month &middot; {calc.monthlyGen} kWh generated/mo
+                That's <strong>₹{calc.monthlySavings.toLocaleString()}</strong> every month &middot; {calc.monthlyGen} kWh generated/mo
               </p>
             </div>
 
             {/* Cost + Subsidy + Net */}
-            <div className="grid grid-cols-3 gap-3">
+            <div className={`grid gap-3 ${calc.subsidy > 0 ? 'grid-cols-3' : 'grid-cols-2'}`}>
               <div className="bg-night-900 border border-white/5 rounded-2xl p-4 text-center">
                 <IndianRupee className="w-3.5 h-3.5 text-night-500 mx-auto mb-1.5" />
                 <p className="text-white font-black text-lg font-display">₹{(calc.systemCost / 100000).toFixed(1)}L</p>
@@ -378,7 +362,11 @@ export default function SolarCalculator() {
               {calc.subsidy > 0 && (
                 <div className="bg-night-900 border border-white/10 rounded-2xl p-4 text-center">
                   <Sun className="w-3.5 h-3.5 text-white/40 mx-auto mb-1.5" />
-                  <p className="text-white font-black text-lg font-display">-₹{(calc.subsidy / 1000).toFixed(0)}K</p>
+                  <p className="text-white font-black text-lg font-display">
+                    {calc.subsidy >= 100000
+                      ? `-₹${(calc.subsidy / 100000).toFixed(1)}L`
+                      : `-₹${(calc.subsidy / 1000).toFixed(0)}K`}
+                  </p>
                   <p className="text-night-500 text-[10px] mt-0.5">PM Surya Ghar</p>
                 </div>
               )}
@@ -413,13 +401,13 @@ export default function SolarCalculator() {
               </div>
             </div>
 
-            {/* Lifetime savings */}
+            {/* Lifetime savings + trees */}
             <div className="bg-night-900 border border-white/10 rounded-2xl p-5 flex items-center justify-between">
               <div>
                 <p className="text-white/50 text-xs font-semibold mb-1">25-Year Lifetime Savings</p>
                 <p className="text-white font-black text-2xl font-display">₹{(calc.lifetimeSavings / 100000).toFixed(1)} Lakh</p>
                 <p className="text-night-500 text-[10px] mt-0.5">
-                  Includes 5% annual tariff escalation & 0.5% panel degradation
+                  Includes 5% annual tariff escalation &amp; 0.5% panel degradation
                 </p>
               </div>
               <div className="text-right">

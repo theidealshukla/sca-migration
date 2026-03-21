@@ -10,7 +10,7 @@ import Link from 'next/link';
 
 import Breadcrumb from '../../components/Breadcrumb'
 import { ArrowRight, Sun, Users, Award, Leaf } from 'lucide-react'
-
+import { STATS } from '../../constants/stats';
 const team = [
   { name: 'Vikram Suryavanshi', role: 'Founder & CEO', img: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&q=80&auto=format', bio: '15 years in renewable energy. IIT Indore alum.' },
   { name: 'Neha Jain', role: 'Head of Engineering', img: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&q=80&auto=format', bio: 'Ex-NTPC, leads all technical installations.' },
@@ -112,6 +112,29 @@ export default function About() {
                   </div>
                 ))}
               </div>
+            </div>
+          </div>
+
+          {/* Vision statement */}
+          <div className="mt-24 pt-16 border-t border-night-100 grid grid-cols-1 lg:grid-cols-3 gap-8 items-center">
+            <div className="lg:col-span-2">
+              <p className="section-tag">Our Vision · 2030</p>
+              <p className="text-night-900 font-black leading-tight" style={{ fontSize: 'clamp(1.4rem, 4vw, 3.5rem)', letterSpacing: '-0.02em' }}>
+                <span className="text-night-400 font-light">SCA Tech aims to power</span> 10,000 homes across India with clean, affordable solar by 2030.
+              </p>
+            </div>
+            <div className="space-y-6">
+              {[
+                { year: STATS.foundedYear.toString(), text: 'Founded in Indore with a 5-person team' },
+                { year: '2015', text: 'Reached 100th installation milestone' },
+                { year: '2022', text: 'Expanded operations to 10+ cities across India' },
+                { year: '2025 →', text: `Target: ${STATS.installations} installs per year, serving 20+ cities` },
+              ].map(item => (
+                <div key={item.year} className="flex items-start gap-4">
+                  <span className="text-xs font-bold text-night-400 w-14 flex-shrink-0 mt-0.5">{item.year}</span>
+                  <p className="text-sm text-night-500">{item.text}</p>
+                </div>
+              ))}
             </div>
           </div>
         </div>

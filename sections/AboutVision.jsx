@@ -1,7 +1,5 @@
 "use client";
 
-import { STATS } from '../constants/stats';
-
 import React, { useRef, useState } from 'react'
 
 import Link from 'next/link';
@@ -131,28 +129,6 @@ export default function AboutVision() {
           ))}
         </div>
 
-        {/* Vision statement */}
-        <div className="mt-12 md:mt-20 grid grid-cols-1 lg:grid-cols-3 gap-8 items-center">
-          <div className="lg:col-span-2">
-            <p className="section-tag">Our Vision · 2030</p>
-            <p className="text-night-900 font-black leading-tight" style={{ fontSize: 'clamp(1.4rem, 4vw, 3.5rem)', letterSpacing: '-0.02em' }}>
-              <span className="text-night-400 font-light">SCA Tech aims to power</span> 10,000 homes across India with clean, affordable solar by 2030.
-            </p>
-          </div>
-          <div className="space-y-6">
-            {[
-              { year: STATS.foundedYear.toString(), text: 'Founded in Indore with a 5-person team' },
-              { year: '2015', text: 'Reached 100th installation milestone' },
-              { year: '2022', text: 'Expanded operations to 10+ cities across India' },
-              { year: '2025 →', text: `Target: ${STATS.installations} installs per year, serving 20+ cities` },
-            ].map(item => (
-              <div key={item.year} className="flex items-start gap-4">
-                <span className="text-xs font-bold text-night-400 w-14 flex-shrink-0 mt-0.5">{item.year}</span>
-                <p className="text-sm text-night-500">{item.text}</p>
-              </div>
-            ))}
-          </div>
-        </div>
       </div>
     </section>
   )

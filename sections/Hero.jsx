@@ -129,9 +129,8 @@ export default function Hero() {
               Get Free Solar Assessment
               <ArrowRight className="w-4 h-4" />
             </Link>
-            <Link href="/projects" className="btn-outline-white text-sm">
-              <Play className="w-4 h-4 fill-current" />
-              View Our Work
+            <Link href="/#calculator" className="btn-outline-white text-sm">
+              Calculate Your Savings
             </Link>
           </div>
 
