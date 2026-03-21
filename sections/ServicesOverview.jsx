@@ -6,7 +6,7 @@ const services = [
   {
     id: '01',
     title: 'Solar Panel Installation',
-    desc: 'Complete rooftop solar for homes and businesses. Net metering, subsidy processing, MPEB approvals — all handled by us.',
+    desc: 'Complete rooftop solar for homes and businesses. Net metering, subsidy processing, DISCOM approvals — all handled by us.',
   },
   {
     id: '02',
@@ -26,7 +26,7 @@ const services = [
   {
     id: '05',
     title: 'Commercial Solar Projects',
-    desc: 'Large-scale ground-mount, rooftop and carport solar for factories, warehouses and industrial parks across MP.',
+    desc: 'Large-scale ground-mount, rooftop and carport solar for factories, warehouses and industrial parks across India.',
   },
 ]
 
@@ -218,7 +218,7 @@ export default function ServicesOverview() {
           className="font-black text-night-900 leading-[1.1] mb-16 md:mb-20 max-w-xl"
           style={{ fontSize: 'clamp(2rem, 4.5vw, 3.5rem)', letterSpacing: '-0.03em' }}
         >
-          Rooftop Solar for Homes in Indore & MP.
+          Rooftop Solar for Homes & Businesses Across India.
         </h2>
 
         {/* Main grid: SVG left, list right */}

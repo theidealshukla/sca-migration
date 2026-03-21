@@ -34,7 +34,7 @@ export default function ProductsPageClient() {
         <div className="max-w-7xl mx-auto px-5 md:px-8">
           <p className="section-tag">Product Range</p>
           <h1 className="font-black text-night-900 leading-tight mt-2 mb-5" style={{ fontSize: 'clamp(2.5rem, 6vw, 5rem)', letterSpacing: '-0.03em' }}>
-            GoodWe Inverters & TOPCon Solar Panels<br /><span className="font-light text-night-400">in Indore.</span>
+            GoodWe Inverters & TOPCon Solar Panels<br /><span className="font-light text-night-400">Across India.</span>
           </h1>
           <p className="text-night-500 max-w-xl text-lg leading-relaxed">
             We install only internationally certified Tier 1 solar products. Every brand in our range is selected for quality, reliability and long-term performance.
@@ -63,7 +63,7 @@ export default function ProductsPageClient() {
           {filtered.map((p, i) => (
             <Link href="/contact" key={i} className="bg-white rounded-2xl overflow-hidden border border-night-100 card-hover group block">
               <div className="relative h-48 overflow-hidden bg-night-50">
-                <img src={p.img} alt={`${p.name} available in Indore`} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" loading="lazy" decoding="async" width="600" height="400" />
+                <img src={p.img} alt={`${p.name} — available across India`} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" loading="lazy" decoding="async" width="600" height="400" />
                 <span className="absolute top-3 left-3 px-2.5 py-1 rounded-full bg-night-900 text-white text-xs font-bold">{p.badge}</span>
               </div>
               <div className="p-5">
@@ -78,7 +78,7 @@ export default function ProductsPageClient() {
         <div className="mt-16 bg-night-950 rounded-3xl p-10 text-center">
           <p className="text-white font-black text-3xl md:text-4xl mb-3">Can&apos;t find what you need?</p>
           <p className="text-night-400 mb-6">We source custom specifications for large commercial and industrial projects.</p>
-          <Link href="/contact" className="btn-primary" aria-label="Book free solar survey in Indore">
+          <Link href="/contact" className="btn-primary" aria-label="Get a free solar consultation">
             Talk to Our Engineer <ArrowRight className="w-4 h-4" />
           </Link>
         </div>

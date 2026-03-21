@@ -1,6 +1,6 @@
 export const metadata = {
-  title: 'Contact SCA Tech Solar | Free Solar Survey Indore',
-  description: 'Book a free rooftop solar survey in Indore. Call +91 98260 35454 or fill the form. We serve Indore, Bhopal, Ujjain, Dewas and all of MP.',
+  title: 'Contact SCA Tech Solar | Free Solar Survey Across India',
+  description: 'Book a free rooftop solar survey anywhere in India. Call +91 98260 35454 or fill the form. Serving 20+ cities nationwide.',
   alternates: { canonical: 'https://scatechsolar.com/contact' },
 };
 
@@ -37,10 +37,10 @@ export default function Contact() {
         <div className="relative max-w-7xl mx-auto px-5 md:px-8">
           <p className="section-tag text-white/40">Get In Touch</p>
           <h1 className="font-black text-white leading-tight mt-2 mb-5" style={{ fontSize: 'clamp(2.5rem, 6vw, 6rem)', letterSpacing: '-0.03em' }}>
-            Contact SCA Tech Solar<br /><span className="font-light text-white/50">in Indore.</span>
+            Contact SCA Tech Solar<br /><span className="font-light text-white/50">Pan India.</span>
           </h1>
           <p className="text-night-400 max-w-lg text-lg leading-relaxed">
-            Stop searching for a 'solar installer near me' — our local engineering team is based right here in Indore. We are ready to dispatch for a free site assessment and provide the most accurate solar panels price Indore.
+            Our engineering teams are available across India, headquartered in Indore. We're ready to dispatch for a free site assessment and provide the most accurate solar panel pricing for your location.
           </p>
         </div>
       </div>
@@ -57,7 +57,7 @@ export default function Contact() {
           style={{ border: 0, borderRadius: '16px' }} 
           allowFullScreen="" 
           loading="lazy"
-          title="SCA Tech Solar office location in Indore">
+          title="SCA Tech Solar headquarters location">
         </iframe>
       </div>
 

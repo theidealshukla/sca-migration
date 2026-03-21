@@ -16,7 +16,7 @@ const projects = [
   },
   {
     title: 'Increasing Productivity',
-    location: 'Rau, Indore',
+    location: 'Pune, Maharashtra',
     type: 'Commercial',
     capacity: '150 kW',
     img: 'https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?w=600&q=85&auto=format',
@@ -24,7 +24,7 @@ const projects = [
   },
   {
     title: 'Solar Panel Service',
-    location: 'Vijay Nagar, Indore',
+    location: 'Bengaluru, Karnataka',
     type: 'Residential',
     capacity: '5 kW',
     img: 'https://images.unsplash.com/photo-1611365892117-00ac5ef43c90?w=600&q=85&auto=format',
@@ -32,7 +32,7 @@ const projects = [
   },
   {
     title: 'Noble Area Housing',
-    location: 'Scheme 78, Indore',
+    location: 'Jaipur, Rajasthan',
     type: 'Residential',
     capacity: '48 kW',
     img: 'https://images.unsplash.com/photo-1615400610825-7f1b9d573c09?w=600&q=85&auto=format',
@@ -40,7 +40,7 @@ const projects = [
   },
   {
     title: 'A Responsible Corporate',
-    location: 'Bhopal, MP',
+    location: 'Hyderabad, Telangana',
     type: 'Commercial',
     capacity: '300 kW',
     img: 'https://images.unsplash.com/photo-1466611653911-95081537e5b7?w=600&q=85&auto=format',
@@ -57,7 +57,7 @@ export default function ProjectsGallery() {
             <p className="section-tag">Latest Projects</p>
             <h2 className="font-black text-night-900 leading-tight" style={{ fontSize: 'clamp(2rem, 4.5vw, 4rem)', letterSpacing: '-0.03em' }}>
               Solar System Installation{' '}
-              <span className="font-light text-night-400">Projects in Indore.</span>
+              <span className="font-light text-night-400">Across India.</span>
             </h2>
           </div>
           <Link href="/projects" className="inline-flex items-center gap-2 text-sm font-bold text-night-900 whitespace-nowrap group self-start md:self-auto">

@@ -8,15 +8,15 @@ import Breadcrumb from '../components/Breadcrumb'
 import { MapPin, Zap, Calendar, ArrowRight } from 'lucide-react'
 
 const projects = [
-  { title: 'Pithampur Industrial Plant', location: 'Pithampur, Indore', type: 'Industrial', capacity: '2.5 MW', year: '2023', saving: '₹3.2Cr/yr', img: 'https://images.unsplash.com/photo-1497440001374-f26997328c1b?w=700&q=85&auto=format' },
-  { title: 'Agarwal Textile Mills', location: 'Rau, Indore', type: 'Commercial', capacity: '200 kW', year: '2023', saving: '₹33L/yr', img: 'https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?w=700&q=85&auto=format' },
-  { title: 'Scheme 78 Housing Society', location: 'Scheme 78, Indore', type: 'Residential', capacity: '48 kW', year: '2022', saving: '₹8L/yr', img: 'https://images.unsplash.com/photo-1615400610825-7f1b9d573c09?w=700&q=85&auto=format' },
-  { title: 'Bombay Hospital', location: 'Indore', type: 'Commercial', capacity: '150 kW', year: '2022', saving: '₹24L/yr', img: 'https://images.unsplash.com/photo-1466611653911-95081537e5b7?w=700&q=85&auto=format' },
-  { title: 'Daly College Rooftop', location: 'Indore', type: 'Educational', capacity: '100 kW', year: '2022', saving: '₹16L/yr', img: 'https://images.unsplash.com/photo-1611365892117-00ac5ef43c90?w=700&q=85&auto=format' },
-  { title: 'Bhopal IT Park', location: 'Bhopal, MP', type: 'Commercial', capacity: '300 kW', year: '2023', saving: '₹48L/yr', img: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=700&q=85&auto=format' },
-  { title: 'Cold Storage Complex', location: 'Dewas, MP', type: 'Industrial', capacity: '500 kW', year: '2023', saving: '₹80L/yr', img: 'https://images.unsplash.com/photo-1509391366360-2e959784a276?w=700&q=85&auto=format' },
-  { title: 'Annapurna Road Villa', location: 'Indore', type: 'Residential', capacity: '5 kW', year: '2024', saving: '₹60K/yr', img: 'https://images.unsplash.com/photo-1521618755572-156ae0cdd74d?w=700&q=85&auto=format' },
-  { title: 'Ujjain Temple Complex', location: 'Ujjain, MP', type: 'Religious', capacity: '30 kW', year: '2024', saving: '₹5L/yr', img: 'https://images.unsplash.com/photo-1617788138017-80ad40651399?w=700&q=85&auto=format' },
+  { title: 'Pithampur Industrial Plant', location: 'Pithampur, MP', type: 'Industrial', capacity: '2.5 MW', year: '2023', saving: '₹3.2Cr/yr', img: 'https://images.unsplash.com/photo-1497440001374-f26997328c1b?w=700&q=85&auto=format' },
+  { title: 'Agarwal Textile Mills', location: 'Pune, Maharashtra', type: 'Commercial', capacity: '200 kW', year: '2023', saving: '₹33L/yr', img: 'https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?w=700&q=85&auto=format' },
+  { title: 'Green Valley Housing', location: 'Jaipur, Rajasthan', type: 'Residential', capacity: '48 kW', year: '2022', saving: '₹8L/yr', img: 'https://images.unsplash.com/photo-1615400610825-7f1b9d573c09?w=700&q=85&auto=format' },
+  { title: 'Metro Hospital', location: 'Hyderabad, Telangana', type: 'Commercial', capacity: '150 kW', year: '2022', saving: '₹24L/yr', img: 'https://images.unsplash.com/photo-1466611653911-95081537e5b7?w=700&q=85&auto=format' },
+  { title: 'Heritage School Rooftop', location: 'Delhi NCR', type: 'Educational', capacity: '100 kW', year: '2022', saving: '₹16L/yr', img: 'https://images.unsplash.com/photo-1611365892117-00ac5ef43c90?w=700&q=85&auto=format' },
+  { title: 'Tech Park Solar', location: 'Bengaluru, Karnataka', type: 'Commercial', capacity: '300 kW', year: '2023', saving: '₹48L/yr', img: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=700&q=85&auto=format' },
+  { title: 'Cold Storage Complex', location: 'Ahmedabad, Gujarat', type: 'Industrial', capacity: '500 kW', year: '2023', saving: '₹80L/yr', img: 'https://images.unsplash.com/photo-1509391366360-2e959784a276?w=700&q=85&auto=format' },
+  { title: 'Premium Villa Project', location: 'Indore, MP', type: 'Residential', capacity: '5 kW', year: '2024', saving: '₹60K/yr', img: 'https://images.unsplash.com/photo-1521618755572-156ae0cdd74d?w=700&q=85&auto=format' },
+  { title: 'Temple Complex', location: 'Chennai, Tamil Nadu', type: 'Religious', capacity: '30 kW', year: '2024', saving: '₹5L/yr', img: 'https://images.unsplash.com/photo-1617788138017-80ad40651399?w=700&q=85&auto=format' },
 ]
 
 const types = ['All', 'Residential', 'Commercial', 'Industrial', 'Educational', 'Religious']
@@ -42,7 +42,7 @@ export default function ProjectsPageClient() {
           <p className="section-tag">Our Portfolio</p>
           <h1 className="font-black text-night-900 leading-tight mt-2" style={{ fontSize: 'clamp(2.5rem, 6vw, 7rem)', letterSpacing: '-0.03em' }}>
             Solar Installation Projects<br />
-            <span className="font-light text-night-400">in Indore & MP.</span>
+            <span className="font-light text-night-400">Across India.</span>
           </h1>
         </div>
         {/* Big text background */}
@@ -102,7 +102,7 @@ export default function ProjectsPageClient() {
 
         <div className="mt-16 text-center">
           <p className="text-night-500 mb-6">Want a project like one of these?</p>
-          <Link href="/contact" className="btn-primary" aria-label="Book free solar survey in Indore">
+          <Link href="/contact" className="btn-primary" aria-label="Start your solar project anywhere in India">
             Start Your Project <ArrowRight className="w-4 h-4" />
           </Link>
         </div>

@@ -7,12 +7,12 @@ import { Plus, Minus } from 'lucide-react'
 
 const faqs = [
   {
-    q: 'How much does a solar installation cost in Indore?',
-    a: 'A typical 3 kWp residential system costs ₹1.3–1.6 lakh before subsidy. After PM Surya Ghar subsidy of ₹78,000, net cost is ₹55,000–80,000. Commercial and industrial pricing is calculated per watt peak (₹45–55/Wp).',
+    q: 'How much does a solar installation cost in India?',
+    a: 'A typical 3 kWp residential system costs ₹1.3–1.8 lakh before subsidy. After PM Surya Ghar subsidy of ₹78,000, net cost is ₹55,000–1,00,000. Commercial and industrial pricing is calculated per watt peak (₹45–55/Wp). Costs may vary slightly by region.',
   },
   {
-    q: 'What is the payback period for solar in Indore?',
-    a: 'With Indore\'s 300+ sunny days and MPEZ tariff of ₹7.5–9/unit, payback periods are typically 3–5 years for residential and 2.5–4 years for commercial. After payback, you generate free electricity for the remaining 20+ years.',
+    q: 'What is the payback period for solar in India?',
+    a: 'With India\'s abundant sunshine averaging 250-300+ sunny days and rising electricity tariffs of ₹7–10/unit, payback periods are typically 3–5 years for residential and 2.5–4 years for commercial. After payback, you generate free electricity for the remaining 20+ years.',
   },
   {
     q: 'Will solar work during power cuts?',
@@ -20,7 +20,7 @@ const faqs = [
   },
   {
     q: 'How do I apply for the PM Surya Ghar subsidy?',
-    a: 'SCA Tech handles the entire subsidy process at no extra cost. We register you on the PM Surya Ghar portal, coordinate with MPEZ for net meter, and ensure the subsidy is credited directly to your bank account.',
+    a: 'SCA Tech handles the entire subsidy process at no extra cost. We register you on the PM Surya Ghar portal, coordinate with your local DISCOM for net meter, and ensure the subsidy is credited directly to your bank account.',
   },
   {
     q: 'How long does installation take?',
@@ -28,7 +28,7 @@ const faqs = [
   },
   {
     q: 'What maintenance is required for solar panels?',
-    a: 'Solar panels require minimal maintenance — mainly periodic cleaning to remove dust. Indore\'s dusty climate means cleaning every 2–3 months. We offer Annual Maintenance Contracts starting ₹3,500/year including 2 cleanings and performance health checks.',
+    a: 'Solar panels require minimal maintenance — mainly periodic cleaning to remove dust. In most Indian climates, cleaning every 2–3 months is sufficient. We offer Annual Maintenance Contracts starting ₹3,500/year including 2 cleanings and performance health checks.',
   },
   {
     q: 'What warranties do you provide?',
@@ -67,7 +67,7 @@ export default function FAQ() {
           <div>
             <p className="section-tag">FAQ</p>
             <h2 className="font-black text-night-900 leading-tight" style={{ fontSize: 'clamp(2rem, 4vw, 3.5rem)', letterSpacing: '-0.03em' }}>
-              Solar Panel Installation FAQs Indore.
+              Solar Panel Installation FAQs.
             </h2>
             <p className="text-night-500 text-sm leading-relaxed mt-4">
               Have a question not covered here? Our experts are available Mon–Sat 9am–6pm.

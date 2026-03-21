@@ -15,9 +15,9 @@ const reasons = [
     desc: 'From site survey to commissioning — our streamlined process gets your system live fast.',
   },
   {
-    stat: 'MP Native',
-    title: 'Local Expertise',
-    desc: 'Looking for a reliable solar installer near me? We are Indore-headquartered with deep knowledge of local utility rules, subsidies and grid conditions.',
+    stat: 'Pan India',
+    title: 'Nationwide Expertise',
+    desc: 'Looking for a reliable solar installer near you? Headquartered in Indore, we have teams deployed across 20+ cities with deep knowledge of local utility rules, subsidies and grid conditions.',
   },
   {
     stat: '365 Days',
@@ -32,7 +32,7 @@ const reasons = [
   {
     stat: '₹78,000+',
     title: 'Subsidy & EMI Support',
-    desc: 'Navigating the rooftop solar subsidy India can be confusing. We handle PM Surya Ghar subsidy paperwork end-to-end. No-cost EMIs available through our bank partners.',
+    desc: 'Navigating the rooftop solar subsidy India can be confusing. We handle PM Surya Ghar subsidy paperwork end-to-end across all states. No-cost EMIs available through our bank partners.',
   },
 ]
 
@@ -81,11 +81,11 @@ export default function WhyChooseUs() {
               className="font-black text-night-900 leading-[1.08]"
               style={{ fontSize: 'clamp(2rem, 4.5vw, 3.8rem)', letterSpacing: '-0.03em' }}
             >
-              The Best Solar Company in Indore.
+              India's Most Trusted Solar Company.
             </h2>
           </div>
           <p className="text-night-400 text-base md:text-lg leading-relaxed lg:max-w-md lg:ml-auto">
-            With {STATS.yearsExperience} years, {STATS.installations} installations and {STATS.capacityMW} MW deployed across Madhya Pradesh, our track record speaks for itself.
+            With {STATS.yearsExperience} years, {STATS.installations} installations and {STATS.capacityMW} MW deployed across India, our track record speaks for itself.
           </p>
         </div>
 
@@ -107,7 +107,7 @@ export default function WhyChooseUs() {
                   <AnimatedNumber value={93} suffix="%" />
                 </p>
                 <p className="text-night-400 text-sm mt-3 leading-relaxed">
-                  Average electricity bill reduction for our residential clients across Indore.
+                  Average electricity bill reduction for our residential clients across India.
                 </p>
               </div>
 
@@ -130,7 +130,7 @@ export default function WhyChooseUs() {
               <div className="mt-8 relative rounded-2xl overflow-hidden h-48 hidden lg:block">
                 <img
                   src="https://images.unsplash.com/photo-1521618755572-156ae0cdd74d?w=800&q=80&auto=format"
-                  alt="Best solar company in Indore team installing panels"
+                  alt="SCA Tech Solar team installing panels nationwide"
                   className="w-full h-full object-cover"
                   loading="lazy"
                   decoding="async"
@@ -139,7 +139,7 @@ export default function WhyChooseUs() {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-night-950/60 to-transparent" />
                 <p className="absolute bottom-4 left-4 right-4 text-white text-xs font-medium leading-relaxed">
-                  "Reliable, efficient, and sustainable solar — that's our promise to Central India."
+                  "Reliable, efficient, and sustainable solar — that's our promise to India."
                 </p>
               </div>
             </div>

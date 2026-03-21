@@ -96,7 +96,7 @@ export default function ProductsShowcase() {
             </div>
             <h2 className="text-4xl md:text-5xl font-black text-night-900 leading-tight tracking-tight">
               GoodWe Inverter Installation{' '}
-              <span className="text-night-300">Indore.</span>
+              <span className="text-night-300">Across India.</span>
             </h2>
           </div>
           <Link href="/products" className="btn-outline self-start md:self-auto whitespace-nowrap hidden md:inline-flex">
@@ -129,7 +129,7 @@ export default function ProductsShowcase() {
               <div className="bg-night-50 rounded-2xl aspect-[4/3] mb-5 overflow-hidden relative">
                 <img
                   src={p.img}
-                  alt={p.name + ' available in Indore'}
+                  alt={p.name + ' — available across India'}
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                   loading="lazy"
                   decoding="async"

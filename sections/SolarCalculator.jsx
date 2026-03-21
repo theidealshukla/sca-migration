@@ -349,7 +349,7 @@ export default function SolarCalculator() {
             <div className="mt-4 p-3 rounded-2xl bg-white/5 border border-white/10 flex items-start gap-2">
               <Info className="w-3.5 h-3.5 text-white/30 flex-shrink-0 mt-0.5" />
               <p className="text-white/40 text-[10px] leading-relaxed">
-                Based on MPCZ FY 2024-25 tariff slabs, Indore avg. {PEAK_SUN_HOURS} peak sun hours/day, & PM Surya Ghar subsidy rates. 
+                Based on standard Indian tariff slabs, avg. {PEAK_SUN_HOURS} peak sun hours/day, & PM Surya Ghar subsidy rates. 
                 Includes {((1 - SYSTEM_LOSSES) * 100).toFixed(0)}% system losses. Actual savings vary.
               </p>
             </div>

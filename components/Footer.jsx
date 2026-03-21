@@ -49,11 +49,11 @@ export default function Footer() {
               </div>
               <div>
                 <span className="font-display font-black text-2xl tracking-tight leading-none block">SCA <span className="text-white/40">TECH</span></span>
-                <span className="text-[9px] font-semibold tracking-[0.18em] uppercase text-white/30">Solar Solutions · Indore</span>
+                <span className="text-[9px] font-semibold tracking-[0.18em] uppercase text-white/30">Solar Solutions · India</span>
               </div>
             </Link>
             <p className="text-night-400 text-sm leading-relaxed mb-6 max-w-xs">
-              Powering Madhya Pradesh's clean energy future since 2008. Supplier of GoodWe inverters and TOPCon bifacial panels.
+              Powering India's clean energy future since 2008. Supplier of GoodWe inverters and TOPCon bifacial panels.
             </p>
             <div className="flex flex-col gap-3 mb-8">
               <a href={`tel:${NAP.phone.replace(/\s/g, '')}`} className="flex items-center gap-3 text-sm text-night-400 hover:text-white transition-colors">
@@ -115,7 +115,7 @@ export default function Footer() {
       {/* SEO Text Block */}
       <div className="max-w-7xl mx-auto px-5 md:px-8 py-6">
         <p className="text-[10px] md:text-xs text-night-600 leading-relaxed text-center max-w-4xl mx-auto">
-          SCA Tech Solar is Indore's top-rated solar company offering professional solar panel installation for homes, businesses, and industrial units. We authorize GoodWe inverters, provide TOPCon bifacial panels, and assist with PM Surya Ghar scheme subsidy processes across Madhya Pradesh.
+          SCA Tech Solar is India's top-rated solar company offering professional solar panel installation for homes, businesses, and industrial units nationwide. Headquartered in Indore, we authorize GoodWe inverters, provide TOPCon bifacial panels, and assist with PM Surya Ghar scheme subsidy processes across India.
         </p>
       </div>
 

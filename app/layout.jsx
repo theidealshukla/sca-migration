@@ -12,10 +12,10 @@ const inter = Inter({
 export const metadata = {
   metadataBase: new URL('https://scatechsolar.com'),
   title: {
-    default: 'SCA Tech Solar | Solar Panel Installation Indore',
+    default: 'SCA Tech Solar | Trusted Solar Panel Installation Across India',
     template: '%s | SCA Tech Solar'
   },
-  description: 'Indore\'s leading solar installation company.',
+  description: 'India\'s trusted solar installation company. Nationwide residential, commercial & industrial solar solutions with PM Surya Ghar subsidy support.',
 };
 
 export default function RootLayout({ children }) {
@@ -30,7 +30,7 @@ export default function RootLayout({ children }) {
           dangerouslySetInnerHTML={{
              __html: JSON.stringify({
                "@context": "https://schema.org",
-               "@type": "LocalBusiness",
+               "@type": "Organization",
                "name": "SCA Tech Solar",
                "url": "https://scatechsolar.com",
                "telephone": "+919826035454",
@@ -43,7 +43,7 @@ export default function RootLayout({ children }) {
                  "postalCode": "452001",
                  "addressCountry": "IN"
                },
-               "areaServed": ["Indore","Bhopal","Ujjain","Dewas","Ratlam","Dhar","Pithampur","Mhow"],
+               "areaServed": {"@type": "Country", "name": "India"},
                "priceRange": "₹₹",
                "openingHours": "Mo-Sa 09:00-19:00"
              })

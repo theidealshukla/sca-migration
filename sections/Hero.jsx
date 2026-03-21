@@ -7,25 +7,25 @@ import { ArrowRight, Play, Sun, Zap, ChevronDown } from 'lucide-react'
 
 const slides = [
   {
-    tagline: 'SOLAR ENERGY · INDORE, MP',
-    heading: ['Solar Panel', 'Installation in', 'Indore.'],
-    sub: 'As a leading Solar EPC company MP, we deliver premium rooftop solar installations for homes and businesses across Madhya Pradesh.',
+    tagline: 'SOLAR ENERGY · PAN INDIA',
+    heading: ['Solar Panel', 'Installation Across', 'India.'],
+    sub: 'As India\'s leading Solar EPC company, we deliver premium rooftop solar installations for homes and businesses across the nation.',
     bg: 'https://images.unsplash.com/photo-1509391366360-2e959784a276',
-    alt: 'Rooftop solar panel installation in Indore by SCA Tech Solar'
+    alt: 'Rooftop solar panel installation across India by SCA Tech Solar'
   },
   {
     tagline: 'CLEAN ENERGY · 300+ SUNNY DAYS',
     heading: ['Invest in', 'Clean, Affordable', 'Energy.'],
-    sub: 'Discover the most transparent solar system cost Indore. With 300+ sunny days, your solar investment pays back faster than ever.',
+    sub: 'Get the most transparent solar system pricing in India. With 300+ sunny days, your solar investment pays back faster than ever.',
     bg: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64',
-    alt: 'Residential solar system for home Indore'
+    alt: 'Residential solar system for homes across India'
   },
   {
     tagline: 'INDUSTRIAL & COMMERCIAL',
     heading: ['Scale Up Your', 'Business with', 'Solar.'],
-    sub: 'Industrial rooftop, ground-mount and carport solar solutions. Reduce operating costs and hit your ESG targets.',
+    sub: 'Industrial rooftop, ground-mount and carport solar solutions. Reduce operating costs and hit your ESG targets nationwide.',
     bg: 'https://images.unsplash.com/photo-1466611653911-95081537e5b7',
-    alt: 'Commercial solar installation Indore'
+    alt: 'Commercial and industrial solar installation India'
   },
 ]
 

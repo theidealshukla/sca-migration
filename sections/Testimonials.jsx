@@ -6,17 +6,17 @@ import { Star, Quote, ChevronLeft, ChevronRight } from 'lucide-react'
 const testimonials = [
   {
     name: 'Rajesh Sharma',
-    role: 'Homeowner, Vijay Nagar',
+    role: 'Homeowner, Jaipur',
     avatar: 'RS',
     color: 'bg-night-900',
     stars: 5,
-    text: 'Installed a 5kW system in December. My MPEB bill dropped from ₹4,800 to under ₹300. The team was professional, the installation was clean and the app monitoring is excellent. Worth every rupee!',
+    text: 'Installed a 5kW system in December. My electricity bill dropped from ₹4,800 to under ₹300. The team was professional, the installation was clean and the app monitoring is excellent. Worth every rupee!',
     system: '5 kWp Residential',
     saving: '94% bill reduction',
   },
   {
     name: 'Priya Agarwal',
-    role: 'Owner, Agarwal Textile Mills, Rau',
+    role: 'Owner, Agarwal Textile Mills, Pune',
     avatar: 'PA',
     color: 'bg-night-700',
     stars: 5,
@@ -26,7 +26,7 @@ const testimonials = [
   },
   {
     name: 'Dr. Arvind Pathak',
-    role: 'Clinic Owner, Indore',
+    role: 'Clinic Owner, Hyderabad',
     avatar: 'AP',
     color: 'bg-night-600',
     stars: 5,
@@ -36,7 +36,7 @@ const testimonials = [
   },
   {
     name: 'Sunita Verma',
-    role: 'Housewife, Scheme 54',
+    role: 'Homeowner, Delhi NCR',
     avatar: 'SV',
     color: 'bg-night-500',
     stars: 5,
@@ -58,7 +58,7 @@ export default function Testimonials() {
             <p className="section-tag">Client Stories</p>
             <h2 className="font-black text-night-900 leading-tight mb-6" style={{ fontSize: 'clamp(2rem, 4.5vw, 4rem)', letterSpacing: '-0.03em' }}>
               Reviews for the Best{' '}
-              <span className="font-light text-night-400">Solar Company Indore.</span>
+              <span className="font-light text-night-400">Solar Company in India.</span>
             </h2>
             <div className="flex items-center gap-4 mb-8">
               <div className="flex -space-x-3">

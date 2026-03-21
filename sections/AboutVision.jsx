@@ -12,11 +12,11 @@ const cards = [
     pill: '+ RESIDENTIAL',
     title: 'Home Solar',
     value: '3 kW – 10 kW',
-    desc: 'Cut your electricity bill by up to 90%. On-grid and hybrid systems with net metering for Indore MPEB.',
+    desc: 'Cut your electricity bill by up to 90%. On-grid and hybrid systems with net metering support across India.',
     color: 'bg-night-50 border-night-200',
     accent: 'text-night-500',
     img: 'https://images.unsplash.com/photo-1611365892117-00ac5ef43c90?w=600&q=80&auto=format',
-    alt: '3kW residential solar system installed in Vijay Nagar Indore',
+    alt: '3kW residential solar system installation by SCA Tech',
     dark: false,
   },
   {
@@ -27,18 +27,18 @@ const cards = [
     color: 'bg-night-50 border-night-200',
     accent: 'text-night-500',
     img: 'https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?w=600&q=80&auto=format',
-    alt: 'Commercial solar system installation Indore MP',
+    alt: 'Commercial solar system installation by SCA Tech',
     dark: false,
   },
   {
     pill: '+ INDUSTRIAL',
     title: 'Industrial Solar',
     value: '500 kW – 5 MW',
-    desc: 'Ground-mount and carport solutions for factories, warehouses and industrial parks across MP.',
+    desc: 'Ground-mount and carport solutions for factories, warehouses and industrial parks across India.',
     color: 'bg-night-950 border-night-800',
     accent: 'text-white/50',
     img: 'https://images.unsplash.com/photo-1497440001374-f26997328c1b?w=600&q=80&auto=format',
-    alt: 'Industrial solar factory Indore installation',
+    alt: 'Industrial solar factory installation by SCA Tech',
     dark: true,
   },
 ]
@@ -67,12 +67,12 @@ export default function AboutVision() {
           <div>
             <p className="section-tag">2024 · About SCA Tech</p>
             <h2 className="font-black text-night-900 leading-tight" style={{ fontSize: 'clamp(1.8rem, 5vw, 4.5rem)', letterSpacing: '-0.03em' }}>
-              Your Local <span className="font-light text-night-400">Solar Company in Indore</span>
+              Your Trusted <span className="font-light text-night-400">Solar Company Across India</span>
             </h2>
           </div>
           <div className="flex flex-col justify-end gap-4 md:gap-6">
             <p className="text-night-500 text-sm md:text-base lg:text-lg leading-relaxed">
-              SCA Tech Solar was founded in Indore with a single mission: to make premium solar energy accessible to every home and business in Madhya Pradesh. We combine German-engineered panels with local expertise and after-sales service you can rely on.
+              SCA Tech Solar was founded with a single mission: to make premium solar energy accessible to every home and business across India. Headquartered in Indore, we combine German-engineered panels with nationwide expertise and after-sales service you can rely on.
             </p>
             <Link href="/about" className="inline-flex items-center gap-2 text-sm font-bold text-night-900 group">
               More about us
@@ -86,7 +86,7 @@ export default function AboutVision() {
         {/* Big scrolling text — hidden on mobile to save space */}
         <div className="overflow-hidden mb-10 md:mb-16 -mx-5 md:-mx-8 hidden md:block">
           <p className="whitespace-nowrap font-display font-black text-night-100 leading-none select-none" style={{ fontSize: 'clamp(3rem, 12vw, 10rem)', letterSpacing: '-0.04em' }}>
-            Clean Energy · Solar Power · Indore · MP ·&nbsp;
+            Clean Energy · Solar Power · Pan India · Nationwide ·&nbsp;
           </p>
         </div>
 
@@ -136,15 +136,15 @@ export default function AboutVision() {
           <div className="lg:col-span-2">
             <p className="section-tag">Our Vision · 2030</p>
             <p className="text-night-900 font-black leading-tight" style={{ fontSize: 'clamp(1.4rem, 4vw, 3.5rem)', letterSpacing: '-0.02em' }}>
-              <span className="text-night-400 font-light">SCA Tech aims to power</span> 10,000 homes across Madhya Pradesh with clean, affordable solar by 2030.
+              <span className="text-night-400 font-light">SCA Tech aims to power</span> 10,000 homes across India with clean, affordable solar by 2030.
             </p>
           </div>
           <div className="space-y-6">
             {[
-              { year: STATS.foundedYear.toString(), text: 'Founded in Indore with 5-person team' },
+              { year: STATS.foundedYear.toString(), text: 'Founded in Indore with a 5-person team' },
               { year: '2015', text: 'Reached 100th installation milestone' },
-              { year: '2022', text: 'Expanded to Bhopal, Ujjain & Dewas' },
-              { year: '2025 →', text: `Target: ${STATS.installations} installs per year` },
+              { year: '2022', text: 'Expanded operations to 10+ cities across India' },
+              { year: '2025 →', text: `Target: ${STATS.installations} installs per year, serving 20+ cities` },
             ].map(item => (
               <div key={item.year} className="flex items-start gap-4">
                 <span className="text-xs font-bold text-night-400 w-14 flex-shrink-0 mt-0.5">{item.year}</span>

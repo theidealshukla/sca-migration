@@ -19,7 +19,7 @@ export default function ContactSection() {
         <div className="text-center mb-16">
           <p className="section-tag mx-auto justify-center">Get Started</p>
           <h2 className="font-black text-night-900 leading-tight" style={{ fontSize: 'clamp(2rem, 4.5vw, 4rem)', letterSpacing: '-0.03em' }}>
-            Book Free Solar Survey in Indore — <span className="font-light text-night-400">no obligation.</span>
+            Book Free Solar Survey Anywhere in India — <span className="font-light text-night-400">no obligation.</span>
           </h2>
           <p className="text-night-500 mt-4 max-w-xl mx-auto">
             Our expert will visit your site, assess your roof, check your bills and give you an exact quote — completely free of charge.
@@ -50,7 +50,7 @@ export default function ContactSection() {
             <div className="p-5 bg-night-950 rounded-2xl border border-white/5">
               <p className="text-white font-black text-lg mb-2">Service Areas</p>
               <div className="flex flex-wrap gap-2">
-                {['Indore', 'Bhopal', 'Ujjain', 'Dewas', 'Ratlam', 'Dhar', 'Pithampur', 'Mhow'].map(city => (
+                {['Delhi NCR', 'Mumbai', 'Bengaluru', 'Hyderabad', 'Chennai', 'Indore', 'Bhopal', 'Jaipur', 'Ahmedabad', 'Pune', '+ 10 more'].map(city => (
                   <span key={city} className="px-2.5 py-1 bg-white/10 rounded-full text-white/60 text-xs font-medium">{city}</span>
                 ))}
               </div>
@@ -78,7 +78,7 @@ export default function ContactSection() {
                     { id: 'name', label: 'Full Name', placeholder: 'Rajesh Sharma', type: 'text', required: true },
                     { id: 'phone', label: 'Mobile Number', placeholder: '+91 98765 43210', type: 'tel', required: true },
                     { id: 'email', label: 'Email Address', placeholder: 'rajesh@email.com', type: 'email' },
-                    { id: 'city', label: 'City / Area', placeholder: 'Vijay Nagar, Indore', type: 'text', required: true },
+                    { id: 'city', label: 'City / Area', placeholder: 'e.g. Mumbai, Delhi NCR, Bengaluru', type: 'text', required: true },
                   ].map(field => (
                     <div key={field.id}>
                       <label className="block text-xs font-bold text-night-600 uppercase tracking-wider mb-1.5">
@@ -120,7 +120,7 @@ export default function ContactSection() {
                   <label className="block text-xs font-bold text-night-600 uppercase tracking-wider mb-1.5">Monthly Bill / Message</label>
                   <textarea
                     rows={3}
-                    placeholder="My monthly MPEB bill is around ₹3,000. I have a 2-storey house with a flat roof..."
+                    placeholder="My monthly electricity bill is around ₹3,000. I have a 2-storey house with a flat roof..."
                     value={form.message}
                     onChange={e => setForm({ ...form, message: e.target.value })}
                     className="w-full px-4 py-3 rounded-xl border border-night-200 focus:border-night-400 focus:ring-2 focus:ring-night-100 outline-none text-sm text-night-900 placeholder-night-300 transition-all resize-none"

@@ -131,7 +131,7 @@ export default function Navbar() {
             </div>
             <div className="mt-8 p-4 bg-night-50 rounded-2xl border border-night-200">
               <p className="text-xs font-black text-night-900 leading-none">SCA Tech</p>
-              <p className="text-xs text-night-400 mt-1">Serving MP</p>
+              <p className="text-xs text-night-400 mt-1">Serving Pan India</p>
             </div>
           </div>
         </div>

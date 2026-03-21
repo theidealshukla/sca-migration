@@ -1,6 +1,6 @@
 export const metadata = {
-  title: 'About SCA Tech Solar | Trusted Solar EPC Company Indore',
-  description: 'SCA Tech Solar — Indore\'s most trusted solar installer since 2008. 2000+ installations, 45 MW deployed across Madhya Pradesh.',
+  title: 'About SCA Tech Solar | Trusted Solar EPC Company India',
+  description: 'SCA Tech Solar — India\'s most trusted solar installer since 2008. 2000+ installations, 45 MW deployed across India. Headquartered in Indore.',
   alternates: { canonical: 'https://scatechsolar.com/about' },
 };
 
@@ -19,12 +19,12 @@ const team = [
 ]
 
 const milestones = [
-  { year: '2008', event: 'Founded in Indore with a 5-person team and a dream to power MP with solar.' },
+  { year: '2008', event: 'Founded in Indore with a 5-person team and a dream to power India with solar.' },
   { year: '2015', event: 'Crossed 100 installations. First commercial project — a 50kW factory in Pithampur.' },
-  { year: '2018', event: '500 installations milestone. Expanded to Bhopal and Ujjain.' },
+  { year: '2018', event: '500 installations milestone. Expanded operations beyond Madhya Pradesh.' },
   { year: '2020', event: 'Launched proprietary monitoring platform and 24/7 O&M service.' },
-  { year: '2022', event: 'Crossed 1,000 installations. Entered industrial & ground-mount segment.' },
-  { year: '2024', event: "2,000+ installations. 45 MW total capacity. MP's #1 solar installer." },
+  { year: '2022', event: 'Crossed 1,000 installations. Entered industrial & ground-mount segment across India.' },
+  { year: '2024', event: "2,000+ installations. 45 MW total capacity. India's most trusted solar installer." },
 ]
 
 export default function About() {
@@ -43,7 +43,7 @@ export default function About() {
               https://images.unsplash.com/photo-1521618755572-156ae0cdd74d?w=1200&q=80&auto=format&fit=crop 1200w
             "
             sizes="100vw"
-            alt="About SCA Tech Solar - Indore's Trusted Solar Company" 
+            alt="About SCA Tech Solar - India's Trusted Solar Company" 
             className="w-full h-full object-cover opacity-30" 
             loading="lazy"
             decoding="async"
@@ -56,7 +56,7 @@ export default function About() {
           <p className="section-tag text-solar-400 mb-3">About SCA Tech Solar</p>
           <h1 className="font-black text-white leading-tight" style={{ fontSize: 'clamp(2.5rem, 7vw, 7rem)', letterSpacing: '-0.03em' }}>
             About SCA Tech Solar —<br />
-            <span className="gradient-text-solar font-display italic">Indore's Trusted Solar Company.</span>
+            <span className="gradient-text-solar font-display italic">India's Trusted Solar Company.</span>
           </h1>
         </div>
       </div>
@@ -70,13 +70,13 @@ export default function About() {
               <h2 className="text-3xl font-black text-night-900 mb-6">How It Started</h2>
               <div className="text-night-500 leading-relaxed text-[15px] space-y-4">
                 <p>
-                  SCA Tech Solar was founded with a clear vision: to make solar energy accessible, reliable and affordable for every home and business in Madhya Pradesh. 
+                  SCA Tech Solar was founded with a clear vision: to make solar energy accessible, reliable and affordable for every home and business across India. 
                 </p>
                 <p>
-                  Seeing the gap in quality installations and genuine after-sales support, our founding engineers set out to build a company that puts engineering ethics first. We introduced global Tier-1 brands like GoodWe and TOPCon to the local market when others were still pushing outdated technologies.
+                  Seeing the gap in quality installations and genuine after-sales support, our founding engineers set out to build a company that puts engineering ethics first. We introduced global Tier-1 brands like GoodWe and TOPCon to the Indian market when others were still pushing outdated technologies.
                 </p>
                 <p>
-                  Today we're Madhya Pradesh's most trusted solar installer, having delivered over 45 MW of clean capacity across 2,000+ projects. But our work is just beginning.
+                  Today we're India's most trusted solar installer, having delivered over 45 MW of clean capacity across 2,000+ projects. Headquartered in Indore, our work is just beginning.
                 </p>
               </div>
             </div>
@@ -146,7 +146,7 @@ export default function About() {
         <div className="max-w-4xl mx-auto px-5 md:px-8 text-center">
           <h2 className="font-black text-white text-4xl md:text-5xl mb-5">Ready to join the solar revolution?</h2>
           <p className="text-solar-100 text-lg mb-8">Get your free site survey and custom quote today. No commitment required.</p>
-          <Link href="/contact" aria-label="Book free solar survey in Indore" className="inline-flex items-center gap-2 bg-white text-solar-700 font-bold px-8 py-4 rounded-full hover:shadow-xl transition-all duration-300">
+          <Link href="/contact" aria-label="Book free solar survey anywhere in India" className="inline-flex items-center gap-2 bg-white text-solar-700 font-bold px-8 py-4 rounded-full hover:shadow-xl transition-all duration-300">
             Book Free Survey <ArrowRight className="w-4 h-4" />
           </Link>
         </div>

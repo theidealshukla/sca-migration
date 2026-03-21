@@ -5,5 +5,5 @@ export const STATS = {
   happyFamilies: '2,000+',
   yearsExperience: '16+',
   satisfaction: '99%',
-  serviceAreas: ['Indore','Bhopal','Ujjain','Dewas','Ratlam','Dhar','Pithampur','Mhow'],
+  serviceAreas: ['Delhi NCR','Mumbai','Bengaluru','Hyderabad','Chennai','Indore','Bhopal','Jaipur','Ahmedabad','Pune','Lucknow','Kolkata','Chandigarh','Ujjain','Dewas','Nagpur','Surat','Vadodara','Coimbatore','Kochi'],
 };
