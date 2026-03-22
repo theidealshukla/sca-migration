@@ -17,28 +17,12 @@ export default function Chatbot() {
   const messagesEndRef = useRef(null);
   const inputRef = useRef(null);
 
-  const scrollToBottom = () => {
-    messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
-  };
+  useEffect(() => { messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' }); }, [messages, isTyping]);
+  useEffect(() => { if (isOpen && inputRef.current) inputRef.current.focus(); }, [isOpen]);
+  useEffect(() => { if (isOpen) setShowPulse(false); }, [isOpen]);
 
-  useEffect(() => {
-    scrollToBottom();
-  }, [messages, isTyping]);
-
-  useEffect(() => {
-    if (isOpen && inputRef.current) {
-      inputRef.current.focus();
-    }
-  }, [isOpen]);
-
-  // Hide pulse after first open
-  useEffect(() => {
-    if (isOpen) setShowPulse(false);
-  }, [isOpen]);
-
-  const sendMessage = async (e) => {
-    e?.preventDefault();
-    const trimmed = input.trim();
+  const sendMessage = async (text) => {
+    const trimmed = (text || input).trim();
     if (!trimmed || isTyping) return;
 
     const userMsg = { role: 'user', content: trimmed };
@@ -53,15 +37,13 @@ export default function Chatbot() {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ messages: updatedMessages.filter(m => m !== WELCOME_MESSAGE) }),
       });
-
       if (!res.ok) throw new Error('Failed');
-
       const data = await res.json();
       setMessages(prev => [...prev, { role: 'assistant', content: data.reply }]);
     } catch {
       setMessages(prev => [...prev, {
         role: 'assistant',
-        content: "I'm having trouble connecting right now. Please call us at +91 98260 35454 or try again in a moment."
+        content: "I'm having trouble connecting right now. Please call us at +91 98260 35454 or try again."
       }]);
     } finally {
       setIsTyping(false);
@@ -69,208 +51,74 @@ export default function Chatbot() {
   };
 
   const quickQuestions = [
-    "What's the cost of solar?",
+    "Solar panel cost?",
     "PM Surya Ghar subsidy?",
-    "Installation process?",
+    "Installation timeline?",
   ];
 
   return (
     <>
-      {/* Chat Widget Trigger */}
+      {/* ── Floating Trigger Button ── */}
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="chatbot-trigger"
         aria-label="Open chat assistant"
-        style={{
-          position: 'fixed',
-          bottom: '24px',
-          right: '90px',
-          zIndex: 9998,
-          width: '56px',
-          height: '56px',
-          borderRadius: '50%',
-          background: 'linear-gradient(135deg, #f97316 0%, #ea580c 100%)',
-          border: 'none',
-          cursor: 'pointer',
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-          boxShadow: '0 4px 20px rgba(249, 115, 22, 0.4)',
-          transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
-          transform: isOpen ? 'scale(0.9) rotate(90deg)' : 'scale(1)',
-        }}
-        onMouseEnter={(e) => { e.target.style.transform = isOpen ? 'scale(0.95) rotate(90deg)' : 'scale(1.1)'; e.target.style.boxShadow = '0 6px 28px rgba(249, 115, 22, 0.55)'; }}
-        onMouseLeave={(e) => { e.target.style.transform = isOpen ? 'scale(0.9) rotate(90deg)' : 'scale(1)'; e.target.style.boxShadow = '0 4px 20px rgba(249, 115, 22, 0.4)'; }}
+        className="chatbot-trigger-btn"
       >
-        {isOpen ? (
-          <X style={{ width: '24px', height: '24px', color: 'white' }} />
-        ) : (
-          <MessageCircle style={{ width: '24px', height: '24px', color: 'white' }} />
-        )}
-        {/* Pulse Ring */}
-        {showPulse && !isOpen && (
-          <span style={{
-            position: 'absolute',
-            inset: '-4px',
-            borderRadius: '50%',
-            border: '2px solid rgba(249, 115, 22, 0.5)',
-            animation: 'chatPulse 2s ease-in-out infinite',
-          }} />
-        )}
+        {isOpen
+          ? <X className="chatbot-trigger-icon" />
+          : <MessageCircle className="chatbot-trigger-icon" />
+        }
+        {showPulse && !isOpen && <span className="chatbot-pulse-ring" />}
       </button>
 
-      {/* Chat Window */}
+      {/* ── Chat Window ── */}
       {isOpen && (
-        <div style={{
-          position: 'fixed',
-          bottom: '90px',
-          right: '24px',
-          zIndex: 9999,
-          width: '380px',
-          maxWidth: 'calc(100vw - 32px)',
-          height: '520px',
-          maxHeight: 'calc(100vh - 120px)',
-          borderRadius: '20px',
-          overflow: 'hidden',
-          display: 'flex',
-          flexDirection: 'column',
-          boxShadow: '0 25px 60px rgba(0,0,0,0.15), 0 0 0 1px rgba(0,0,0,0.05)',
-          animation: 'chatSlideUp 0.35s cubic-bezier(0.16, 1, 0.3, 1)',
-          background: '#ffffff',
-        }}>
+        <div className="chatbot-window">
           {/* Header */}
-          <div style={{
-            background: 'linear-gradient(135deg, #0f172a 0%, #1e293b 100%)',
-            padding: '16px 20px',
-            display: 'flex',
-            alignItems: 'center',
-            gap: '12px',
-            flexShrink: 0,
-          }}>
-            <div style={{
-              width: '40px',
-              height: '40px',
-              borderRadius: '12px',
-              background: 'linear-gradient(135deg, #f97316, #ea580c)',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              flexShrink: 0,
-            }}>
-              <Sparkles style={{ width: '20px', height: '20px', color: 'white' }} />
+          <div className="chatbot-header">
+            <div className="chatbot-header-avatar">
+              <Sparkles style={{ width: 18, height: 18, color: '#fff' }} />
             </div>
-            <div style={{ flex: 1 }}>
-              <p style={{ color: 'white', fontWeight: 700, fontSize: '15px', margin: 0, lineHeight: 1.3 }}>SCA Solar Assistant</p>
-              <p style={{ color: 'rgba(255,255,255,0.5)', fontSize: '11px', margin: 0, fontWeight: 500 }}>Powered by AI • Typically replies instantly</p>
+            <div style={{ flex: 1, minWidth: 0 }}>
+              <p className="chatbot-header-title">SCA Solar Assistant</p>
+              <p className="chatbot-header-sub">AI-Powered • Replies instantly</p>
             </div>
-            <button
-              onClick={() => setIsOpen(false)}
-              style={{ background: 'rgba(255,255,255,0.1)', border: 'none', borderRadius: '8px', width: '32px', height: '32px', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center' }}
-            >
-              <X style={{ width: '16px', height: '16px', color: 'rgba(255,255,255,0.6)' }} />
+            <button onClick={() => setIsOpen(false)} className="chatbot-header-close">
+              <X style={{ width: 16, height: 16 }} />
             </button>
           </div>
 
           {/* Messages */}
-          <div style={{
-            flex: 1,
-            overflowY: 'auto',
-            padding: '16px',
-            display: 'flex',
-            flexDirection: 'column',
-            gap: '12px',
-            background: '#f8fafc',
-          }}>
+          <div className="chatbot-messages">
             {messages.map((msg, i) => (
-              <div
-                key={i}
-                style={{
-                  display: 'flex',
-                  gap: '8px',
-                  flexDirection: msg.role === 'user' ? 'row-reverse' : 'row',
-                  alignItems: 'flex-end',
-                  animation: 'chatFadeIn 0.3s ease-out',
-                }}
-              >
-                {/* Avatar */}
-                <div style={{
-                  width: '28px',
-                  height: '28px',
-                  borderRadius: '50%',
-                  background: msg.role === 'user' ? '#0f172a' : 'linear-gradient(135deg, #f97316, #ea580c)',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  flexShrink: 0,
-                }}>
-                  {msg.role === 'user' 
-                    ? <User style={{ width: '14px', height: '14px', color: 'white' }} />
-                    : <Bot style={{ width: '14px', height: '14px', color: 'white' }} />
+              <div key={i} className={`chatbot-msg-row ${msg.role === 'user' ? 'chatbot-msg-user' : 'chatbot-msg-bot'}`}>
+                <div className={`chatbot-avatar ${msg.role === 'user' ? 'chatbot-avatar-user' : 'chatbot-avatar-bot'}`}>
+                  {msg.role === 'user'
+                    ? <User style={{ width: 13, height: 13, color: '#fff' }} />
+                    : <Bot style={{ width: 13, height: 13, color: '#fff' }} />
                   }
                 </div>
-                {/* Bubble */}
-                <div style={{
-                  maxWidth: '75%',
-                  padding: '10px 14px',
-                  borderRadius: msg.role === 'user' ? '16px 16px 4px 16px' : '16px 16px 16px 4px',
-                  background: msg.role === 'user' ? '#0f172a' : '#ffffff',
-                  color: msg.role === 'user' ? '#ffffff' : '#1e293b',
-                  fontSize: '13.5px',
-                  lineHeight: '1.55',
-                  boxShadow: msg.role === 'user' ? 'none' : '0 1px 4px rgba(0,0,0,0.06)',
-                  border: msg.role === 'user' ? 'none' : '1px solid #e2e8f0',
-                  wordBreak: 'break-word',
-                }}>
+                <div className={`chatbot-bubble ${msg.role === 'user' ? 'chatbot-bubble-user' : 'chatbot-bubble-bot'}`}>
                   {msg.content}
                 </div>
               </div>
             ))}
 
-            {/* Typing Indicator */}
             {isTyping && (
-              <div style={{ display: 'flex', gap: '8px', alignItems: 'flex-end', animation: 'chatFadeIn 0.3s ease-out' }}>
-                <div style={{
-                  width: '28px', height: '28px', borderRadius: '50%',
-                  background: 'linear-gradient(135deg, #f97316, #ea580c)',
-                  display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0,
-                }}>
-                  <Bot style={{ width: '14px', height: '14px', color: 'white' }} />
+              <div className="chatbot-msg-row chatbot-msg-bot">
+                <div className="chatbot-avatar chatbot-avatar-bot">
+                  <Bot style={{ width: 13, height: 13, color: '#fff' }} />
                 </div>
-                <div style={{
-                  padding: '12px 18px', borderRadius: '16px 16px 16px 4px',
-                  background: '#ffffff', border: '1px solid #e2e8f0',
-                  display: 'flex', gap: '4px', alignItems: 'center',
-                }}>
-                  <span style={{ width: '6px', height: '6px', borderRadius: '50%', background: '#94a3b8', animation: 'chatDot 1.4s ease-in-out infinite', animationDelay: '0s' }} />
-                  <span style={{ width: '6px', height: '6px', borderRadius: '50%', background: '#94a3b8', animation: 'chatDot 1.4s ease-in-out infinite', animationDelay: '0.2s' }} />
-                  <span style={{ width: '6px', height: '6px', borderRadius: '50%', background: '#94a3b8', animation: 'chatDot 1.4s ease-in-out infinite', animationDelay: '0.4s' }} />
+                <div className="chatbot-bubble chatbot-bubble-bot chatbot-typing">
+                  <span /><span /><span />
                 </div>
               </div>
             )}
 
-            {/* Quick Questions (show only if just welcome msg) */}
             {messages.length === 1 && !isTyping && (
-              <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px', marginTop: '4px' }}>
+              <div className="chatbot-quick-wrap">
                 {quickQuestions.map((q, i) => (
-                  <button
-                    key={i}
-                    onClick={() => { setInput(q); }}
-                    style={{
-                      padding: '6px 12px',
-                      borderRadius: '20px',
-                      border: '1px solid #e2e8f0',
-                      background: 'white',
-                      color: '#475569',
-                      fontSize: '12px',
-                      cursor: 'pointer',
-                      fontWeight: 500,
-                      transition: 'all 0.2s',
-                    }}
-                    onMouseEnter={(e) => { e.target.style.borderColor = '#f97316'; e.target.style.color = '#f97316'; }}
-                    onMouseLeave={(e) => { e.target.style.borderColor = '#e2e8f0'; e.target.style.color = '#475569'; }}
-                  >
-                    {q}
-                  </button>
+                  <button key={i} onClick={() => sendMessage(q)} className="chatbot-quick-btn">{q}</button>
                 ))}
               </div>
             )}
@@ -279,90 +127,222 @@ export default function Chatbot() {
           </div>
 
           {/* Input */}
-          <form onSubmit={sendMessage} style={{
-            padding: '12px 16px',
-            borderTop: '1px solid #e2e8f0',
-            display: 'flex',
-            gap: '8px',
-            alignItems: 'center',
-            background: '#ffffff',
-            flexShrink: 0,
-          }}>
+          <form onSubmit={(e) => { e.preventDefault(); sendMessage(); }} className="chatbot-input-bar">
             <input
               ref={inputRef}
               value={input}
               onChange={(e) => setInput(e.target.value)}
               placeholder="Ask about solar..."
               disabled={isTyping}
-              style={{
-                flex: 1,
-                padding: '10px 14px',
-                borderRadius: '12px',
-                border: '1px solid #e2e8f0',
-                background: '#f8fafc',
-                fontSize: '13.5px',
-                outline: 'none',
-                color: '#1e293b',
-                transition: 'border-color 0.2s',
-              }}
-              onFocus={(e) => { e.target.style.borderColor = '#f97316'; }}
-              onBlur={(e) => { e.target.style.borderColor = '#e2e8f0'; }}
+              className="chatbot-input"
             />
             <button
               type="submit"
               disabled={!input.trim() || isTyping}
-              style={{
-                width: '40px',
-                height: '40px',
-                borderRadius: '12px',
-                border: 'none',
-                background: input.trim() && !isTyping ? 'linear-gradient(135deg, #f97316, #ea580c)' : '#e2e8f0',
-                cursor: input.trim() && !isTyping ? 'pointer' : 'default',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                transition: 'all 0.2s',
-                flexShrink: 0,
-              }}
+              className={`chatbot-send-btn ${input.trim() && !isTyping ? 'active' : ''}`}
             >
               {isTyping
-                ? <Loader2 style={{ width: '18px', height: '18px', color: '#94a3b8', animation: 'spin 1s linear infinite' }} />
-                : <Send style={{ width: '18px', height: '18px', color: input.trim() ? 'white' : '#94a3b8' }} />
+                ? <Loader2 style={{ width: 16, height: 16, animation: 'spin 1s linear infinite' }} />
+                : <Send style={{ width: 16, height: 16 }} />
               }
             </button>
           </form>
 
-          {/* Powered by footer */}
-          <div style={{
-            textAlign: 'center',
-            padding: '6px',
-            background: '#f8fafc',
-            borderTop: '1px solid #f1f5f9',
-            flexShrink: 0,
-          }}>
-            <p style={{ fontSize: '10px', color: '#94a3b8', margin: 0, fontWeight: 500 }}>
-              SCA Tech Solar • AI-Powered Support
-            </p>
+          <div className="chatbot-footer">
+            SCA Tech Solar • AI-Powered Support
           </div>
         </div>
       )}
 
-      {/* CSS Animations */}
       <style jsx global>{`
+        /* ── Trigger Button ── */
+        .chatbot-trigger-btn {
+          position: fixed; bottom: 20px; right: 20px; z-index: 9998;
+          width: 52px; height: 52px; border-radius: 50%;
+          background: #171717; border: 2px solid rgba(255,255,255,0.1);
+          cursor: pointer; display: flex; align-items: center; justify-content: center;
+          box-shadow: 0 4px 24px rgba(0,0,0,0.3);
+          transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .chatbot-trigger-btn:hover {
+          transform: scale(1.08);
+          box-shadow: 0 6px 32px rgba(0,0,0,0.4);
+          background: #262626;
+        }
+        .chatbot-trigger-icon { width: 22px; height: 22px; color: #e5e5e5; }
+        .chatbot-pulse-ring {
+          position: absolute; inset: -5px; border-radius: 50%;
+          border: 2px solid rgba(115,115,115,0.4);
+          animation: chatPulse 2s ease-in-out infinite;
+        }
+
+        /* ── Chat Window ── */
+        .chatbot-window {
+          position: fixed; bottom: 82px; right: 16px; z-index: 9999;
+          width: 360px; max-width: calc(100vw - 32px);
+          height: 500px; max-height: calc(100vh - 110px);
+          border-radius: 16px; overflow: hidden;
+          display: flex; flex-direction: column;
+          box-shadow: 0 20px 60px rgba(0,0,0,0.2), 0 0 0 1px rgba(0,0,0,0.08);
+          animation: chatSlideUp 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+          background: #fafafa;
+        }
+
+        /* ── Header ── */
+        .chatbot-header {
+          background: #0a0a0a; padding: 14px 16px;
+          display: flex; align-items: center; gap: 10px; flex-shrink: 0;
+        }
+        .chatbot-header-avatar {
+          width: 36px; height: 36px; border-radius: 10px;
+          background: #262626; border: 1px solid rgba(255,255,255,0.08);
+          display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+        }
+        .chatbot-header-title {
+          color: #f5f5f5; font-weight: 600; font-size: 14px;
+          margin: 0; line-height: 1.2; letter-spacing: -0.01em;
+        }
+        .chatbot-header-sub {
+          color: rgba(255,255,255,0.35); font-size: 11px;
+          margin: 0; font-weight: 500;
+        }
+        .chatbot-header-close {
+          background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.06);
+          border-radius: 8px; width: 30px; height: 30px;
+          cursor: pointer; display: flex; align-items: center; justify-content: center;
+          color: rgba(255,255,255,0.4); transition: all 0.2s;
+        }
+        .chatbot-header-close:hover { background: rgba(255,255,255,0.12); color: #fff; }
+
+        /* ── Messages ── */
+        .chatbot-messages {
+          flex: 1; overflow-y: auto; padding: 14px;
+          display: flex; flex-direction: column; gap: 10px;
+          background: #fafafa;
+        }
+        .chatbot-msg-row {
+          display: flex; gap: 7px; align-items: flex-end;
+          animation: chatFadeIn 0.25s ease-out;
+        }
+        .chatbot-msg-user { flex-direction: row-reverse; }
+
+        .chatbot-avatar {
+          width: 26px; height: 26px; border-radius: 50%;
+          display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+        }
+        .chatbot-avatar-bot { background: #171717; }
+        .chatbot-avatar-user { background: #404040; }
+
+        .chatbot-bubble {
+          max-width: 78%; padding: 9px 13px;
+          font-size: 13px; line-height: 1.5; word-break: break-word;
+        }
+        .chatbot-bubble-bot {
+          background: #fff; color: #171717;
+          border-radius: 14px 14px 14px 4px;
+          border: 1px solid #e5e5e5;
+        }
+        .chatbot-bubble-user {
+          background: #171717; color: #f5f5f5;
+          border-radius: 14px 14px 4px 14px;
+        }
+
+        /* Typing dots */
+        .chatbot-typing {
+          display: flex; gap: 5px; align-items: center;
+          padding: 12px 18px;
+        }
+        .chatbot-typing span {
+          width: 6px; height: 6px; border-radius: 50%;
+          background: #a3a3a3;
+          animation: chatDot 1.4s ease-in-out infinite;
+        }
+        .chatbot-typing span:nth-child(2) { animation-delay: 0.2s; }
+        .chatbot-typing span:nth-child(3) { animation-delay: 0.4s; }
+
+        /* Quick questions */
+        .chatbot-quick-wrap {
+          display: flex; flex-wrap: wrap; gap: 6px; margin-top: 2px;
+        }
+        .chatbot-quick-btn {
+          padding: 5px 11px; border-radius: 20px;
+          border: 1px solid #d4d4d4; background: #fff;
+          color: #525252; font-size: 11.5px; cursor: pointer;
+          font-weight: 500; transition: all 0.2s;
+        }
+        .chatbot-quick-btn:hover {
+          border-color: #171717; color: #171717; background: #f5f5f5;
+        }
+
+        /* ── Input Bar ── */
+        .chatbot-input-bar {
+          padding: 10px 12px; border-top: 1px solid #e5e5e5;
+          display: flex; gap: 8px; align-items: center;
+          background: #fff; flex-shrink: 0;
+        }
+        .chatbot-input {
+          flex: 1; padding: 9px 12px; border-radius: 10px;
+          border: 1px solid #e5e5e5; background: #fafafa;
+          font-size: 13px; outline: none; color: #171717;
+          transition: border-color 0.2s;
+        }
+        .chatbot-input:focus { border-color: #404040; }
+        .chatbot-input::placeholder { color: #a3a3a3; }
+
+        .chatbot-send-btn {
+          width: 36px; height: 36px; border-radius: 10px;
+          border: none; background: #e5e5e5; cursor: default;
+          display: flex; align-items: center; justify-content: center;
+          transition: all 0.2s; flex-shrink: 0; color: #a3a3a3;
+        }
+        .chatbot-send-btn.active {
+          background: #171717; cursor: pointer; color: #fff;
+        }
+        .chatbot-send-btn.active:hover { background: #262626; }
+
+        /* ── Footer ── */
+        .chatbot-footer {
+          text-align: center; padding: 6px;
+          background: #f5f5f5; border-top: 1px solid #ebebeb;
+          font-size: 10px; color: #a3a3a3; font-weight: 500;
+          flex-shrink: 0;
+        }
+
+        /* ── Mobile: Full-width bottom sheet ── */
+        @media (max-width: 480px) {
+          .chatbot-trigger-btn {
+            bottom: 16px; right: 16px;
+            width: 48px; height: 48px;
+          }
+          .chatbot-trigger-icon { width: 20px; height: 20px; }
+          .chatbot-window {
+            bottom: 0; right: 0; left: 0;
+            width: 100%; max-width: 100%;
+            height: calc(100vh - 60px); max-height: calc(100vh - 60px);
+            border-radius: 16px 16px 0 0;
+            animation: chatSlideUpMobile 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+          }
+        }
+
+        /* ── Animations ── */
         @keyframes chatSlideUp {
-          from { opacity: 0; transform: translateY(20px) scale(0.95); }
+          from { opacity: 0; transform: translateY(16px) scale(0.97); }
           to { opacity: 1; transform: translateY(0) scale(1); }
         }
+        @keyframes chatSlideUpMobile {
+          from { opacity: 0; transform: translateY(100%); }
+          to { opacity: 1; transform: translateY(0); }
+        }
         @keyframes chatFadeIn {
-          from { opacity: 0; transform: translateY(6px); }
+          from { opacity: 0; transform: translateY(4px); }
           to { opacity: 1; transform: translateY(0); }
         }
         @keyframes chatPulse {
-          0%, 100% { transform: scale(1); opacity: 0.5; }
-          50% { transform: scale(1.15); opacity: 0; }
+          0%, 100% { transform: scale(1); opacity: 0.4; }
+          50% { transform: scale(1.2); opacity: 0; }
         }
         @keyframes chatDot {
-          0%, 80%, 100% { transform: scale(0.6); opacity: 0.4; }
+          0%, 80%, 100% { transform: scale(0.6); opacity: 0.3; }
           40% { transform: scale(1); opacity: 1; }
         }
         @keyframes spin {

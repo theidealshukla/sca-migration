@@ -180,7 +180,7 @@
   animation: countUp 0.6s ease-out forwards;
 }
 
-/* Gradient text — subtle monochrome */
+/* Gradient text */
 .gradient-text {
   background: linear-gradient(135deg, #525252 0%, #171717 100%);
   -webkit-background-clip: text;
@@ -213,12 +213,12 @@
   border: 1px solid rgba(255,255,255,0.9);
 }
 
-/* Solar glow — now a subtle neutral shadow */
+/* Solar glow */
 .solar-glow {
   box-shadow: 0 0 40px rgba(0, 0, 0, 0.08), 0 20px 60px rgba(0, 0, 0, 0.06);
 }
 
-/* Hero animation keyframes (referenced in inline styles) */
+/* Hero animation keyframes */
 @keyframes fadeUp {
   0% { opacity: 0; transform: translateY(30px); }
   100% { opacity: 1; transform: translateY(0); }
@@ -227,4 +227,11 @@
 @keyframes fadeIn {
   0% { opacity: 0; }
   100% { opacity: 1; }
+}
+
+/* ─── Admin Panel Mobile Responsive ─── */
+@media (max-width: 768px) {
+  table {
+    min-width: 560px;
+  }
 }
