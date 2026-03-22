@@ -1,87 +1,34 @@
 "use client";
 
-import React, { useState } from 'react'
-
+import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { ArrowRight } from 'lucide-react'
+import { ArrowRight, Loader2 } from 'lucide-react';
+import { supabase } from '@/lib/supabase';
 
-const categories = ['All', 'Solar Panels', 'Batteries', 'Water Heaters', 'Inverters']
-
-const products = [
-  // ─── Solar Panels ────────────────────────────────────────────────
-  {
-    category: 'Solar Panels',
-    name: 'LONGi Hi-MO 7 Series 545W',
-    desc: 'Bifacial HPBC technology for maximum energy yield on residential rooftops.',
-    img: 'https://images.unsplash.com/photo-1509391366360-2e959784a276?w=600&q=80&auto=format&fit=crop',
-  },
-  {
-    category: 'Solar Panels',
-    name: 'Jinko Tiger Neo N-Type 580W',
-    desc: 'Premium N-Type cells delivering industry-leading efficiency for commercial installations.',
-    img: 'https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?w=600&q=80&auto=format&fit=crop',
-  },
-  {
-    category: 'Solar Panels',
-    name: 'Waaree Navitas 530W',
-    desc: 'Made-in-India monocrystalline panels built for extreme Indian weather conditions.',
-    img: 'https://images.unsplash.com/photo-1611365892117-00ac5ef43c90?w=600&q=80&auto=format&fit=crop',
-  },
-  // ─── Batteries ────────────────────────────────────────────────────
-  {
-    category: 'Batteries',
-    name: 'Livguard LiFePO4 5.12 kWh',
-    desc: '6000+ cycle lithium iron phosphate battery with BMS and mobile monitoring.',
-    img: 'https://images.unsplash.com/photo-1593941707882-a5bba14938c7?w=600&q=80&auto=format&fit=crop',
-  },
-  {
-    category: 'Batteries',
-    name: 'Luminous NXT+ 3.5 kWh',
-    desc: 'Smart, wall-mounted storage with modular expansion up to 14 kWh.',
-    img: 'https://images.unsplash.com/photo-1620714223084-8fcacc6dfd8d?w=600&q=80&auto=format&fit=crop',
-  },
-  {
-    category: 'Batteries',
-    name: 'Exide IntelliG 10 kWh',
-    desc: 'Heavy-duty industrial-grade backup system for solar + grid hybrid setups.',
-    img: 'https://images.unsplash.com/photo-1615400610825-7f1b9d573c09?w=600&q=80&auto=format&fit=crop',
-  },
-  // ─── Water Heaters ────────────────────────────────────────────────
-  {
-    category: 'Water Heaters',
-    name: 'AquaSun ETC 200 LPD',
-    desc: 'Evacuated Tube Collector providing 24×7 hot water for households of 4-6 people.',
-    img: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80&auto=format&fit=crop',
-  },
-  {
-    category: 'Water Heaters',
-    name: 'ThermoMax FPC 300 LPD',
-    desc: 'Flat Plate Collector technology ideal for large families and commercial buildings.',
-    img: 'https://images.unsplash.com/photo-1497440001374-f26997328c1b?w=600&q=80&auto=format&fit=crop',
-  },
-  // ─── Inverters ────────────────────────────────────────────────────
-  {
-    category: 'Inverters',
-    name: 'Solis S6 Pro 5kW',
-    desc: 'Intelligent on-grid string inverter with built-in Wi-Fi monitoring and dual MPPT.',
-    img: 'https://images.unsplash.com/photo-1466611653911-95081537e5b7?w=600&q=80&auto=format&fit=crop',
-  },
-  {
-    category: 'Inverters',
-    name: 'GoodWe ET Plus Hybrid 5kW',
-    desc: 'Premium hybrid inverter supporting solar, battery, and grid simultaneously.',
-    img: 'https://images.unsplash.com/photo-1521618755572-156ae0cdd74d?w=600&q=80&auto=format&fit=crop',
-  },
-  {
-    category: 'Inverters',
-    name: 'Havells Solero 10kW',
-    desc: 'Commercial-grade three-phase inverter for large rooftop and ground-mount systems.',
-    img: 'https://images.unsplash.com/photo-1617788138017-80ad40651399?w=600&q=80&auto=format&fit=crop',
-  },
-]
+const categories = ['All', 'Solar Panels', 'Batteries', 'Water Heaters', 'Inverters'];
 
 export default function ProductsShowcase() {
-  const [active, setActive] = useState('All')
+  const [active, setActive] = useState('All');
+  const [products, setProducts] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    async function loadLiveProducts() {
+      const { data, error } = await supabase
+        .from('products')
+        .select('*')
+        .eq('is_published', true)
+        // You can add .order('order_index', { ascending: true }) if you utilize the order_index column
+        .order('created_at', { ascending: false });
+        
+      if (!error && data) {
+        setProducts(data);
+      }
+      setLoading(false);
+    }
+    loadLiveProducts();
+  }, []);
+
   const filtered = active === 'All' ? products : products.filter(p => p.category === active)
 
   return (
@@ -122,31 +69,42 @@ export default function ProductsShowcase() {
         </div>
 
         {/* Product grid — clean minimal cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-12">
-          {filtered.map((p, i) => (
-            <Link href="/contact" key={i} className="group block">
-              {/* Image */}
-              <div className="bg-night-50 rounded-2xl aspect-[4/3] mb-5 overflow-hidden relative">
-                <img
-                  src={p.img}
-                  alt={p.name + ' — available across India'}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-                  loading="lazy"
-                  decoding="async"
-                  width="600"
-                  height="450"
-                />
-                {/* Category pill on hover */}
-                <div className="absolute top-4 left-4 px-3 py-1 bg-white/90 backdrop-blur-md rounded-full text-[10px] font-bold tracking-wider uppercase text-night-900 opacity-0 -translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-500">
-                  {p.category}
+        {loading ? (
+          <div className="flex justify-center items-center h-64 w-full">
+            <Loader2 className="w-8 h-8 animate-spin text-solar-500" />
+          </div>
+        ) : filtered.length === 0 ? (
+          <div className="flex flex-col items-center justify-center p-12 text-night-400 bg-night-50 rounded-2xl border border-dashed border-night-200">
+            <p className="text-sm font-semibold">No products currently available in this category.</p>
+          </div>
+        ) : (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-12">
+            {filtered.map((p, i) => (
+              <Link href={`/products/${p.slug}`} key={i} className="group block">
+                {/* Image */}
+                <div className="bg-night-50 rounded-2xl aspect-[4/3] mb-5 overflow-hidden relative border border-night-100/50 shadow-sm">
+                  {p.image_url ? (
+                    <img
+                      src={p.image_url}
+                      alt={p.title + ' — available across India'}
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                      loading="lazy"
+                    />
+                  ) : (
+                    <div className="w-full h-full flex items-center justify-center text-night-300">No Image</div>
+                  )}
+                  {/* Category pill on hover */}
+                  <div className="absolute top-4 left-4 px-3 py-1 bg-white/90 backdrop-blur-md rounded-full text-[10px] font-bold tracking-wider uppercase text-night-900 opacity-0 -translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-500">
+                    {p.category || 'Product'}
+                  </div>
                 </div>
-              </div>
-              {/* Text */}
-              <h3 className="text-lg md:text-xl font-bold text-night-900 mb-1.5 group-hover:text-night-600 transition-colors duration-300">{p.name}</h3>
-              <p className="text-night-400 text-sm leading-relaxed">{p.desc}</p>
-            </Link>
-          ))}
-        </div>
+                {/* Text */}
+                <h3 className="text-lg md:text-xl font-bold text-night-900 mb-1.5 group-hover:text-night-600 transition-colors duration-300">{p.title}</h3>
+                <p className="text-night-400 text-sm leading-relaxed line-clamp-2">{p.description}</p>
+              </Link>
+            ))}
+          </div>
+        )}
 
         {/* Mobile CTA */}
         <div className="mt-12 md:hidden flex justify-center">

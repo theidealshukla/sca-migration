@@ -1,16 +1,49 @@
 "use client";
 
 import React, { useState } from 'react'
-import { NAP } from '../constants/contact'
-import { Phone, Mail, MapPin, Clock, ArrowRight, CheckCircle2 } from 'lucide-react'
+import { NAP } from '@/constants/contact'
+import { supabase } from '@/lib/supabase'
+import { Phone, Mail, MapPin, Clock, ArrowRight, CheckCircle2, Loader2 } from 'lucide-react'
 
 export default function ContactSection() {
   const [form, setForm] = useState({ name: '', phone: '', email: '', city: '', type: 'Residential', message: '' })
   const [submitted, setSubmitted] = useState(false)
+  const [loading, setLoading] = useState(false)
+  const [error, setError] = useState(null)
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
-    setSubmitted(true)
+    setLoading(true)
+    setError(null)
+
+    try {
+      // Decoupled direct supabase binding for secure server-side email logic routing
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name: form.name,
+          phone: form.phone,
+          email: form.email || '',
+          city: form.city,
+          type: form.type,
+          message: form.message
+        })
+      });
+
+      if (!response.ok) {
+        const errData = await response.json();
+        throw new Error(errData.error || 'Failed to submit form.');
+      }
+
+      setSubmitted(true)
+      setForm({ name: '', phone: '', email: '', city: '', type: 'Residential', message: '' })
+    } catch (err) {
+      console.error('Form submission error:', err)
+      setError('Something went wrong. Please try again or call us directly.')
+    } finally {
+      setLoading(false)
+    }
   }
 
   return (
@@ -30,7 +63,7 @@ export default function ContactSection() {
           {/* Info cards */}
           <div className="lg:col-span-2 flex flex-col gap-5">
             {[
-              { icon: Phone, label: 'Call Us', value: NAP.phone, sub: 'Mon–Sat, 9am–7pm IST', href: `tel:${NAP.phone.replace(/\\s/g, '')}` },
+              { icon: Phone, label: 'Call Us', value: NAP.phone, sub: 'Mon–Sat, 9am–7pm IST', href: `tel:${NAP.phone.replace(/\s/g, '')}` },
               { icon: Mail, label: 'Email', value: NAP.email, sub: 'We reply quickly', href: `mailto:${NAP.email}` },
               { icon: MapPin, label: 'Office', value: NAP.address.split(',')[0] + ',' + NAP.address.split(',')[1] + ',' + NAP.address.split(',')[2], sub: NAP.addressShort, href: '#' },
               { icon: Clock, label: 'Survey Hours', value: '9:00 AM – 6:00 PM', sub: 'Monday to Saturday', href: '#' },
@@ -61,8 +94,8 @@ export default function ContactSection() {
           <div className="lg:col-span-3 bg-white rounded-3xl p-8 md:p-10 border border-night-100 shadow-xl shadow-night-100/50">
             {submitted ? (
               <div className="h-full flex flex-col items-center justify-center text-center py-12">
-                <div className="w-16 h-16 bg-night-100 rounded-full flex items-center justify-center mb-5">
-                  <CheckCircle2 className="w-8 h-8 text-night-900" />
+                <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mb-5">
+                  <CheckCircle2 className="w-8 h-8 text-green-600" />
                 </div>
                 <h3 className="text-2xl font-black text-night-900 mb-2">Survey Booked!</h3>
                 <p className="text-night-500 max-w-sm">Our solar expert will call you within 2 hours to confirm your free site survey appointment.</p>
@@ -73,6 +106,13 @@ export default function ContactSection() {
             ) : (
               <form onSubmit={handleSubmit}>
                 <h3 className="text-xl font-black text-night-900 mb-6">Book Your Free Survey</h3>
+
+                {error && (
+                  <div className="mb-4 p-3 bg-red-50 border border-red-200 rounded-xl text-red-700 text-sm font-medium">
+                    {error}
+                  </div>
+                )}
+
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
                   {[
                     { id: 'name', label: 'Full Name', placeholder: 'Rajesh Sharma', type: 'text', required: true },
@@ -127,9 +167,18 @@ export default function ContactSection() {
                   />
                 </div>
 
-                <button type="submit" className="btn-primary w-full justify-center text-sm py-4">
-                  Book Free Site Survey
-                  <ArrowRight className="w-4 h-4" />
+                <button type="submit" disabled={loading} className="btn-primary w-full justify-center text-sm py-4 disabled:opacity-70 disabled:cursor-not-allowed">
+                  {loading ? (
+                    <>
+                      <Loader2 className="w-4 h-4 animate-spin" />
+                      Submitting...
+                    </>
+                  ) : (
+                    <>
+                      Book Free Site Survey
+                      <ArrowRight className="w-4 h-4" />
+                    </>
+                  )}
                 </button>
                 <p className="text-xs text-night-400 text-center mt-3">No spam. We'll only call to confirm your appointment.</p>
               </form>

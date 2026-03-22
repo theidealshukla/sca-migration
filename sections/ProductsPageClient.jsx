@@ -1,30 +1,37 @@
 "use client";
 
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 
 import Link from 'next/link';
 
 import Breadcrumb from '../components/Breadcrumb'
-import { ArrowRight, Filter } from 'lucide-react'
+import { ArrowRight, Filter, Loader2 } from 'lucide-react'
+import { supabase } from '@/lib/supabase';
 
-const allProducts = [
-  // ─── Solar Panels ─────────────────────────────────
-  { cat: 'Solar Panels', brand: 'TOPCon Bifacial', name: '590W Solar Panel', desc: 'High-efficiency double-sided solar panel ~₹14.5/watt.', badge: 'Best Seller', img: 'https://images.unsplash.com/photo-1509391366360-2e959784a276?w=600&q=80&auto=format&fit=crop' },
-  { cat: 'Solar Panels', brand: 'TOPCon Bifacial', name: '595W Solar Panel', desc: 'Maximum output Non-DCR bifacial panel ~₹14.5/watt.', badge: 'Premium', img: 'https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?w=600&q=80&auto=format&fit=crop' },
-  { cat: 'Solar Panels', brand: 'TOPCon Bifacial', name: 'Commercial 595W', desc: 'Commercial-grade bifacial panels for large projects.', badge: 'High Yield', img: 'https://images.unsplash.com/photo-1497440001374-f26997328c1b?w=600&q=80&auto=format&fit=crop' },
-  // ─── Inverters ────────────────────────────────────
-  { cat: 'Inverters', brand: 'GoodWe', name: 'DNS G4 Series', desc: '3.3kW – 10kW single-phase grid-tie inverter.', badge: 'Popular', img: 'https://images.unsplash.com/photo-1548615338-78da47f6314c?w=600&q=80&auto=format&fit=crop' },
-  { cat: 'Inverters', brand: 'GoodWe', name: 'MS G3 Series', desc: 'High-efficiency inverter for residential use.', badge: 'Reliable', img: 'https://images.unsplash.com/photo-1583569106093-9c5950ee08cb?w=600&q=80&auto=format&fit=crop' },
-  // ─── Complete Kits ────────────────────────────────
-  { cat: 'Kits', brand: 'SCA Tech', name: 'Residential Solar System', desc: 'Complete on-grid solar system for homes. Includes GoodWe inverter and TOPCon panels.', badge: 'Complete', img: 'https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?w=600&q=80&auto=format&fit=crop' },
-  { cat: 'Kits', brand: 'SCA Tech', name: 'Commercial Solar System', desc: 'Full custom design solar system for commercial setups. Complete end-to-end installation.', badge: 'Industrial', img: 'https://images.unsplash.com/photo-1497440001374-f26997328c1b?w=600&q=80&auto=format&fit=crop' },
-]
-
-const cats = ['All', 'Solar Panels', 'Inverters', 'Kits']
+const cats = ['All', 'Solar Panels', 'Inverters', 'Kits', 'Batteries', 'Water Heaters'];
 
 export default function ProductsPageClient() {
   const [active, setActive] = useState('All')
-  const filtered = active === 'All' ? allProducts : allProducts.filter(p => p.cat === active)
+  const [allProducts, setAllProducts] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    async function loadProducts() {
+      const { data, error } = await supabase
+        .from('products')
+        .select('*')
+        .eq('is_published', true)
+        .order('created_at', { ascending: false });
+        
+      if (!error && data) {
+        setAllProducts(data);
+      }
+      setLoading(false);
+    }
+    loadProducts();
+  }, []);
+
+  const filtered = active === 'All' ? allProducts : allProducts.filter(p => p.category === active)
 
   return (
     <div className="pt-20">
@@ -59,21 +66,35 @@ export default function ProductsPageClient() {
           ))}
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-          {filtered.map((p, i) => (
-            <Link href="/contact" key={i} className="bg-white rounded-2xl overflow-hidden border border-night-100 card-hover group block">
-              <div className="relative h-48 overflow-hidden bg-night-50">
-                <img src={p.img} alt={`${p.name} — available across India`} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" loading="lazy" decoding="async" width="600" height="400" />
-                <span className="absolute top-3 left-3 px-2.5 py-1 rounded-full bg-night-900 text-white text-xs font-bold">{p.badge}</span>
-              </div>
-              <div className="p-5">
-                <p className="text-xs font-bold text-night-400 tracking-wider uppercase mb-1">{p.brand}</p>
-                <h3 className="font-bold text-night-900 text-lg mb-2">{p.name}</h3>
-                <p className="text-sm text-night-500 leading-relaxed">{p.desc}</p>
-              </div>
-            </Link>
-          ))}
-        </div>
+        {loading ? (
+          <div className="flex justify-center items-center h-[300px] w-full bg-[#FAFAFA] rounded-2xl border border-dashed border-[#EBEBEB]">
+            <Loader2 className="w-8 h-8 animate-spin text-solar-500" />
+          </div>
+        ) : filtered.length === 0 ? (
+          <div className="flex flex-col items-center justify-center h-[300px] w-full text-night-400 bg-[#FAFAFA] rounded-2xl border border-dashed border-[#EBEBEB]">
+            <p className="text-sm font-semibold">No products found for this category.</p>
+          </div>
+        ) : (
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+            {filtered.map((p, i) => (
+              <Link href={`/products/${p.slug || ''}`} key={p.id || i} className="bg-white rounded-2xl overflow-hidden border border-night-100 card-hover group block">
+                <div className="relative h-48 overflow-hidden bg-night-50">
+                  {p.image_url ? (
+                    <img src={p.image_url} alt={`${p.title} — available across India`} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" loading="lazy" />
+                  ) : (
+                    <div className="w-full h-full flex items-center justify-center text-night-300 text-sm">No Image</div>
+                  )}
+                  {p.is_published && <span className="absolute top-3 right-3 px-2.5 py-1 rounded-full bg-emerald-50 text-emerald-600 bg-opacity-90 text-[10px] uppercase tracking-wider font-bold">Live</span>}
+                  {p.category && <span className="absolute top-3 left-3 px-2.5 py-1 rounded-full bg-night-900 text-white text-[10px] tracking-wider uppercase font-bold shadow-md">{p.category}</span>}
+                </div>
+                <div className="p-5">
+                  <h3 className="font-bold text-night-900 text-lg mb-2 line-clamp-1">{p.title}</h3>
+                  <p className="text-sm text-night-500 leading-relaxed line-clamp-2">{p.description}</p>
+                </div>
+              </Link>
+            ))}
+          </div>
+        )}
 
         <div className="mt-16 bg-night-950 rounded-3xl p-10 text-center">
           <p className="text-white font-black text-3xl md:text-4xl mb-3">Can&apos;t find what you need?</p>

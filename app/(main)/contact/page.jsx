@@ -6,9 +6,9 @@ export const metadata = {
 
 import React from 'react'
 
-import Breadcrumb from '../../components/Breadcrumb'
+import Breadcrumb from '@/components/Breadcrumb'
 import { MapPin, MessageCircle } from 'lucide-react'
-import ContactSection from '../../sections/ContactSection'
+import ContactSection from '@/sections/ContactSection'
 
 export default function Contact() {
   return (

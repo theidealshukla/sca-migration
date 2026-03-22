@@ -130,6 +130,7 @@ export default function Footer() {
           <a href="#" className="text-night-600 text-xs hover:text-night-400 transition-colors">Privacy Policy</a>
           <a href="#" className="text-night-600 text-xs hover:text-night-400 transition-colors">Terms of Service</a>
           <a href="/sitemap.xml" className="text-night-600 text-xs hover:text-night-400 transition-colors">Sitemap</a>
+          <Link href="/admin" className="text-night-600 text-xs hover:text-night-400 transition-colors">Admin Panel</Link>
         </div>
       </div>
 

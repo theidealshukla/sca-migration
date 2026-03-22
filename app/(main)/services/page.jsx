@@ -8,7 +8,7 @@ import React from 'react'
 
 import Link from 'next/link';
 
-import Breadcrumb from '../../components/Breadcrumb'
+import Breadcrumb from '@/components/Breadcrumb'
 import { Home, Building2, Factory, Wrench, ShieldCheck, Zap, ArrowRight, CheckCircle2 } from 'lucide-react'
 
 const services = [

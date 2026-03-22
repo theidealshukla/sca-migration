@@ -4,7 +4,7 @@ export const metadata = {
   alternates: { canonical: 'https://scatechsolar.com/products' },
 };
 
-import ProductsPageClient from '../../sections/ProductsPageClient';
+import ProductsPageClient from '@/sections/ProductsPageClient';
 
 export default function Page() {
   return <ProductsPageClient />;

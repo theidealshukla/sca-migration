@@ -1,34 +1,8 @@
 "use client";
 
-import React, { useState, useEffect, useRef } from 'react'
-
-const services = [
-  {
-    id: '01',
-    title: 'Solar Panel Installation',
-    desc: 'Complete rooftop solar for homes and businesses. Net metering, subsidy processing, DISCOM approvals — all handled by us.',
-  },
-  {
-    id: '02',
-    title: 'Free Energy Consultation',
-    desc: 'Our experts visit your site, assess your roof, check your bills and give you an exact quote — completely free of charge.',
-  },
-  {
-    id: '03',
-    title: 'Installation Service',
-    desc: 'From site survey to commissioning in just 7 days. Our streamlined process gets your system live fast and hassle-free.',
-  },
-  {
-    id: '04',
-    title: 'Monitoring & Tracking',
-    desc: 'Real-time remote monitoring, quarterly performance reports, and 24/7 fault alerts through our proprietary dashboard.',
-  },
-  {
-    id: '05',
-    title: 'Commercial Solar Projects',
-    desc: 'Large-scale ground-mount, rooftop and carport solar for factories, warehouses and industrial parks across India.',
-  },
-]
+import React, { useState, useEffect, useRef } from 'react';
+import { supabase } from '@/lib/supabase';
+import { Loader2 } from 'lucide-react';
 
 /* ---------- SVG illustrations per service ---------- */
 const svgIllustrations = [
@@ -188,24 +162,44 @@ const svgIllustrations = [
 ]
 
 export default function ServicesOverview() {
-  const [active, setActive] = useState(0)
-  const [isVisible, setIsVisible] = useState(false)
-  const sectionRef = useRef(null)
+  const [active, setActive] = useState(0);
+  const [isVisible, setIsVisible] = useState(false);
+  const [servicesData, setServicesData] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const sectionRef = useRef(null);
+
+  useEffect(() => {
+    async function loadServices() {
+      const { data, error } = await supabase
+        .from('services')
+        .select('*')
+        .eq('is_published', true)
+        .order('created_at', { ascending: true });
+        
+      if (!error && data) {
+        setServicesData(data);
+      }
+      setLoading(false);
+    }
+    loadServices();
+  }, []);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
-          setIsVisible(true)
+          setIsVisible(true);
         }
       },
       { threshold: 0.2 }
-    )
-    if (sectionRef.current) observer.observe(sectionRef.current)
-    return () => observer.disconnect()
-  }, [])
+    );
+    if (sectionRef.current) observer.observe(sectionRef.current);
+    return () => observer.disconnect();
+  }, []);
 
-  const SvgComponent = svgIllustrations[active]
+  // Gracefully fallback or recycle SVGs across the dataset length using a Modulo loop
+  const currentSvgIndex = active % (svgIllustrations.length || 1);
+  const SvgComponent = svgIllustrations[currentSvgIndex] || svgIllustrations[0];
 
   return (
     <section ref={sectionRef} className="py-24 md:py-32 bg-white overflow-hidden">
@@ -240,53 +234,65 @@ export default function ServicesOverview() {
 
           {/* Right — Service list */}
           <div className="flex flex-col">
-            {services.map((svc, i) => (
-              <button
-                key={svc.id}
-                onClick={() => setActive(i)}
-                className={`group w-full text-left border-t border-night-100 transition-all duration-500 ${
-                  i === services.length - 1 ? 'border-b' : ''
-                }`}
-              >
-                <div className={`flex items-baseline gap-5 md:gap-8 py-5 md:py-6 transition-all duration-500 ${
-                  i === active ? 'opacity-100' : 'opacity-40 hover:opacity-70'
-                }`}>
-                  {/* Number */}
-                  <span className="text-sm font-mono text-night-400 flex-shrink-0 w-8">
-                    /{svc.id}
-                  </span>
-                  {/* Title + description */}
-                  <div className="flex-1">
-                    <p className={`font-semibold transition-all duration-500 ${
-                      i === active ? 'text-night-900 text-lg md:text-xl' : 'text-night-600 text-base md:text-lg'
-                    }`}>
-                      {svc.title}
-                    </p>
-                    {/* Collapsible description */}
-                    <div
-                      className={`overflow-hidden transition-all duration-500 ease-in-out ${
-                        i === active ? 'max-h-[600px] opacity-100 mt-2' : 'max-h-0 opacity-0'
-                      }`}
-                    >
-                      <p className="text-sm text-night-400 leading-relaxed pr-4">{svc.desc}</p>
-                      
-                      {/* Mobile SVG Illustration */}
-                      {i === active && (
-                        <div className="lg:hidden mt-6">
-                          <div 
-                            key={`mobile-svg-${active}`}
-                            className="flex justify-center svg-illustration is-visible text-night-500"
-                            style={{ height: '220px', width: '100%' }}
-                          >
-                            <SvgComponent />
+            {loading ? (
+              <div className="flex justify-center items-center py-20 text-night-400">
+                <Loader2 className="w-8 h-8 animate-spin text-solar-500" />
+              </div>
+            ) : servicesData.length === 0 ? (
+              <div className="flex justify-center items-center py-10 text-night-400 text-sm font-semibold border-t border-night-100">
+                Services currently unavailable.
+              </div>
+            ) : (
+              servicesData.map((svc, i) => (
+                <button
+                  key={svc.id}
+                  onClick={() => setActive(i)}
+                  className={`group w-full text-left border-t border-night-100 transition-all duration-500 ${
+                    i === servicesData.length - 1 ? 'border-b' : ''
+                  }`}
+                >
+                  <div className={`flex items-baseline gap-5 md:gap-8 py-5 md:py-6 transition-all duration-500 ${
+                    i === active ? 'opacity-100' : 'opacity-40 hover:opacity-70'
+                  }`}>
+                    {/* Number Sequence Generator */}
+                    <span className="text-sm font-mono text-night-400 flex-shrink-0 w-8">
+                      /{String(i + 1).padStart(2, '0')}
+                    </span>
+                    {/* Title + description */}
+                    <div className="flex-1">
+                      <p className={`font-semibold transition-all duration-500 ${
+                        i === active ? 'text-night-900 text-lg md:text-xl' : 'text-night-600 text-base md:text-lg'
+                      }`}>
+                        {svc.title}
+                      </p>
+                      {/* Collapsible description */}
+                      <div
+                        className={`overflow-hidden transition-all duration-500 ease-in-out ${
+                          i === active ? 'max-h-[600px] opacity-100 mt-2' : 'max-h-0 opacity-0'
+                        }`}
+                      >
+                        <p className="text-sm text-night-400 leading-relaxed pr-4">
+                          {svc.short_description || svc.description}
+                        </p>
+                        
+                        {/* Mobile SVG Illustration */}
+                        {i === active && (
+                          <div className="lg:hidden mt-6">
+                            <div 
+                              key={`mobile-svg-${active}`}
+                              className="flex justify-center svg-illustration is-visible text-night-500"
+                              style={{ height: '220px', width: '100%' }}
+                            >
+                              <SvgComponent />
+                            </div>
                           </div>
-                        </div>
-                      )}
+                        )}
+                      </div>
                     </div>
                   </div>
-                </div>
-              </button>
-            ))}
+                </button>
+              ))
+            )}
           </div>
         </div>
       </div>

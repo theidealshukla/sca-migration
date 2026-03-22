@@ -8,9 +8,9 @@ import React from 'react'
 
 import Link from 'next/link';
 
-import Breadcrumb from '../../components/Breadcrumb'
+import Breadcrumb from '@/components/Breadcrumb'
 import { ArrowRight, Sun, Users, Award, Leaf } from 'lucide-react'
-import { STATS } from '../../constants/stats';
+import { STATS } from '@/constants/stats';
 const team = [
   { name: 'Vikram Suryavanshi', role: 'Founder & CEO', img: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&q=80&auto=format', bio: '15 years in renewable energy. IIT Indore alum.' },
   { name: 'Neha Jain', role: 'Head of Engineering', img: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&q=80&auto=format', bio: 'Ex-NTPC, leads all technical installations.' },
