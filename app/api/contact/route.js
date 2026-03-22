@@ -137,6 +137,18 @@ export async function POST(req) {
       }
     }
 
+    // 5. Push lead to Google Sheets (additive — does not affect existing flow)
+    try {
+      await fetch('https://script.google.com/macros/s/AKfycbyPbhyqkiZBU4-g70AC9uOYR-aixp0cDQZp5PkeLo8ZkqxTgSwritVw6KC2_wv2DU9w/exec', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ name, phone, email, city, type, message }),
+      });
+    } catch (sheetError) {
+      console.error('Failed to push to Google Sheets:', sheetError);
+      // Silently fail — don't break the main flow
+    }
+
     return NextResponse.json({ success: true, lead });
 
   } catch (error) {
