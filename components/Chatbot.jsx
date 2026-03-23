@@ -308,7 +308,7 @@ export default function Chatbot() {
           flex-shrink: 0;
         }
 
-        /* ── Mobile: Full-width bottom sheet ── */
+        /* ── Mobile: Compact floating dialog ── */
         @media (max-width: 480px) {
           .chatbot-trigger-btn {
             bottom: 16px; right: 16px;
@@ -316,11 +316,11 @@ export default function Chatbot() {
           }
           .chatbot-trigger-icon { width: 20px; height: 20px; }
           .chatbot-window {
-            bottom: 0; right: 0; left: 0;
-            width: 100%; max-width: 100%;
-            height: calc(100vh - 60px); max-height: calc(100vh - 60px);
-            border-radius: 16px 16px 0 0;
-            animation: chatSlideUpMobile 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            bottom: 74px; right: 12px; left: auto;
+            width: calc(100vw - 24px); max-width: 340px;
+            height: 420px; max-height: calc(100vh - 100px);
+            border-radius: 16px;
+            animation: chatSlideUp 0.3s cubic-bezier(0.16, 1, 0.3, 1);
           }
         }
 
