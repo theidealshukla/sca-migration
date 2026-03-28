@@ -6,7 +6,7 @@ import { usePathname, useRouter } from 'next/navigation';
 import { supabase, logSystemActivity } from '@/lib/supabase';
 import {
   LayoutDashboard, Users, LogOut, ChevronLeft, ChevronRight,
-  SunDim, Shield, Menu, X, Bell, Search as SearchIcon, Settings, Globe,
+  Shield, Menu, X, Bell, Search as SearchIcon, Settings, Globe,
   LayoutTemplate
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -146,8 +146,8 @@ export default function AdminLayout({ children }) {
           <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-solar-500/20 to-transparent mix-blend-overlay"></div>
           
           <div className="relative z-10 max-w-lg text-white">
-            <div className="inline-flex items-center justify-center w-16 h-16 bg-white/10 backdrop-blur-md rounded-2xl mb-8 border border-white/20">
-              <SunDim className="w-8 h-8 text-white" />
+            <div className="inline-flex items-center justify-center mb-8">
+              <img src="/sca-logo.png" alt="SCA Tech Solar" className="h-[70px] w-auto object-contain" />
             </div>
             <h1 className="text-4xl lg:text-5xl font-bold tracking-tight mb-6">
               SCA Tech Solar<br />
@@ -163,8 +163,8 @@ export default function AdminLayout({ children }) {
         <div className="w-full lg:w-[500px] xl:w-[600px] flex items-center justify-center p-8 bg-white">
           <div className="w-full max-w-[380px]">
             <div className="mb-10 text-center lg:text-left">
-              <div className="lg:hidden inline-flex items-center justify-center w-12 h-12 bg-night-950 rounded-xl mb-6 shadow-lg">
-                <SunDim className="w-6 h-6 text-white" />
+              <div className="lg:hidden inline-flex items-center justify-center mb-6">
+                <img src="/sca-logo.png" alt="SCA Tech Solar" className="h-[44px] w-auto object-contain" />
               </div>
               <h2 className="text-2xl font-bold text-night-900 tracking-tight">Log in to your account</h2>
               <p className="text-night-500 text-sm mt-2">Enter your admin or member credentials to proceed.</p>
@@ -239,8 +239,8 @@ export default function AdminLayout({ children }) {
         {/* Brand Area */}
         <div className="h-16 flex items-center px-5 border-b border-[#EBEBEB] shrink-0 justify-between">
           <div className="flex items-center gap-3 overflow-hidden">
-            <div className="w-8 h-8 rounded-lg bg-night-950 flex items-center justify-center shrink-0 shadow-sm">
-              <SunDim className="w-4 h-4 text-white" />
+            <div className="w-8 h-8 rounded-lg flex items-center justify-center shrink-0">
+              <img src="/sca-logo.png" alt="SCA Tech" className="w-[35px] h-[35px] object-contain" />
             </div>
             {!collapsed && <span className="font-semibold text-[15px] tracking-tight whitespace-nowrap">SCA CRM Workspace</span>}
           </div>

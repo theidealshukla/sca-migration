@@ -5,7 +5,7 @@ import { NAP } from '../constants/contact'
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { Sun, Phone, Mail, MapPin, Instagram, ArrowUpRight } from 'lucide-react'
+import { Phone, Mail, MapPin, Instagram, ArrowUpRight } from 'lucide-react'
 
 const footerLinks = {
   Company: [
@@ -43,14 +43,12 @@ export default function Footer() {
         <div className="grid grid-cols-1 lg:grid-cols-5 gap-12">
           {/* Brand col */}
           <div className="lg:col-span-2">
-            <Link href="/" className="flex items-center gap-2.5 mb-6">
-              <div className="w-10 h-10 bg-white/10 rounded-xl flex items-center justify-center border border-white/10">
-                <Sun className="w-5 h-5 text-white" strokeWidth={2.5} />
-              </div>
-              <div>
-                <span className="font-display font-black text-2xl tracking-tight leading-none block">SCA <span className="text-white/40">TECH</span></span>
-                <span className="text-[9px] font-semibold tracking-[0.18em] uppercase text-white/30">Solar Solutions · India</span>
-              </div>
+            <Link href="/" className="flex items-center mb-6">
+              <img 
+                src="/sca-logo.png" 
+                alt="SCA Tech Solar" 
+                className="h-[53px] w-auto object-contain"
+              />
             </Link>
             <p className="text-night-400 text-sm leading-relaxed mb-6 max-w-xs">
               Powering India's clean energy future since 2008. Supplier of GoodWe inverters and TOPCon bifacial panels.

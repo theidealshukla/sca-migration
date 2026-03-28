@@ -5,7 +5,7 @@ import { NAP } from '../constants/contact';
 import React, { useState, useEffect } from 'react'
 
 import Link from 'next/link';
-import { Sun, Phone, ArrowRight } from 'lucide-react'
+import { Phone, ArrowRight } from 'lucide-react'
 
 const navLinks = [
   { label: 'Home', path: '/' },
@@ -52,24 +52,14 @@ export default function Navbar() {
         }`}>
         <div className="max-w-7xl mx-auto px-5 md:px-8 flex items-center justify-between">
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-2.5 group relative z-[60]">
-            <div className={`w-9 h-9 rounded-xl flex items-center justify-center transition-all duration-300 ${
-              menuOpen ? 'bg-white/20 backdrop-blur-sm' : transparent ? 'bg-white/20 backdrop-blur-sm' : 'bg-night-900'
-            }`}>
-              <Sun className={`w-5 h-5 transition-colors duration-300 ${
-                menuOpen ? 'text-white' : transparent ? 'text-white' : 'text-white'
-              }`} strokeWidth={2.5} />
-            </div>
-            <div>
-              <span className={`font-display font-black text-xl tracking-tight leading-none block transition-colors duration-300 ${
-                menuOpen ? 'text-white' : transparent ? 'text-white' : 'text-night-900'
-              }`}>
-                SCA <span className={`${menuOpen ? 'text-white/70' : transparent ? 'text-white/70' : 'text-night-400'}`}>TECH</span>
-              </span>
-              <span className={`text-[9px] font-semibold tracking-[0.18em] uppercase leading-none transition-colors duration-300 ${
-                menuOpen ? 'text-white/50' : transparent ? 'text-white/50' : 'text-night-400'
-              }`}>Solar Solutions</span>
-            </div>
+          <Link href="/" className="flex items-center group relative z-[60]">
+            <img 
+              src="/sca-logo.png" 
+              alt="SCA Tech Solar" 
+              className={`h-[44px] w-auto object-contain transition-all duration-300 ${
+                menuOpen || transparent ? 'brightness-[2]' : ''
+              }`}
+            />
           </Link>
 
           {/* Desktop Nav */}
