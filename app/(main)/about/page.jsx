@@ -140,6 +140,63 @@ export default function About() {
         </div>
       </div>
 
+      {/* Profit Engine Section */}
+      <div className="py-24 bg-night-950 text-white">
+        <div className="max-w-7xl mx-auto px-5 md:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            <div className="order-2 lg:order-1 relative group">
+              <div className="absolute inset-0 bg-gradient-to-tr from-solar-500/20 to-transparent rounded-3xl transform -translate-x-3 translate-y-3 md:-translate-x-4 md:translate-y-4 transition-transform duration-500 group-hover:-translate-x-2 group-hover:translate-y-2"></div>
+              <img 
+                src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80&auto=format" 
+                alt="Solar as a Profit Engine" 
+                className="relative rounded-3xl w-full h-[500px] md:h-[600px] object-cover border border-night-800/50 grayscale-[20%] group-hover:grayscale-0 transition-all duration-700" 
+              />
+            </div>
+            <div className="order-1 lg:order-2">
+              <p className="section-tag text-solar-400 mb-4 tracking-widest uppercase text-xs font-bold">Our Philosophy</p>
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-black mb-8 leading-tight">
+                We Treat Solar as a Profit Engine, <span className="font-light italic text-solar-400">Not Just Technology.</span>
+              </h2>
+              <p className="text-night-200 text-lg leading-relaxed mb-10">
+                Solar is more than just panels on a roof — it’s a powerful financial tool designed to multiply your savings year after year. Our core mission is to deliver the absolute best ROI from every solar system we build.
+              </p>
+              
+              <div className="space-y-8">
+                <div className="flex items-start gap-5">
+                  <div className="w-12 h-12 rounded-2xl bg-night-900 border border-night-800 flex items-center justify-center flex-shrink-0 shadow-inner">
+                    <span className="text-solar-400 font-bold">01</span>
+                  </div>
+                  <div>
+                    <h3 className="text-xl font-bold mb-2">Compounded Cost Savings</h3>
+                    <p className="text-night-400 leading-relaxed">We utilize top-tier tech and meticulous long-term planning to ensure minimal maintenance, maximizing your ongoing, compounded financial returns.</p>
+                  </div>
+                </div>
+                
+                <div className="flex items-start gap-5">
+                  <div className="w-12 h-12 rounded-2xl bg-night-900 border border-night-800 flex items-center justify-center flex-shrink-0 shadow-inner">
+                    <span className="text-solar-400 font-bold">02</span>
+                  </div>
+                  <div>
+                    <h3 className="text-xl font-bold mb-2">Uncovering Hidden Value</h3>
+                    <p className="text-night-400 leading-relaxed">We go far beyond standard installations. Our energy experts analyze your electricity bills line by line to uncover and capture hidden savings.</p>
+                  </div>
+                </div>
+                
+                <div className="flex items-start gap-5">
+                  <div className="w-12 h-12 rounded-2xl bg-night-900 border border-night-800 flex items-center justify-center flex-shrink-0 shadow-inner">
+                    <span className="text-solar-400 font-bold">03</span>
+                  </div>
+                  <div>
+                    <h3 className="text-xl font-bold mb-2">The Ultimate Outcome</h3>
+                    <p className="text-night-400 leading-relaxed">A comprehensive, future-proof savings model that drastically boosts your bottom line, protects against rising grid costs, and ensures long-term sustainability.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
       {/* Team */}
       <div className="py-24 bg-night-50">
         <div className="max-w-7xl mx-auto px-5 md:px-8">

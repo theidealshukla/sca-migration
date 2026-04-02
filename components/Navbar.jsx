@@ -56,9 +56,7 @@ export default function Navbar() {
             <img 
               src="/sca-logo.png" 
               alt="SCA Tech Solar" 
-              className={`h-[44px] w-auto object-contain transition-all duration-300 ${
-                menuOpen || transparent ? 'brightness-[2]' : ''
-              }`}
+              className="h-[44px] w-auto object-contain"
             />
           </Link>
 
