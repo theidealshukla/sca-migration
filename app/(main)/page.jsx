@@ -16,6 +16,7 @@ import React from 'react'
 import Hero from '../../sections/Hero'
 import StatsBar from '../../sections/StatsBar'
 import AboutVision from '../../sections/AboutVision'
+import BrandsMarquee from '../../sections/BrandsMarquee'
 import ServicesOverview from '../../sections/ServicesOverview'
 import WhyChooseUs from '../../sections/WhyChooseUs'
 import OurProcess from '../../sections/OurProcess'
@@ -85,6 +86,7 @@ export default function Home() {
       <Hero />
       <StatsBar />
       <AboutVision />
+      <BrandsMarquee />
       <ServicesOverview />
       <WhyChooseUs />
       <OurProcess />
