@@ -56,7 +56,7 @@ export default function Navbar() {
             <img
               src="/logos/sca-logo.png"
               alt="SCA Tech Solar"
-              className="h-[35px] w-auto object-contain"
+              className="h-[56px] w-auto object-contain"
             />
           </Link>
 

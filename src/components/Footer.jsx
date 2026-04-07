@@ -47,7 +47,7 @@ export default function Footer() {
               <img 
                 src="/logos/sca-logo.png" 
                 alt="SCA Tech Solar" 
-                className="h-[60px] w-auto object-contain"
+                className="h-[90px] w-auto object-contain"
               />
             </Link>
             <p className="text-night-400 text-sm leading-relaxed mb-6 max-w-xs">
