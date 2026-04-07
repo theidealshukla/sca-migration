@@ -15,7 +15,7 @@ import { Zap, IndianRupee, Sun, Leaf, ArrowRight, Info, TrendingUp, Calendar, Ba
  *    System Size (kWp)  = Annual Units ÷ 1460          [4 PSH/day × 365 days]
  *
  *  1460 kWh/kWp/year = 4 peak sun hours/day × 365 days
- *  This is the standard conservative yield used across India (MNRE / TERI)
+ *  This is the standard conservative yield used (MPWZ / TERI)
  *  and accounts for real-world losses (soiling, temp, inverter, wiring ~20%).
  *
  *  ₹8/unit is the standard blended residential tariff used for Indian solar
@@ -24,7 +24,7 @@ import { Zap, IndianRupee, Sun, Leaf, ArrowRight, Info, TrendingUp, Calendar, Ba
  *
  *  OTHER REAL-WORLD CONSTANTS
  *
- *  Subsidy  : PM Surya Ghar Muft Bijli Yojana (MNRE, residential only)
+ *  Subsidy  : PM Surya Ghar Muft Bijli Yojana (residential only)
  *             1 kW → ₹30,000  |  2 kW → ₹60,000  |  3 kW+ → ₹78,000
  *  Cost     : ₹60,000/kWp residential  |  ₹55,000/kWp commercial (2024-25 market)
  *  Grid EF  : 0.82 tCO₂/MWh (CEA National Grid Emission Factor 2023-24)
@@ -61,7 +61,7 @@ const SQFT_PER_KWP = 100
 
 
 /*
- * PM Surya Ghar subsidy slabs (residential on-grid, MNRE 2024)
+ * PM Surya Ghar subsidy slabs (residential on-grid, MPWZ)
  *   ≤ 1 kW  → ₹30,000
  *   ≤ 2 kW  → ₹60,000
  *   3 kW+   → ₹78,000  (capped — subsidy doesn't scale beyond 3 kW)
@@ -332,7 +332,7 @@ export default function SolarCalculator() {
             <div className="mt-4 p-3 rounded-2xl bg-white/5 border border-white/10 flex items-start gap-2">
               <Info className="w-3.5 h-3.5 text-white/30 flex-shrink-0 mt-0.5" />
               <p className="text-white/40 text-[10px] leading-relaxed">
-                System size = (Bill × 12) ÷ ₹8/unit ÷ 1,460 kWh/kWp — standard MNRE sizing formula.
+                System size = (Bill × 12) ÷ ₹8/unit ÷ 1,460 kWh/kWp — standard MPWZ sizing formula.
                 Assumes 4 peak sun hours/day, 20% system losses, ₹{COST_PER_KWP_RES.toLocaleString()}/kWp installed cost.
                 Actual results vary by location and roof quality.
               </p>

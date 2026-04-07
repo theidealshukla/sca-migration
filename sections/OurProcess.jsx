@@ -20,7 +20,7 @@ const processSteps = [
   {
     num: '03',
     title: 'Approvals & Paperwork',
-    desc: 'We handle all documentation—from MPEZ net metering approvals to processing your PM Surya Ghar subsidy.',
+    desc: 'We handle all documentation—from MPWZ net metering approvals to processing your PM Surya Ghar subsidy.',
     icon: ClipboardCheck,
   },
   {

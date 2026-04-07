@@ -20,11 +20,11 @@ const faqs = [
   },
   {
     q: 'How do I apply for the PM Surya Ghar subsidy?',
-    a: 'SCA Tech handles the entire subsidy process at no extra cost. We register you on the PM Surya Ghar portal, coordinate with your local DISCOM for net meter, and ensure the subsidy is credited directly to your bank account.',
+    a: 'SCA Tech handles the entire subsidy process at no extra cost. We register you on the PM Surya Ghar portal, coordinate with your local MPWZ for net meter, and ensure the subsidy is credited directly to your bank account.',
   },
   {
     q: 'How long does installation take?',
-    a: 'Site survey on day 1. Equipment delivery on day 2–3. Physical installation takes 1–2 days. DISCOM net meter application is filed simultaneously and usually approved within 15–30 days.',
+    a: 'Site survey on day 1. Equipment delivery on day 2–3. Physical installation takes 1–2 days. MPWZ net meter application is filed simultaneously and usually approved within 15–30 days.',
   },
   {
     q: 'What maintenance is required for solar panels?',
@@ -32,7 +32,7 @@ const faqs = [
   },
   {
     q: 'What warranties do you provide?',
-    a: 'We offer: 25-year linear performance warranty on Tier 1 panels, 10-year product warranty on panels, 5–10 year warranty on inverters, and 1-year installation workmanship warranty from SCA Tech with ongoing support.',
+    a: 'We offer: 25-year linear performance warranty on Tier 1 and Tier 2 panels, 10-year product warranty on panels, 5–10 year warranty on inverters, and 1-year installation workmanship warranty from SCA Tech with ongoing support.',
   },
   {
     q: 'Can I get solar installed on a rented property?',

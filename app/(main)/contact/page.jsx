@@ -1,6 +1,6 @@
 export const metadata = {
-  title: 'Contact SCA Tech Solar | Free Solar Survey Across India',
-  description: 'Book a free rooftop solar survey anywhere in India. Call +91 98260 35454 or fill the form. Serving 20+ cities nationwide.',
+  title: 'Contact SCA Tech Solar | Free Solar Survey',
+  description: 'Book a free rooftop solar survey. Call +91 98260 35454 or fill the form.',
   alternates: { canonical: 'https://scatechsolar.com/contact' },
 };
 
@@ -16,7 +16,7 @@ export default function Contact() {
       
       <Breadcrumb items={[{ label: 'Home', path: '/' }, { label: 'Contact', path: '/contact' }]} />
       {/* Page Hero */}
-      <div className="py-20 md:py-28 bg-night-950 relative overflow-hidden">
+      <div className="py-8 md:py-12 bg-night-950 relative overflow-hidden">
         <div className="absolute inset-0 opacity-10">
           <img 
             src="https://images.unsplash.com/photo-1466611653911-95081537e5b7?w=1200&q=80&auto=format&fit=crop" 
@@ -36,11 +36,11 @@ export default function Contact() {
         </div>
         <div className="relative max-w-7xl mx-auto px-5 md:px-8">
           <p className="section-tag text-white/40">Get In Touch</p>
-          <h1 className="font-black text-white leading-tight mt-2 mb-5" style={{ fontSize: 'clamp(2.5rem, 6vw, 6rem)', letterSpacing: '-0.03em' }}>
-            Contact SCA Tech Solar<br /><span className="font-light text-white/50">Pan India.</span>
+          <h1 className="font-black text-white leading-tight mt-2 mb-3" style={{ fontSize: 'clamp(2rem, 4.5vw, 4.5rem)', letterSpacing: '-0.03em' }}>
+            Contact SCA Tech Solar.
           </h1>
-          <p className="text-night-400 max-w-lg text-lg leading-relaxed">
-            Our engineering teams are available across India, headquartered in Indore. We're ready to dispatch for a free site assessment and provide the most accurate solar panel pricing for your location.
+          <p className="text-night-400 max-w-lg text-base md:text-lg leading-relaxed">
+            Our engineering teams are headquartered in Indore. Offices in: Mumbai, Pune, Jalgaon, Kota. We're ready to dispatch for a free site assessment and provide the most accurate solar panel pricing for your location.
           </p>
         </div>
       </div>

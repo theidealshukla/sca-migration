@@ -1,6 +1,6 @@
 export const metadata = {
   title: 'Solar Installation Projects Portfolio | SCA Tech Solar India',
-  description: '2,000+ residential, commercial and industrial solar installations across India. Real projects, real savings.',
+  description: '2,000+ residential, commercial and industrial solar installations. Real projects, real savings.',
   alternates: { canonical: 'https://scatechsolar.com/projects' },
 };
 

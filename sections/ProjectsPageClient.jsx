@@ -43,12 +43,11 @@ export default function ProjectsPageClient() {
     <div className="pt-20">
       <Breadcrumb items={[{ label: 'Home', path: '/' }, { label: 'Projects', path: '/projects' }]} />
       {/* Hero */}
-      <div className="relative py-24 bg-night-50 overflow-hidden">
+      <div className="relative py-8 md:py-12 bg-night-50 overflow-hidden">
         <div className="max-w-7xl mx-auto px-5 md:px-8">
           <p className="section-tag">Our Portfolio</p>
-          <h1 className="font-black text-night-900 leading-tight mt-2" style={{ fontSize: 'clamp(2.5rem, 6vw, 7rem)', letterSpacing: '-0.03em' }}>
-            Solar Installation Projects<br />
-            <span className="font-light text-night-400">Across India.</span>
+          <h1 className="font-black text-night-900 leading-tight mt-2" style={{ fontSize: 'clamp(2rem, 4.5vw, 4.5rem)', letterSpacing: '-0.03em' }}>
+            Solar Installation Projects
           </h1>
         </div>
         {/* Big text background */}
@@ -124,7 +123,7 @@ export default function ProjectsPageClient() {
 
         <div className="mt-16 text-center">
           <p className="text-night-500 mb-6">Want a project like one of these?</p>
-          <Link href="/contact" className="btn-primary" aria-label="Start your solar project anywhere in India">
+          <Link href="/contact" className="btn-primary" aria-label="Start your solar project">
             Start Your Project <ArrowRight className="w-4 h-4" />
           </Link>
         </div>

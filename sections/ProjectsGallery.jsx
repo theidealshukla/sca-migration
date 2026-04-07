@@ -33,7 +33,7 @@ export default function ProjectsGallery() {
             <p className="section-tag">Latest Projects</p>
             <h2 className="font-black text-night-900 leading-tight" style={{ fontSize: 'clamp(2rem, 4.5vw, 4rem)', letterSpacing: '-0.03em' }}>
               Solar System Installation{' '}
-              <span className="font-light text-night-400">Across India.</span>
+              <span className="font-light text-night-400">Portfolio.</span>
             </h2>
           </div>
           <Link href="/projects" className="inline-flex items-center gap-2 text-sm font-bold text-night-900 whitespace-nowrap group self-start md:self-auto">

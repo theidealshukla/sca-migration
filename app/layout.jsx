@@ -13,10 +13,10 @@ const inter = Inter({
 export const metadata = {
   metadataBase: new URL('https://scatechsolar.com'),
   title: {
-    default: 'SCA Tech Solar | Trusted Solar Panel Installation Across India',
+    default: 'SCA Tech Solar | Trusted Solar Panel Installation',
     template: '%s | SCA Tech Solar'
   },
-  description: 'India\'s trusted solar installation company. Nationwide residential, commercial & industrial solar solutions with PM Surya Ghar subsidy support.',
+  description: 'India\'s trusted solar installation company. Residential, commercial & industrial solar solutions with PM Surya Ghar subsidy support.',
 };
 
 export default function RootLayout({ children }) {

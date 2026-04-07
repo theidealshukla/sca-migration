@@ -6,8 +6,8 @@ import { STATS } from '../constants/stats'
 const reasons = [
   {
     stat: '100%',
-    title: 'MNRE & DISCOM Certified',
-    desc: 'Every installation meets MNRE guidelines and MPEZ DISCOM standards for net metering eligibility.',
+    title: 'MPWZ Certified',
+    desc: 'Every installation meets MPWZ guidelines and standards for net metering eligibility.',
   },
   {
     stat: '7 Days',
@@ -15,9 +15,9 @@ const reasons = [
     desc: 'From site survey to commissioning — our streamlined process gets your system live fast.',
   },
   {
-    stat: 'Pan India',
-    title: 'Nationwide Expertise',
-    desc: 'Looking for a reliable solar installer near you? Headquartered in Indore, we have teams deployed across 20+ cities with deep knowledge of local utility rules, subsidies and grid conditions.',
+    stat: 'Multi-City',
+    title: 'Regional Expertise',
+    desc: 'Looking for a reliable solar installer near you? Headquartered in Indore with offices in Mumbai, Pune, Jalgaon, and Kota, we have deep knowledge of local utility rules, subsidies and grid conditions.',
   },
   {
     stat: '365 Days',
@@ -25,9 +25,9 @@ const reasons = [
     desc: 'Round-the-clock remote monitoring and responsive on-site service across all our installations.',
   },
   {
-    stat: 'Tier 1 Only',
-    title: 'Premium Hardware',
-    desc: 'We install only Tier 1 rated panels — Jinko, LONGi, Waaree — with 25-year performance warranties.',
+    stat: 'Tier 1 & 2',
+    title: 'Premium and Affordable Hardware',
+    desc: 'We install Tier 1 and Tier 2 rated panels — Jinko, LONGi, Waaree — with 25-year performance warranties.',
   },
   {
     stat: '₹78,000+',
@@ -81,11 +81,11 @@ export default function WhyChooseUs() {
               className="font-black text-night-900 leading-[1.08]"
               style={{ fontSize: 'clamp(2rem, 4.5vw, 3.8rem)', letterSpacing: '-0.03em' }}
             >
-              India's Most Trusted Solar Company.
+              Your Trusted Solar Partner.
             </h2>
           </div>
           <p className="text-night-400 text-base md:text-lg leading-relaxed lg:max-w-md lg:ml-auto">
-            With {STATS.yearsExperience} years, {STATS.installations} installations and {STATS.capacityMW} MW deployed across India, our track record speaks for itself.
+            With {STATS.yearsExperience} years, {STATS.installations} installations and {STATS.capacityMW} MW deployed, our track record speaks for itself.
           </p>
         </div>
 
@@ -104,10 +104,10 @@ export default function WhyChooseUs() {
                   className="font-display font-black text-night-900 leading-none"
                   style={{ fontSize: 'clamp(4rem, 10vw, 8rem)', letterSpacing: '-0.04em' }}
                 >
-                  <AnimatedNumber value={93} suffix="%" />
+                  <AnimatedNumber value={85} suffix="–90%" />
                 </p>
                 <p className="text-night-400 text-sm mt-3 leading-relaxed">
-                  Average electricity bill reduction for our residential clients across India.
+                  Average electricity bill reduction for our residential clients.
                 </p>
               </div>
 
@@ -130,7 +130,7 @@ export default function WhyChooseUs() {
               <div className="mt-8 relative rounded-2xl overflow-hidden h-48 hidden lg:block">
                 <img
                   src="https://images.unsplash.com/photo-1521618755572-156ae0cdd74d?w=800&q=80&auto=format"
-                  alt="SCA Tech Solar team installing panels nationwide"
+                  alt="SCA Tech Solar team installing panels"
                   className="w-full h-full object-cover"
                   loading="lazy"
                   decoding="async"

@@ -43,7 +43,7 @@ export default function ProductsShowcase() {
             </div>
             <h2 className="text-4xl md:text-5xl font-black text-night-900 leading-tight tracking-tight">
               GoodWe Inverter Installation{' '}
-              <span className="text-night-300">Across India.</span>
+              <span className="text-night-300">& TOPCon Panels.</span>
             </h2>
           </div>
           <Link href="/products" className="btn-outline self-start md:self-auto whitespace-nowrap hidden md:inline-flex">
@@ -86,7 +86,7 @@ export default function ProductsShowcase() {
                   {p.image_url ? (
                     <img
                       src={p.image_url}
-                      alt={p.title + ' — available across India'}
+                      alt={p.title + ' — by SCA Tech Solar'}
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                       loading="lazy"
                     />

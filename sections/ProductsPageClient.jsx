@@ -37,13 +37,13 @@ export default function ProductsPageClient() {
     <div className="pt-20">
       <Breadcrumb items={[{ label: 'Home', path: '/' }, { label: 'Products', path: '/products' }]} />
       {/* Hero */}
-      <div className="py-20 md:py-28 bg-night-50">
+      <div className="py-8 md:py-12 bg-night-50">
         <div className="max-w-7xl mx-auto px-5 md:px-8">
           <p className="section-tag">Product Range</p>
-          <h1 className="font-black text-night-900 leading-tight mt-2 mb-5" style={{ fontSize: 'clamp(2.5rem, 6vw, 5rem)', letterSpacing: '-0.03em' }}>
-            GoodWe Inverters & TOPCon Solar Panels<br /><span className="font-light text-night-400">Across India.</span>
+          <h1 className="font-black text-night-900 leading-tight mt-2 mb-3" style={{ fontSize: 'clamp(2rem, 4.5vw, 4.5rem)', letterSpacing: '-0.03em' }}>
+            GoodWe Inverters & TOPCon Solar Panels
           </h1>
-          <p className="text-night-500 max-w-xl text-lg leading-relaxed">
+          <p className="text-night-500 max-w-xl text-base md:text-lg leading-relaxed">
             We install only internationally certified Tier 1 solar products. Every brand in our range is selected for quality, reliability and long-term performance.
           </p>
         </div>
@@ -80,7 +80,7 @@ export default function ProductsPageClient() {
               <Link href={`/products/${p.slug || ''}`} key={p.id || i} className="bg-white rounded-2xl overflow-hidden border border-night-100 card-hover group block">
                 <div className="relative h-48 overflow-hidden bg-night-50">
                   {p.image_url ? (
-                    <img src={p.image_url} alt={`${p.title} — available across India`} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" loading="lazy" />
+                    <img src={p.image_url} alt={p.title} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" loading="lazy" />
                   ) : (
                     <div className="w-full h-full flex items-center justify-center text-night-300 text-sm">No Image</div>
                   )}

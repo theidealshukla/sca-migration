@@ -11,7 +11,7 @@ const benefits = [
   'Additional state top-ups available in select states',
   'No processing fees — we handle all paperwork',
   'Subsidy credited directly to your bank',
-  'Applicable for all DISCOM consumers across India',
+  'Applicable for all MPWZ consumers',
 ]
 
 export default function SubsidyBanner() {
@@ -29,7 +29,7 @@ export default function SubsidyBanner() {
               <span className="text-white/70 text-xs font-bold tracking-widest uppercase">PM Surya Ghar Scheme · 2025</span>
             </div>
             <h2 className="font-black text-white leading-tight mb-4" style={{ fontSize: 'clamp(2rem, 4.5vw, 4rem)', letterSpacing: '-0.03em' }}>
-              PM Surya Ghar Subsidy — ₹78,000 Available Across India.
+              PM Surya Ghar Subsidy — ₹78,000 Available.
             </h2>
             <p className="text-white/50 text-base md:text-lg leading-relaxed mb-8">
               The Government of India's PM Surya Ghar: Muft Bijli Yojana offers direct benefit transfer subsidies to all eligible households. SCA Tech handles the entire registration and claim process for you — for free.
@@ -60,7 +60,7 @@ export default function SubsidyBanner() {
               </div>
               <div className="mt-6 pt-6 border-t border-white/10">
                 <p className="text-white/30 text-xs">
-                  * Subject to eligibility. Available for on-grid systems connected to the DISCOM grid. Subsidy slabs as per MNRE notification dated April 2024.
+                  * Subject to eligibility. Available for on-grid systems connected to the MPWZ grid. Subsidy slabs as per MPWZ notifications.
                 </p>
               </div>
             </div>

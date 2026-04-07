@@ -1,6 +1,6 @@
 export const metadata = {
   title: 'About SCA Tech Solar | Trusted Solar EPC Company India',
-  description: 'SCA Tech Solar — India\'s most trusted solar installer since 2008. 2000+ installations, 45 MW deployed across India. Headquartered in Indore.',
+  description: 'SCA Tech Solar — India\'s most trusted solar installer since 2008. 2000+ installations, 45 MW deployed. Headquarters: Indore. Offices in: Mumbai, Pune, Jalgaon, Kota.',
   alternates: { canonical: 'https://scatechsolar.com/about' },
 };
 
@@ -14,7 +14,7 @@ import { STATS } from '@/constants/stats';
 const team = [
   { name: 'Vikram Suryavanshi', role: 'Founder & CEO', img: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&q=80&auto=format', bio: '15 years in renewable energy. IIT Indore alum.' },
   { name: 'Neha Jain', role: 'Head of Engineering', img: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&q=80&auto=format', bio: 'Ex-NTPC, leads all technical installations.' },
-  { name: 'Rohit Patel', role: 'Director, Sales & Subsidy', img: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&q=80&auto=format', bio: 'Expert in DISCOM liaising and PM Surya Ghar.' },
+  { name: 'Rohit Patel', role: 'Director, Sales & Subsidy', img: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&q=80&auto=format', bio: 'Expert in MPWZ liaising and PM Surya Ghar.' },
   { name: 'Kavita Sharma', role: 'Head of Customer Success', img: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?w=400&q=80&auto=format', bio: 'Ensures every client gets maximum value.' },
 ]
 
@@ -23,8 +23,8 @@ const milestones = [
   { year: '2015', event: 'Crossed 100 installations. First commercial project — a 50kW factory in Pithampur.' },
   { year: '2018', event: '500 installations milestone. Expanded operations beyond Madhya Pradesh.' },
   { year: '2020', event: 'Launched proprietary monitoring platform and 24/7 O&M service.' },
-  { year: '2022', event: 'Crossed 1,000 installations. Entered industrial & ground-mount segment across India.' },
-  { year: '2024', event: "2,000+ installations. 45 MW total capacity. India's most trusted solar installer." },
+  { year: '2022', event: 'Crossed 1,000 installations. Entered industrial & ground-mount segment.' },
+  { year: '2024', event: "2,000+ installations. 45 MW total capacity. Your Trusted Solar Partner." },
 ]
 
 export default function About() {
@@ -33,7 +33,7 @@ export default function About() {
       
       <Breadcrumb items={[{ label: 'Home', path: '/' }, { label: 'About Us', path: '/about' }]} />
       {/* Hero */}
-      <div className="relative min-h-[70vh] flex items-end overflow-hidden bg-night-950">
+      <div className="relative py-8 md:py-12 overflow-hidden bg-night-950">
         <div className="absolute inset-0">
           <img 
             src="https://images.unsplash.com/photo-1521618755572-156ae0cdd74d?w=1200&q=80&auto=format&fit=crop" 
@@ -52,11 +52,11 @@ export default function About() {
           />
           <div className="absolute inset-0 bg-gradient-to-t from-night-950 via-night-950/50 to-transparent" />
         </div>
-        <div className="relative max-w-7xl mx-auto px-5 md:px-8 pb-20">
-          <p className="section-tag text-solar-400 mb-3">About SCA Tech Solar</p>
-          <h1 className="font-black text-white leading-tight" style={{ fontSize: 'clamp(2.5rem, 7vw, 7rem)', letterSpacing: '-0.03em' }}>
+        <div className="relative max-w-7xl mx-auto px-5 md:px-8">
+          <p className="section-tag text-solar-400 mb-2 mt-4">About SCA Tech Solar</p>
+          <h1 className="font-black text-white leading-tight mb-2" style={{ fontSize: 'clamp(2rem, 4.5vw, 4.5rem)', letterSpacing: '-0.03em' }}>
             About SCA Tech Solar —<br />
-            <span className="gradient-text-solar font-display italic">India's Trusted Solar Company.</span>
+            <span className="gradient-text-solar font-display italic">Your Trusted Solar Partner.</span>
           </h1>
         </div>
       </div>
@@ -70,13 +70,13 @@ export default function About() {
               <h2 className="text-3xl font-black text-night-900 mb-6">How It Started</h2>
               <div className="text-night-500 leading-relaxed text-[15px] space-y-4">
                 <p>
-                  SCA Tech Solar was founded with a clear vision: to make solar energy accessible, reliable and affordable for every home and business across India. 
+                  SCA Tech Solar was founded with a clear vision: to make solar energy accessible, reliable and affordable for every home and business. 
                 </p>
                 <p>
-                  Seeing the gap in quality installations and genuine after-sales support, our founding engineers set out to build a company that puts engineering ethics first. We introduced global Tier-1 brands like GoodWe and TOPCon to the Indian market when others were still pushing outdated technologies.
+                  Seeing the gap in quality installations and genuine after-sales support, our founding engineers set out to build a company that puts engineering ethics first. We introduced global Tier 1 and Tier 2 brands like GoodWe and TOPCon to the Indian market when others were still pushing outdated technologies.
                 </p>
                 <p>
-                  Today we're India's most trusted solar installer, having delivered over 45 MW of clean capacity across 2,000+ projects. Headquartered in Indore, our work is just beginning.
+                  Today we're your trusted solar partner, having delivered over 45 MW of clean capacity across 2,000+ projects. Headquarters: Indore. Offices in: Mumbai, Pune, Jalgaon, Kota.
                 </p>
               </div>
             </div>
@@ -120,14 +120,14 @@ export default function About() {
             <div className="lg:col-span-2">
               <p className="section-tag">Our Vision · 2030</p>
               <p className="text-night-900 font-black leading-tight" style={{ fontSize: 'clamp(1.4rem, 4vw, 3.5rem)', letterSpacing: '-0.02em' }}>
-                <span className="text-night-400 font-light">SCA Tech aims to power</span> 10,000 homes across India with clean, affordable solar by 2030.
+                <span className="text-night-400 font-light">SCA Tech aims to power</span> 10,000 homes with clean, affordable solar by 2030.
               </p>
             </div>
             <div className="space-y-6">
               {[
                 { year: STATS.foundedYear.toString(), text: 'Founded in Indore with a 5-person team' },
                 { year: '2015', text: 'Reached 100th installation milestone' },
-                { year: '2022', text: 'Expanded operations to 10+ cities across India' },
+                { year: '2022', text: 'Expanded operations to Mumbai, Pune, Jalgaon, Kota and more' },
                 { year: '2025 →', text: `Target: ${STATS.installations} installs per year, serving 20+ cities` },
               ].map(item => (
                 <div key={item.year} className="flex items-start gap-4">

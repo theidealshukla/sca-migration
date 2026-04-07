@@ -1,6 +1,6 @@
 export const metadata = {
-  title: 'Solar Installation Services Across India | SCA Tech Solar',
-  description: 'Residential, commercial and industrial solar installation services across India. PM Surya Ghar subsidy processing included at no extra cost.',
+  title: 'Solar Installation Services | SCA Tech Solar',
+  description: 'Residential, commercial and industrial solar installation services. PM Surya Ghar subsidy processing included at no extra cost.',
   alternates: { canonical: 'https://scatechsolar.com/services' },
 };
 
@@ -16,8 +16,8 @@ const services = [
     icon: Home,
     title: 'Residential Solar',
     tagline: 'Your home, powered by the sun.',
-    desc: 'SCA Tech Solar installs 3kW to 10kW residential rooftop systems across India with PM Surya Ghar subsidy up to ₹78,000 processed end-to-end. With 16+ years of experience and 2,000+ installations nationwide, we deliver net-metered on-grid, off-grid and hybrid solutions that cut household electricity bills by up to 93%.',
-    points: ['On-grid, Off-grid & Hybrid systems', '3 kW to 10 kW capacity range', 'PM Surya Ghar subsidy up to ₹78,000', 'DISCOM net metering registration included', '25-year performance warranty', 'AMC plans available'],
+    desc: 'SCA Tech Solar installs 3kW to 10kW residential rooftop systems with PM Surya Ghar subsidy up to ₹78,000 processed end-to-end. With 16+ years of experience and 2,000+ installations, we deliver net-metered on-grid, off-grid and hybrid solutions that cut household electricity bills by 85–90%.',
+    points: ['On-grid, Off-grid & Hybrid systems', '3 kW to 10 kW capacity range', 'PM Surya Ghar subsidy up to ₹78,000', 'MPWZ net metering registration included', '25-year performance warranty', 'AMC plans available'],
     img: 'https://images.unsplash.com/photo-1615400610825-7f1b9d573c09?w=800&q=85&auto=format',
     color: 'bg-solar-50',
   },
@@ -25,7 +25,7 @@ const services = [
     icon: Building2,
     title: 'Commercial Solar',
     tagline: 'Turn your rooftop into a revenue stream.',
-    desc: 'SCA Tech Solar delivers 10kW to 500kW commercial solar systems for offices, hospitals, schools and retail across India. Backed by 45 MW of installed capacity and 16+ years of expertise, our turnkey solutions reduce peak demand charges, generate REC credits, and help businesses meet ESG targets with rapid ROI.',
+    desc: 'SCA Tech Solar delivers 10kW to 500kW commercial solar systems for offices, hospitals, schools and retail. Backed by 45 MW of installed capacity and 16+ years of expertise, our turnkey solutions reduce peak demand charges, generate REC credits, and help businesses meet ESG targets with rapid ROI.',
     points: ['10 kW to 500 kW systems', 'Peer-to-peer energy trading', 'REC and carbon credit advisory', 'OPEX and CAPEX models available', 'Remote monitoring dashboard', 'Dedicated project manager'],
     img: 'https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?w=800&q=85&auto=format',
     color: 'bg-sky-50',
@@ -34,8 +34,8 @@ const services = [
     icon: Factory,
     title: 'Industrial Solar',
     tagline: 'Large-scale clean power for industry.',
-    desc: 'Our engineering team handles complex 500kW to 5MW+ industrial solar projects including ground-mount and carport installations across India. With 2,000+ successful deployments and deep HT/LT connection expertise, SCA Tech is India\'s most experienced industrial solar EPC contractor.',
-    points: ['500 kW to 5 MW+ projects', 'Ground-mount & elevated carport', 'HT/LT connection expertise', 'PPA and third-party financing', 'Priority DISCOM liaison', 'Dedicated O&M team'],
+    desc: 'Our engineering team handles complex 500kW to 5MW+ industrial solar projects including ground-mount and carport installations. With 2,000+ successful deployments and deep HT/LT connection expertise, SCA Tech is India\'s most experienced industrial solar EPC contractor.',
+    points: ['500 kW to 5 MW+ projects', 'Ground-mount & elevated carport', 'HT/LT connection expertise', 'PPA and third-party financing', 'Priority MPWZ liaison', 'Dedicated O&M team'],
     img: 'https://images.unsplash.com/photo-1497440001374-f26997328c1b?w=800&q=85&auto=format',
     color: 'bg-night-50',
   },
@@ -52,8 +52,8 @@ const services = [
     icon: ShieldCheck,
     title: 'Subsidy & Documentation',
     tagline: 'We handle all the paperwork for you.',
-    desc: "Government subsidy registration, DISCOM approvals, net metering applications \u2014 a bureaucratic nightmare that we've mastered. Free for all SCA Tech installations.",
-    points: ['PM Surya Ghar portal registration', 'DISCOM net meter filing', 'Subsidy status tracking', 'Bank subsidy disbursement follow-up', 'Legal documentation support', 'Zero extra charges'],
+    desc: "Government subsidy registration, MPWZ approvals, net metering applications \u2014 a bureaucratic nightmare that we've mastered. Free for all SCA Tech installations.",
+    points: ['PM Surya Ghar portal registration', 'MPWZ net meter filing', 'Subsidy status tracking', 'Bank subsidy disbursement follow-up', 'Legal documentation support', 'Zero extra charges'],
     img: 'https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=800&q=85&auto=format',
     color: 'bg-purple-50',
   },
@@ -74,7 +74,7 @@ export default function Services() {
       
       <Breadcrumb items={[{ label: 'Home', path: '/' }, { label: 'Services', path: '/services' }]} />
       {/* Hero */}
-      <div className="relative py-24 md:py-32 bg-night-950 overflow-hidden">
+      <div className="relative py-8 md:py-12 bg-night-950 overflow-hidden">
         <div className="absolute inset-0 opacity-20">
           <img 
             src="https://images.unsplash.com/photo-1509391366360-2e959784a276?w=1200&q=80&auto=format&fit=crop" 
@@ -84,7 +84,7 @@ export default function Services() {
               https://images.unsplash.com/photo-1509391366360-2e959784a276?w=1200&q=80&auto=format&fit=crop 1200w
             "
             sizes="100vw"
-            alt="Solar Installation Services across India background" 
+            alt="Solar Installation Services background" 
             className="w-full h-full object-cover" 
             loading="lazy"
             decoding="async"
@@ -98,11 +98,11 @@ export default function Services() {
             <span className="bg-solar-500 w-6 h-px inline-block mr-2" />
             Our Services
           </p>
-          <h1 className="font-black text-white leading-tight mt-2 mb-5" style={{ fontSize: 'clamp(2.5rem, 7vw, 7rem)', letterSpacing: '-0.03em' }}>
-            Solar Installation Services<br /><span className="gradient-text-solar font-display italic">Across India.</span>
+          <h1 className="font-black text-white leading-tight mt-2 mb-3" style={{ fontSize: 'clamp(2rem, 4.5vw, 4.5rem)', letterSpacing: '-0.03em' }}>
+            Solar Installation Services.
           </h1>
-          <p className="text-night-300 max-w-xl text-lg leading-relaxed mb-8">
-            From a single rooftop to industrial mega-parks — SCA Tech delivers turnkey solar solutions backed by 16 years of nationwide expertise.
+          <p className="text-night-300 max-w-xl text-base md:text-lg leading-relaxed mb-6">
+            From a single rooftop to industrial mega-parks — SCA Tech delivers turnkey solar solutions backed by 16 years of expertise.
           </p>
           <Link href="/contact" className="btn-primary">
             Book Free Survey <ArrowRight className="w-4 h-4" />

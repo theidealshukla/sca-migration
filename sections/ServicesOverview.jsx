@@ -38,7 +38,7 @@ const svgIllustrations = [
       {/* Ground line */}
       <line className="svg-draw" x1="40" y1="340" x2="460" y2="340" stroke="currentColor" strokeWidth="0.8" strokeDasharray="8 6" />
       {/* Small text at bottom */}
-      <text x="40" y="380" fill="currentColor" fontSize="10" fontFamily="Inter, sans-serif" opacity="0.4">Premium Tier 1 panels · 25yr warranty</text>
+      <text x="40" y="380" fill="currentColor" fontSize="10" fontFamily="Inter, sans-serif" opacity="0.4">Premium and Affordable Tier 1 & 2 panels · 25yr warranty</text>
     </svg>
   ),
   // 02 — Free Energy Consultation: clipboard + lightbulb
@@ -212,7 +212,7 @@ export default function ServicesOverview() {
           className="font-black text-night-900 leading-[1.1] mb-16 md:mb-20 max-w-xl"
           style={{ fontSize: 'clamp(2rem, 4.5vw, 3.5rem)', letterSpacing: '-0.03em' }}
         >
-          Rooftop Solar for Homes & Businesses Across India.
+          Rooftop Solar for Homes & Businesses.
         </h2>
 
         {/* Main grid: SVG left, list right */}

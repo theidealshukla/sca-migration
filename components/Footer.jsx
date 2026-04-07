@@ -47,7 +47,7 @@ export default function Footer() {
               <img 
                 src="/sca-logo.png" 
                 alt="SCA Tech Solar" 
-                className="h-[53px] w-auto object-contain"
+                className="h-[60px] w-auto object-contain"
               />
             </Link>
             <p className="text-night-400 text-sm leading-relaxed mb-6 max-w-xs">
@@ -119,7 +119,7 @@ export default function Footer() {
       {/* SEO Text Block */}
       <div className="max-w-7xl mx-auto px-5 md:px-8 py-6">
         <p className="text-[10px] md:text-xs text-night-600 leading-relaxed text-center max-w-4xl mx-auto">
-          SCA Tech Solar is India's top-rated solar company offering professional solar panel installation for homes, businesses, and industrial units nationwide. Headquartered in Indore, we authorize GoodWe inverters, provide TOPCon bifacial panels, and assist with PM Surya Ghar scheme subsidy processes across India.
+          SCA Tech Solar is India's top-rated solar company offering professional solar panel installation for homes, businesses, and industrial units. Headquartered in Indore with offices in Mumbai, Pune, Jalgaon, and Kota. We authorize GoodWe inverters, provide TOPCon bifacial panels, and assist with PM Surya Ghar scheme subsidy processes.
         </p>
       </div>
 
