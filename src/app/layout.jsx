@@ -1,5 +1,5 @@
 import { Inter, Geist } from 'next/font/google';
-import './globals.css';
+import '../styles/globals.css';
 import { cn } from "@/lib/utils";
 
 const geist = Geist({subsets:['latin'],variable:'--font-sans'});

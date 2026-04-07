@@ -147,7 +147,7 @@ export default function AdminLayout({ children }) {
           
           <div className="relative z-10 max-w-lg text-white">
             <div className="inline-flex items-center justify-center mb-8">
-              <img src="/sca-logo.png" alt="SCA Tech Solar" className="h-[70px] w-auto object-contain" />
+              <img src="/logos/sca-logo.png" alt="SCA Tech Solar" className="h-[70px] w-auto object-contain" />
             </div>
             <h1 className="text-4xl lg:text-5xl font-bold tracking-tight mb-6">
               SCA Tech Solar<br />
@@ -164,7 +164,7 @@ export default function AdminLayout({ children }) {
           <div className="w-full max-w-[380px]">
             <div className="mb-10 text-center lg:text-left">
               <div className="lg:hidden inline-flex items-center justify-center mb-6">
-                <img src="/sca-logo.png" alt="SCA Tech Solar" className="h-[44px] w-auto object-contain" />
+                <img src="/logos/sca-logo.png" alt="SCA Tech Solar" className="h-[44px] w-auto object-contain" />
               </div>
               <h2 className="text-2xl font-bold text-night-900 tracking-tight">Log in to your account</h2>
               <p className="text-night-500 text-sm mt-2">Enter your admin or member credentials to proceed.</p>
@@ -240,7 +240,7 @@ export default function AdminLayout({ children }) {
         <div className="h-16 flex items-center px-5 border-b border-[#EBEBEB] shrink-0 justify-between">
           <div className="flex items-center gap-3 overflow-hidden">
             <div className="w-8 h-8 rounded-lg flex items-center justify-center shrink-0">
-              <img src="/sca-logo.png" alt="SCA Tech" className="w-[35px] h-[35px] object-contain" />
+              <img src="/logos/sca-logo.png" alt="SCA Tech" className="w-[35px] h-[35px] object-contain" />
             </div>
             {!collapsed && <span className="font-semibold text-[15px] tracking-tight whitespace-nowrap">SCA CRM Workspace</span>}
           </div>

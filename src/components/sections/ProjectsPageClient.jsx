@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
-import Breadcrumb from '../components/Breadcrumb';
+import Breadcrumb from '@/components/Breadcrumb';
 import { MapPin, Zap, Calendar, ArrowRight, Loader2 } from 'lucide-react';
 import { supabase } from '@/lib/supabase';
 

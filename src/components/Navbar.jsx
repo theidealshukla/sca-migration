@@ -54,7 +54,7 @@ export default function Navbar() {
           {/* Logo */}
           <Link href="/" className="flex items-center group relative z-[60]">
             <img 
-              src="/sca-logo.png" 
+              src="/logos/sca-logo.png" 
               alt="SCA Tech Solar" 
               className="h-[68px] w-auto object-contain"
             />

@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useRef, useEffect } from 'react'
-import { STATS } from '../constants/stats'
+import { STATS } from '@/constants/stats'
 
 const reasons = [
   {

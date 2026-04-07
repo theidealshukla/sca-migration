@@ -45,7 +45,7 @@ export default function Footer() {
           <div className="lg:col-span-2">
             <Link href="/" className="flex items-center mb-6">
               <img 
-                src="/sca-logo.png" 
+                src="/logos/sca-logo.png" 
                 alt="SCA Tech Solar" 
                 className="h-[60px] w-auto object-contain"
               />

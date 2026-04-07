@@ -13,20 +13,20 @@ export const metadata = {
 
 import React from 'react'
 
-import Hero from '../../sections/Hero'
-import StatsBar from '../../sections/StatsBar'
-import AboutVision from '../../sections/AboutVision'
-import BrandsMarquee from '../../sections/BrandsMarquee'
-import ServicesOverview from '../../sections/ServicesOverview'
-import WhyChooseUs from '../../sections/WhyChooseUs'
-import OurProcess from '../../sections/OurProcess'
+import Hero from '@/components/sections/Hero'
+import StatsBar from '@/components/sections/StatsBar'
+import AboutVision from '@/components/sections/AboutVision'
+import BrandsMarquee from '@/components/sections/BrandsMarquee'
+import ServicesOverview from '@/components/sections/ServicesOverview'
+import WhyChooseUs from '@/components/sections/WhyChooseUs'
+import OurProcess from '@/components/sections/OurProcess'
 
-import SolarCalculator from '../../sections/SolarCalculator'
-import ProjectsGallery from '../../sections/ProjectsGallery'
-import Testimonials from '../../sections/Testimonials'
-import SubsidyBanner from '../../sections/SubsidyBanner'
-import FAQ from '../../sections/FAQ'
-import ContactSection from '../../sections/ContactSection'
+import SolarCalculator from '@/components/sections/SolarCalculator'
+import ProjectsGallery from '@/components/sections/ProjectsGallery'
+import Testimonials from '@/components/sections/Testimonials'
+import SubsidyBanner from '@/components/sections/SubsidyBanner'
+import FAQ from '@/components/sections/FAQ'
+import ContactSection from '@/components/sections/ContactSection'
 
 const localBusinessSchema = {
   "@context": "https://schema.org",
@@ -49,7 +49,7 @@ const localBusinessSchema = {
     "latitude": "22.7196",
     "longitude": "75.8577"
   },
-  "image": "https://scatech.netlify.app/favicon.svg",
+  "image": "https://scatech.netlify.app/icons/favicon.svg",
   "priceRange": "₹₹",
   "openingHours": "Mo-Sa 09:00-18:00",
   "areaServed": {"@type": "Country", "name": "India"},

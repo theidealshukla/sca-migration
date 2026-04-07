@@ -18,7 +18,7 @@ export default function Hero() {
     tagline: 'SOLAR ENERGY · INDORE & BEYOND',
     heading: ['Solar Panel', 'Installation for', 'Your Home.'],
     sub: 'As a leading Solar EPC company, we deliver premium and affordable rooftop solar installations for homes and businesses. Headquartered in Indore with offices in Mumbai, Pune, Jalgaon, and Kota.',
-    video: '/hero-video.mp4',
+    video: '/videos/hero-video.mp4',
     poster: 'https://images.unsplash.com/photo-1509391366360-2e959784a276?w=1200&q=80&auto=format&fit=crop'
   }
 

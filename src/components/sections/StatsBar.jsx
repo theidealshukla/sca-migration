@@ -1,6 +1,6 @@
 "use client";
 
-import { STATS } from '../constants/stats';
+import { STATS } from '@/constants/stats';
 
 import React, { useEffect, useRef, useState } from 'react'
 
