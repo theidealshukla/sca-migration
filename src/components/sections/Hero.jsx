@@ -9,7 +9,6 @@ export default function Hero() {
 
   useEffect(() => {
     if (videoRef.current) {
-      // Slow down the video playback rate
       videoRef.current.playbackRate = 0.6;
     }
   }, []);
@@ -18,7 +17,7 @@ export default function Hero() {
     tagline: 'SOLAR ENERGY · INDORE & BEYOND',
     heading: ['Solar Panel', 'Installation for', 'Your Home.'],
     sub: 'As a leading Solar EPC company, we deliver premium and affordable rooftop solar installations for homes and businesses. Headquartered in Indore with offices in Mumbai, Pune, Jalgaon, and Kota.',
-    video: '/videos/hero-video.mp4',
+    video: 'https://res.cloudinary.com/dyc2xmcym/video/upload/v1775673934/7211094-uhd_3840_2160_30fps_jq4q1e.mp4',
     poster: 'https://images.unsplash.com/photo-1509391366360-2e959784a276?w=1200&q=80&auto=format&fit=crop'
   }
 
@@ -28,14 +27,17 @@ export default function Hero() {
       <div className="absolute inset-0">
         <video
           ref={videoRef}
-          src={content.video}
           autoPlay
           loop
           muted
           playsInline
-          poster={content.poster}
           className="w-full h-full object-cover scale-105"
-        />
+        >
+          <source 
+            src={content.video} 
+            type="video/mp4"
+          />
+        </video>
       </div>
 
       {/* Overlay */}

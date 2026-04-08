@@ -18,14 +18,6 @@ const team = [
   { name: 'Kavita Sharma', role: 'Head of Customer Success', img: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?w=400&q=80&auto=format', bio: 'Ensures every client gets maximum value.' },
 ]
 
-const milestones = [
-  { year: '2008', event: 'Founded in Indore with a 5-person team and a dream to power India with solar.' },
-  { year: '2015', event: 'Crossed 100 installations. First commercial project — a 50kW factory in Pithampur.' },
-  { year: '2018', event: '500 installations milestone. Expanded operations beyond Madhya Pradesh.' },
-  { year: '2020', event: 'Launched proprietary monitoring platform and 24/7 O&M service.' },
-  { year: '2022', event: 'Crossed 1,000 installations. Entered industrial & ground-mount segment.' },
-  { year: '2024', event: "2,000+ installations. 45 MW total capacity. Your Trusted Solar Partner." },
-]
 
 export default function About() {
   return (
@@ -96,45 +88,15 @@ export default function About() {
             </div>
           </div>
 
-          {/* Timeline */}
-          <div>
-            <p className="section-tag mb-8">Our Journey</p>
-            <div className="relative">
-              <div className="absolute left-16 top-0 bottom-0 w-px bg-night-200" />
-              <div className="flex flex-col gap-8">
-                {milestones.map((m, i) => (
-                  <div key={i} className="flex items-start gap-8 pl-4">
-                    <div className="relative flex-shrink-0 w-24 text-right">
-                      <span className="text-sm font-black text-solar-500">{m.year}</span>
-                      <div className="absolute right-[-29px] top-1 w-3 h-3 rounded-full bg-solar-500 border-2 border-white" />
-                    </div>
-                    <p className="text-night-600 pt-0.5 leading-relaxed">{m.event}</p>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
+
 
           {/* Vision statement */}
-          <div className="mt-24 pt-16 border-t border-night-100 grid grid-cols-1 lg:grid-cols-3 gap-8 items-center">
-            <div className="lg:col-span-2">
+          <div className="mt-24 pt-16 border-t border-night-100">
+            <div className="max-w-4xl">
               <p className="section-tag">Our Vision · 2030</p>
               <p className="text-night-900 font-black leading-tight" style={{ fontSize: 'clamp(1.4rem, 4vw, 3.5rem)', letterSpacing: '-0.02em' }}>
-                <span className="text-night-400 font-light">SCA Tech aims to power</span> 10,000 homes with clean, affordable solar by 2030.
+                <span className="text-night-400 font-light">SCA Tech aims to power</span> 2,000 homes with clean, affordable solar by 2030.
               </p>
-            </div>
-            <div className="space-y-6">
-              {[
-                { year: STATS.foundedYear.toString(), text: 'Founded in Indore with a 5-person team' },
-                { year: '2015', text: 'Reached 100th installation milestone' },
-                { year: '2022', text: 'Expanded operations to Mumbai, Pune, Jalgaon, Kota and more' },
-                { year: '2025 →', text: `Target: ${STATS.installations} installs per year, serving 20+ cities` },
-              ].map(item => (
-                <div key={item.year} className="flex items-start gap-4">
-                  <span className="text-xs font-bold text-night-400 w-14 flex-shrink-0 mt-0.5">{item.year}</span>
-                  <p className="text-sm text-night-500">{item.text}</p>
-                </div>
-              ))}
             </div>
           </div>
         </div>

@@ -9,6 +9,7 @@ import React from 'react'
 import Link from 'next/link';
 
 import Breadcrumb from '@/components/Breadcrumb'
+import SlowVideo from '@/components/SlowVideo'
 import { Home, Building2, Factory, Wrench, ShieldCheck, Zap, ArrowRight, CheckCircle2 } from 'lucide-react'
 
 const services = [
@@ -18,7 +19,7 @@ const services = [
     tagline: 'Your home, powered by the sun.',
     desc: 'SCA Tech Solar installs 3kW to 10kW residential rooftop systems with PM Surya Ghar subsidy up to ₹78,000 processed end-to-end. With 16+ years of experience and 2,000+ installations, we deliver net-metered on-grid, off-grid and hybrid solutions that cut household electricity bills by 85–90%.',
     points: ['On-grid, Off-grid & Hybrid systems', '3 kW to 10 kW capacity range', 'PM Surya Ghar subsidy up to ₹78,000', 'MPWZ net metering registration included', '25-year performance warranty', 'AMC plans available'],
-    img: 'https://images.unsplash.com/photo-1615400610825-7f1b9d573c09?w=800&q=85&auto=format',
+    video: 'https://res.cloudinary.com/dyc2xmcym/video/upload/v1775638771/hero-video_uzkmjg.mp4',
     color: 'bg-solar-50',
   },
   {
@@ -141,7 +142,11 @@ export default function Services() {
                   </Link>
                 </div>
                 <div className={`rounded-3xl overflow-hidden h-72 md:h-96 ${i % 2 === 1 ? 'lg:order-1' : ''}`}>
-                  <img src={svc.img} alt={svc.title} className="w-full h-full object-cover" loading="lazy" decoding="async" width="800" height="600" />
+                  {svc.video ? (
+                    <SlowVideo src={svc.video} className="w-full h-full object-cover" />
+                  ) : (
+                    <img src={svc.img} alt={svc.title} className="w-full h-full object-cover" loading="lazy" decoding="async" width="800" height="600" />
+                  )}
                 </div>
               </div>
             )
