@@ -93,16 +93,16 @@ export default function Navbar() {
           {/* Mobile Hamburger — animated 3-line to X */}
           <button
             onClick={() => setMenuOpen(!menuOpen)}
-            className={`md:hidden relative z-[60] w-10 h-10 rounded-xl flex items-center justify-center transition-all duration-300 ${menuOpen ? 'bg-white/10' : transparent ? 'text-white bg-white/10' : 'text-night-900 bg-night-100'
+            className={`md:hidden relative z-[60] w-10 h-10 rounded-xl flex items-center justify-center transition-all duration-300 ${menuOpen ? 'bg-night-50' : transparent ? 'text-white bg-white/10' : 'text-night-900 bg-night-100'
               }`}
             aria-label="Toggle menu"
           >
             <div className="mob-hamburger-lines">
-              <span className={`mob-ham-line ${menuOpen ? 'mob-ham-active-1' : ''} ${menuOpen || transparent ? 'bg-white' : 'bg-night-900'
+              <span className={`mob-ham-line ${menuOpen ? 'mob-ham-active-1' : ''} ${menuOpen ? 'bg-night-900' : transparent ? 'bg-white' : 'bg-night-900'
                 }`} />
-              <span className={`mob-ham-line ${menuOpen ? 'mob-ham-active-2' : ''} ${menuOpen || transparent ? 'bg-white' : 'bg-night-900'
+              <span className={`mob-ham-line ${menuOpen ? 'mob-ham-active-2' : ''} ${menuOpen ? 'bg-night-900' : transparent ? 'bg-white' : 'bg-night-900'
                 }`} />
-              <span className={`mob-ham-line ${menuOpen ? 'mob-ham-active-3' : ''} ${menuOpen || transparent ? 'bg-white' : 'bg-night-900'
+              <span className={`mob-ham-line ${menuOpen ? 'mob-ham-active-3' : ''} ${menuOpen ? 'bg-night-900' : transparent ? 'bg-white' : 'bg-night-900'
                 }`} />
             </div>
           </button>
@@ -112,13 +112,13 @@ export default function Navbar() {
       {/* ── Premium Full-Screen Mobile Menu ── */}
       <div className={`fixed inset-0 z-[55] md:hidden transition-all duration-500 ${menuOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
         }`}>
-        {/* Dark glassmorphic backdrop */}
-        <div className="absolute inset-0 bg-night-950/95 backdrop-blur-2xl" onClick={() => setMenuOpen(false)} />
+        {/* Solid white backdrop for layout match and perfect readability */}
+        <div className="absolute inset-0 bg-white" onClick={() => setMenuOpen(false)} />
 
         {/* Menu content */}
         <div className="relative h-full flex flex-col justify-center px-8 z-[60]">
-          {/* Nav links — large, staggered */}
-          <div className="flex flex-col gap-1">
+          {/* Nav links — well-spaced */}
+          <div className="flex flex-col gap-4">
             {navLinks.map((link, i) => (
               <Link
                 key={link.path}
@@ -128,39 +128,38 @@ export default function Navbar() {
               >
                 <div className="flex items-center gap-4">
                   {location === link.path && (
-                    <span className="w-2 h-2 rounded-full bg-white flex-shrink-0" />
+                    <span className="w-2 h-2 rounded-full bg-solar-500 flex-shrink-0" />
                   )}
-                  <span className={`text-4xl font-semibold tracking-tight transition-colors duration-300 ${location === link.path ? 'text-white' : 'text-white/50 group-hover:text-white'
-                    }`}>
+                  <span className={`text-3xl font-bold tracking-tight transition-colors duration-300 text-night-900`}>
                     {link.label}
                   </span>
                 </div>
-                <ArrowRight className={`w-6 h-6 opacity-0 -translate-x-4 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300 ${location === link.path ? 'text-white/80 opacity-100 translate-x-0' : 'text-white/30'
+                <ArrowRight className={`w-6 h-6 transition-all duration-300 ${location === link.path ? 'text-solar-500 opacity-100 translate-x-0' : 'text-night-300 opacity-0 -translate-x-4 group-hover:opacity-100 group-hover:translate-x-0 group-hover:text-night-900'
                   }`} />
               </Link>
             ))}
           </div>
 
           {/* CTA section */}
-          <div className={`mt-10 flex flex-col gap-4 mob-nav-link ${menuOpen ? 'mob-nav-link-visible' : ''}`}
+          <div className={`mt-12 flex flex-col gap-6 mob-nav-link ${menuOpen ? 'mob-nav-link-visible' : ''}`}
             style={{ transitionDelay: menuOpen ? `${0.1 + navLinks.length * 0.05}s` : '0s' }}>
-            <div className="h-px w-full bg-white/10 mb-2" />
+            <div className="h-px w-full bg-night-100 mb-2" />
             <a
               href={`tel:${NAP.phone.replace(/\s/g, '')}`}
-              className="flex items-center justify-between py-2 text-white/60 hover:text-white transition-colors group"
+              className="flex items-center justify-between py-2 text-night-900 transition-colors group"
             >
               <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center group-hover:bg-white/10 transition-colors">
-                  <Phone className="w-4 h-4" />
+                <div className="w-12 h-12 rounded-full bg-night-50 flex items-center justify-center group-hover:bg-solar-500 group-hover:text-white transition-colors duration-300">
+                  <Phone className="w-5 h-5" />
                 </div>
-                <span className="text-base font-medium">{NAP.phone}</span>
+                <span className="text-lg font-bold">{NAP.phone}</span>
               </div>
             </a>
             <Link
               href="/contact"
-              className="flex items-center justify-between py-4 px-6 rounded-2xl text-base font-semibold text-white
-                         bg-gradient-to-r from-white/15 to-white/5 border border-white/15
-                         hover:from-white/20 hover:to-white/10 transition-all duration-300 group"
+              className="flex items-center justify-between py-4 px-6 rounded-2xl text-base font-bold text-white
+                         bg-night-900 shadow-xl shadow-night-900/10
+                         hover:bg-night-800 hover:-translate-y-1 transition-all duration-300 group"
             >
               Get a Free Quote
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
@@ -170,7 +169,7 @@ export default function Navbar() {
           {/* Brand watermark */}
           <div className={`absolute bottom-8 left-8 right-8 mob-nav-link ${menuOpen ? 'mob-nav-link-visible' : ''}`}
             style={{ transitionDelay: menuOpen ? '0.5s' : '0s' }}>
-            <p className="text-[10px] font-semibold tracking-[0.2em] uppercase text-white/15 text-center">
+            <p className="text-[10px] font-bold tracking-[0.2em] uppercase text-night-500 text-center">
               SCA Tech Solar • Powering India
             </p>
           </div>
