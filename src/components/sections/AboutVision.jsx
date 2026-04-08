@@ -20,7 +20,7 @@ const cards = [
   {
     pill: '+ COMMERCIAL',
     title: 'Business Solar',
-    value: '10 kW – 500 kW',
+    value: '10 kW – 100 kW',
     desc: 'Reduce operating costs, earn REC credits and meet your corporate green targets.',
     color: 'bg-night-50 border-night-200',
     accent: 'text-night-500',
@@ -31,7 +31,7 @@ const cards = [
   {
     pill: '+ INDUSTRIAL',
     title: 'Industrial Solar',
-    value: '500 kW – 5 MW',
+    value: '50 kW – 500 kW',
     desc: 'Ground-mount and carport solutions for factories, warehouses and industrial parks.',
     color: 'bg-night-950 border-night-800',
     accent: 'text-white/50',
