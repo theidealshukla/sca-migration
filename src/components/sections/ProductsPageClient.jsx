@@ -40,8 +40,8 @@ export default function ProductsPageClient() {
       <div className="py-8 md:py-12 bg-night-50">
         <div className="max-w-7xl mx-auto px-5 md:px-8">
           <p className="section-tag">Product Range</p>
-          <h1 className="font-black text-night-900 leading-tight mt-2 mb-3" style={{ fontSize: 'clamp(2rem, 4.5vw, 4.5rem)', letterSpacing: '-0.03em' }}>
-            GoodWe Inverters & TOPCon Solar Panels
+          <h1 className="text-4xl md:text-5xl lg:text-7xl font-black text-night-900 leading-[1.1] tracking-tight mb-6">
+            Premium Tier-1 Inverters & Advanced Solar Panels
           </h1>
           <p className="text-night-500 max-w-xl text-base md:text-lg leading-relaxed">
             We install only internationally certified Tier 1 solar products. Every brand in our range is selected for quality, reliability and long-term performance.

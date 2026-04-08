@@ -28,7 +28,7 @@ const services = [
     tagline: 'Turn your rooftop into a revenue stream.',
     desc: 'SCA Tech Solar delivers 10kW to 500kW commercial solar systems for offices, hospitals, schools and retail. Backed by 45 MW of installed capacity and 16+ years of expertise, our turnkey solutions reduce peak demand charges, generate REC credits, and help businesses meet ESG targets with rapid ROI.',
     points: ['10 kW to 500 kW systems', 'Peer-to-peer energy trading', 'REC and carbon credit advisory', 'OPEX and CAPEX models available', 'Remote monitoring dashboard', 'Dedicated project manager'],
-    img: 'https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?w=800&q=85&auto=format',
+    video: 'https://res.cloudinary.com/dyc2xmcym/video/upload/v1775676732/DJI_20260328170049_0023_D_fyee6r.mp4',
     color: 'bg-sky-50',
   },
   {
@@ -37,7 +37,7 @@ const services = [
     tagline: 'Large-scale clean power for industry.',
     desc: 'Our engineering team handles complex 500kW to 5MW+ industrial solar projects including ground-mount and carport installations. With 2,000+ successful deployments and deep HT/LT connection expertise, SCA Tech is India\'s most experienced industrial solar EPC contractor.',
     points: ['500 kW to 5 MW+ projects', 'Ground-mount & elevated carport', 'HT/LT connection expertise', 'PPA and third-party financing', 'Priority MPWZ liaison', 'Dedicated O&M team'],
-    img: 'https://images.unsplash.com/photo-1497440001374-f26997328c1b?w=800&q=85&auto=format',
+    video: 'https://res.cloudinary.com/dyc2xmcym/video/upload/v1775673934/7211094-uhd_3840_2160_30fps_jq4q1e.mp4',
     color: 'bg-night-50',
   },
   {
@@ -46,7 +46,7 @@ const services = [
     tagline: 'Keep your solar producing at peak performance.',
     desc: 'Comprehensive AMC and O&M packages for existing solar plants. Remote monitoring, preventive maintenance, panel cleaning, inverter servicing and 24/7 fault response.',
     points: ['Annual Maintenance Contracts', 'Remote SCADA monitoring', 'Quarterly performance reports', 'Panel cleaning every 3 months', 'Inverter health checks', '4-hour fault response SLA'],
-    img: 'https://images.unsplash.com/photo-1521618755572-156ae0cdd74d?w=800&q=85&auto=format',
+    video: 'https://res.cloudinary.com/dyc2xmcym/video/upload/v1775675897/8853483-hd_1920_1080_24fps_vm9bns.mp4',
     color: 'bg-green-50',
   },
   {
@@ -55,7 +55,7 @@ const services = [
     tagline: 'We handle all the paperwork for you.',
     desc: "Government subsidy registration, MPWZ approvals, net metering applications \u2014 a bureaucratic nightmare that we've mastered. Free for all SCA Tech installations.",
     points: ['PM Surya Ghar portal registration', 'MPWZ net meter filing', 'Subsidy status tracking', 'Bank subsidy disbursement follow-up', 'Legal documentation support', 'Zero extra charges'],
-    img: 'https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=800&q=85&auto=format',
+    video: 'https://res.cloudinary.com/dyc2xmcym/video/upload/v1775677139/7735491-hd_1920_1080_25fps_dgbh1e.mp4',
     color: 'bg-purple-50',
   },
   {
@@ -64,7 +64,7 @@ const services = [
     tagline: 'Power through any outage.',
     desc: "Lithium iron phosphate (LiFePO4) battery systems integrated with hybrid inverters. Designed for India's frequent power outages and businesses needing uninterrupted power.",
     points: ['LiFePO4 batteries — 10+ year life', '5 kWh to 100 kWh systems', 'Smart load management', 'EV charging integration', 'Grid-independent operation', 'Scalable modular design'],
-    img: 'https://images.unsplash.com/photo-1593941707882-a5bba14938c7?w=800&q=85&auto=format',
+    video: 'https://res.cloudinary.com/dyc2xmcym/video/upload/v1775677248/15338269_3840_2160_23fps_b0ggfs.mp4',
     color: 'bg-orange-50',
   },
 ]

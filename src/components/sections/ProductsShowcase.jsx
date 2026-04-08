@@ -42,8 +42,8 @@ export default function ProductsShowcase() {
               <span>Our Products</span>
             </div>
             <h2 className="text-4xl md:text-5xl font-black text-night-900 leading-tight tracking-tight">
-              GoodWe Inverter Installation{' '}
-              <span className="text-night-300">& TOPCon Panels.</span>
+              Premium Tier-1 Inverters{' '}
+              <span className="text-night-300">& High-Efficiency Panels.</span>
             </h2>
           </div>
           <Link href="/products" className="btn-outline self-start md:self-auto whitespace-nowrap hidden md:inline-flex">

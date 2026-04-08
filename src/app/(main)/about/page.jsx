@@ -65,7 +65,7 @@ export default function About() {
                   SCA Tech Solar was founded with a clear vision: to make solar energy accessible, reliable and affordable for every home and business. 
                 </p>
                 <p>
-                  Seeing the gap in quality installations and genuine after-sales support, our founding engineers set out to build a company that puts engineering ethics first. We introduced global Tier 1 and Tier 2 brands like GoodWe and TOPCon to the Indian market when others were still pushing outdated technologies.
+                  Seeing the gap in quality installations and genuine after-sales support, our founding engineers set out to build a company that puts engineering ethics first. We introduced global Tier-1 inverter technologies and advanced high-efficiency panels to the Indian market when others were still pushing outdated technologies.
                 </p>
                 <p>
                   Today we're your trusted solar partner, having delivered over 45 MW of clean capacity across 2,000+ projects. Headquarters: Indore. Offices in: Mumbai, Pune, Jalgaon, Kota.

@@ -1,6 +1,6 @@
 export const metadata = {
   title: 'Solar Panels, Inverters & Batteries in India | SCA Tech Solar',
-  description: 'Tier 1 solar panels (LONGi, Jinko, Waaree), GoodWe hybrid inverters, LiFePO4 batteries and complete solar kits.',
+  description: 'Premium Tier-1 solar panels, high-efficiency hybrid inverters, LiFePO4 batteries and complete solar kits.',
   alternates: { canonical: 'https://scatechsolar.com/products' },
 };
 

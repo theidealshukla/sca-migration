@@ -51,7 +51,7 @@ export default function Footer() {
               />
             </Link>
             <p className="text-night-400 text-sm leading-relaxed mb-6 max-w-xs">
-              Powering India's clean energy future since 2008. Supplier of GoodWe inverters and TOPCon bifacial panels.
+              Powering India's clean energy future since 2008. Supplier of Tier-1 inverters and high-efficiency bifacial panels.
             </p>
             <div className="flex flex-col gap-3 mb-8">
               <a href={`tel:${NAP.phone.replace(/\s/g, '')}`} className="flex items-center gap-3 text-sm text-night-400 hover:text-white transition-colors">
@@ -119,7 +119,7 @@ export default function Footer() {
       {/* SEO Text Block */}
       <div className="max-w-7xl mx-auto px-5 md:px-8 py-6">
         <p className="text-[10px] md:text-xs text-night-600 leading-relaxed text-center max-w-4xl mx-auto">
-          SCA Tech Solar is India's top-rated solar company offering professional solar panel installation for homes, businesses, and industrial units. Headquartered in Indore with offices in Mumbai, Pune, Jalgaon, and Kota. We authorize GoodWe inverters, provide TOPCon bifacial panels, and assist with PM Surya Ghar scheme subsidy processes.
+          SCA Tech Solar is India's top-rated solar company offering professional solar panel installation for homes, businesses, and industrial units. Headquartered in Indore with offices in Mumbai, Pune, Jalgaon, and Kota. We authorize top-tier premium inverters, provide advanced bifacial panels, and assist with PM Surya Ghar scheme subsidy processes.
         </p>
       </div>
 
