@@ -12,10 +12,7 @@ import Breadcrumb from '@/components/Breadcrumb'
 import { ArrowRight, Sun, Users, Award, Leaf } from 'lucide-react'
 import { STATS } from '@/constants/stats';
 const team = [
-  { name: 'Vikram Suryavanshi', role: 'Founder & CEO', img: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&q=80&auto=format', bio: '15 years in renewable energy. IIT Indore alum.' },
-  { name: 'Neha Jain', role: 'Head of Engineering', img: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&q=80&auto=format', bio: 'Ex-NTPC, leads all technical installations.' },
-  { name: 'Rohit Patel', role: 'Director, Sales & Subsidy', img: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&q=80&auto=format', bio: 'Expert in MPWZ liaising and PM Surya Ghar.' },
-  { name: 'Kavita Sharma', role: 'Head of Customer Success', img: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?w=400&q=80&auto=format', bio: 'Ensures every client gets maximum value.' },
+  { name: 'Saurabh Agrawal', role: 'Founder & CEO', img: '/saurabh-agrawal.jpg', bio: '15 years in renewable energy. IIT Indore alum.' },
 ]
 
 
