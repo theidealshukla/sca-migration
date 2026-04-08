@@ -12,7 +12,7 @@ import Breadcrumb from '@/components/Breadcrumb'
 import { ArrowRight, Sun, Users, Award, Leaf } from 'lucide-react'
 import { STATS } from '@/constants/stats';
 const team = [
-  { name: 'Saurabh Agrawal', role: 'Founder & CEO', img: '/saurabh-agrawal.jpg', bio: '15 years in renewable energy. IIT Indore alum.' },
+  { name: 'Saurabh Agrawal', role: 'Founder & CEO', img: '/saurabh-agrawal.jpg', bio: '' },
 ]
 
 
