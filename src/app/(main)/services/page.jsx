@@ -1,7 +1,7 @@
 export const metadata = {
-  title: 'Solar Installation Services | SCA Tech Solar',
-  description: 'Residential, commercial and industrial solar installation services. PM Surya Ghar subsidy processing included at no extra cost.',
-  alternates: { canonical: 'https://scatechsolar.com/services' },
+  title: 'EPC Services | ASA EPC Pvt. Ltd.',
+  description: 'Turnkey EPC services: solar power plants, transmission lines (up to 765KV), substations (33KV-400KV), BESS, Green Hydrogen, and integrated asset management.',
+  alternates: { canonical: 'https://www.asa-epc.com/services' },
 };
 
 import React from 'react'
@@ -14,57 +14,57 @@ import { Home, Building2, Factory, Wrench, ShieldCheck, Zap, ArrowRight, CheckCi
 
 const services = [
   {
-    icon: Home,
-    title: 'Residential Solar',
-    tagline: 'Your home, powered by the sun.',
-    desc: 'SCA Tech Solar installs 3kW to 10kW residential rooftop systems with PM Surya Ghar subsidy up to ₹78,000 processed end-to-end. With 16+ years of experience and 2,000+ installations, we deliver net-metered on-grid, off-grid and hybrid solutions that cut household electricity bills by 85–90%.',
-    points: ['On-grid, Off-grid & Hybrid systems', '3 kW to 10 kW capacity range', 'PM Surya Ghar subsidy up to ₹78,000', 'MPWZ net metering registration included', '25-year performance warranty', 'AMC plans available'],
-    video: 'https://res.cloudinary.com/dyc2xmcym/video/upload/v1775638771/hero-video_uzkmjg.mp4',
+    icon: Factory,
+    title: 'EPC Services',
+    tagline: 'Turnkey Solar Power Plant Solutions.',
+    desc: 'ASA EPC delivers complete EPC services for ground mounted solar, rooftop solar, floating solar, and agrovoltaic systems. From site survey and leveling to module alignment, cable laying, and final commissioning — we handle the complete 16-step construction process with experienced on-ground teams.',
+    points: ['Ground mounted solar (1 MW – 20 MW)', 'Rooftop solar systems', 'Floating solar installations', 'Agrovoltaic systems', 'Transmission lines up to 765 KV', 'Substations (33KV to 400KV, GIS & AIS)'],
+    video: 'https://res.cloudinary.com/dyc2xmcym/video/upload/v1775673934/7211094-uhd_3840_2160_30fps_jq4q1e.mp4',
     color: 'bg-solar-50',
   },
   {
-    icon: Building2,
-    title: 'Commercial Solar',
-    tagline: 'Turn your rooftop into a revenue stream.',
-    desc: 'SCA Tech Solar delivers 10kW to 100kW commercial solar systems for offices, hospitals, schools and retail. Backed by 45 MW of installed capacity and 16+ years of expertise, our turnkey solutions reduce peak demand charges, generate REC credits, and help businesses meet ESG targets with rapid ROI.',
-    points: ['10 kW to 100 kW systems', 'Peer-to-peer energy trading', 'REC and carbon credit advisory', 'OPEX and CAPEX models available', 'Remote monitoring dashboard', 'Dedicated project manager'],
-    video: 'https://res.cloudinary.com/dyc2xmcym/video/upload/v1775676732/DJI_20260328170049_0023_D_fyee6r.mp4',
+    icon: ShieldCheck,
+    title: 'Approvals & Liaisoning',
+    tagline: 'We handle all regulatory compliance.',
+    desc: 'Navigating the complex landscape of government approvals and regulatory requirements is our specialty. ASA EPC manages the complete approvals process — from initial applications to final permits — ensuring timely project clearances and zero bureaucratic delays.',
+    points: ['Government permit acquisition', 'Regulatory compliance management', 'Agency liaison & follow-up', 'Documentation & record keeping', 'Environmental clearances', 'Grid connectivity approvals'],
+    video: 'https://res.cloudinary.com/dyc2xmcym/video/upload/v1775677139/7735491-hd_1920_1080_25fps_dgbh1e.mp4',
     color: 'bg-sky-50',
   },
   {
-    icon: Factory,
-    title: 'Industrial Solar',
-    tagline: 'Large-scale clean power for industry.',
-    desc: 'Our engineering team handles complex 50kW to 500kW+ industrial solar projects including ground-mount and carport installations. With 2,000+ successful deployments and deep HT/LT connection expertise, SCA Tech is India\'s most experienced industrial solar EPC contractor.',
-    points: ['50 kW to 500 kW+ projects', 'Ground-mount & elevated carport', 'HT/LT connection expertise', 'PPA and third-party financing', 'Priority MPWZ liaison', 'Dedicated O&M team'],
-    video: 'https://res.cloudinary.com/dyc2xmcym/video/upload/v1775673934/7211094-uhd_3840_2160_30fps_jq4q1e.mp4',
+    icon: Zap,
+    title: 'BESS & Green Hydrogen',
+    tagline: 'Next-generation clean energy solutions.',
+    desc: 'ASA EPC is at the forefront of emerging energy technologies. Battery Energy Storage Systems (BESS) store excess renewable energy for later use, enhancing grid stability. Green Hydrogen, produced by splitting water using renewable energy, offers a zero-emission alternative for power generation, transportation, and industrial applications.',
+    points: ['Battery Energy Storage Systems', 'Green Hydrogen production', 'Grid stability solutions', 'Energy arbitrage systems', 'Microgrid integration', 'Scalable modular design'],
+    video: 'https://res.cloudinary.com/dyc2xmcym/video/upload/v1775677248/15338269_3840_2160_23fps_b0ggfs.mp4',
     color: 'bg-night-50',
   },
   {
     icon: Wrench,
-    title: 'Operations & Maintenance',
-    tagline: 'Keep your solar producing at peak performance.',
-    desc: 'Comprehensive AMC and O&M packages for existing solar plants. Remote monitoring, preventive maintenance, panel cleaning, inverter servicing and 24/7 fault response.',
-    points: ['Annual Maintenance Contracts', 'Remote SCADA monitoring', 'Quarterly performance reports', 'Panel cleaning every 3 months', 'Inverter health checks', '4-hour fault response SLA'],
+    title: 'Asset Management',
+    tagline: 'Maximize performance. Minimize downtime.',
+    desc: 'Integrated asset management services ensuring optimal performance and longevity of your power infrastructure. Our expert teams provide ongoing O&M, comprehensive energy audits, and real-time performance monitoring with SCADA-based tracking systems.',
+    points: ['Operation & Maintenance', 'Comprehensive energy audits', 'Real-time performance monitoring', 'Preventive maintenance programs', 'SCADA-based remote tracking', 'Annual performance reports'],
     video: 'https://res.cloudinary.com/dyc2xmcym/video/upload/v1775675897/8853483-hd_1920_1080_24fps_vm9bns.mp4',
     color: 'bg-green-50',
   },
   {
-    icon: ShieldCheck,
-    title: 'Subsidy & Documentation',
-    tagline: 'We handle all the paperwork for you.',
-    desc: "Government subsidy registration, MPWZ approvals, net metering applications \u2014 a bureaucratic nightmare that we've mastered. Free for all SCA Tech installations.",
-    points: ['PM Surya Ghar portal registration', 'MPWZ net meter filing', 'Subsidy status tracking', 'Bank subsidy disbursement follow-up', 'Legal documentation support', 'Zero extra charges'],
-    video: 'https://res.cloudinary.com/dyc2xmcym/video/upload/v1775677139/7735491-hd_1920_1080_25fps_dgbh1e.mp4',
+    icon: Building2,
+    title: 'Transmission & Substations',
+    tagline: 'High-voltage infrastructure expertise.',
+    desc: 'ASA EPC executes Extra High Tension (EHT) and High Tension (HT) transmission lines up to 765 KV, along with Gas Insulated Substations (GIS) and Air Insulated Substations (AIS) spanning 33KV to 400KV. We also deliver 132KV traction substations for Indian Railways.',
+    points: ['EHT/HT lines up to 765 KV', 'GIS substations', 'AIS substations (33KV–400KV)', '132KV traction substations', 'Railway electrification', 'Complete testing & commissioning'],
+    video: 'https://res.cloudinary.com/dyc2xmcym/video/upload/v1775676732/DJI_20260328170049_0023_D_fyee6r.mp4',
     color: 'bg-purple-50',
   },
   {
-    icon: Zap,
-    title: 'Battery Storage Solutions',
-    tagline: 'Power through any outage.',
-    desc: "Lithium iron phosphate (LiFePO4) battery systems integrated with hybrid inverters. Designed for India's frequent power outages and businesses needing uninterrupted power.",
-    points: ['LiFePO4 batteries — 10+ year life', '5 kWh to 100 kWh systems', 'Smart load management', 'EV charging integration', 'Grid-independent operation', 'Scalable modular design'],
-    video: 'https://res.cloudinary.com/dyc2xmcym/video/upload/v1775677248/15338269_3840_2160_23fps_b0ggfs.mp4',
+    icon: Home,
+    title: 'Pressurized Irrigation',
+    tagline: 'Smart water management solutions.',
+    desc: 'ASA EPC delivers pressurized irrigation systems combining solar-powered pumping with precision water distribution. Our systems optimize water usage for agricultural and industrial applications, reducing operating costs while improving efficiency.',
+    points: ['Solar-powered pumping systems', 'Drip irrigation integration', 'Sprinkler systems', 'Water management solutions', 'Agricultural applications', 'Industrial water systems'],
+    video: 'https://res.cloudinary.com/dyc2xmcym/video/upload/v1775638771/hero-video_uzkmjg.mp4',
     color: 'bg-orange-50',
   },
 ]
@@ -85,7 +85,7 @@ export default function Services() {
               https://images.unsplash.com/photo-1509391366360-2e959784a276?w=1200&q=80&auto=format&fit=crop 1200w
             "
             sizes="100vw"
-            alt="Solar Installation Services background" 
+            alt="ASA EPC Services background" 
             className="w-full h-full object-cover" 
             loading="lazy"
             decoding="async"
@@ -100,13 +100,13 @@ export default function Services() {
             Our Services
           </p>
           <h1 className="font-black text-white leading-tight mt-2 mb-3" style={{ fontSize: 'clamp(2rem, 4.5vw, 4.5rem)', letterSpacing: '-0.03em' }}>
-            Solar Installation Services.
+            Comprehensive EPC Services.
           </h1>
           <p className="text-night-300 max-w-xl text-base md:text-lg leading-relaxed mb-6">
-            From a single rooftop to industrial mega-parks — SCA Tech delivers turnkey solar solutions backed by 16 years of expertise.
+            From solar power plants to high-voltage transmission lines — ASA EPC delivers turnkey energy solutions backed by 7+ years of expertise.
           </p>
           <Link href="/contact" className="btn-primary">
-            Book Free Survey <ArrowRight className="w-4 h-4" />
+            Get Free Consultation <ArrowRight className="w-4 h-4" />
           </Link>
         </div>
       </div>

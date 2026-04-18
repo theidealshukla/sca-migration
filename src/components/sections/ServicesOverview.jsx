@@ -38,7 +38,7 @@ const svgIllustrations = [
       {/* Ground line */}
       <line className="svg-draw" x1="40" y1="340" x2="460" y2="340" stroke="currentColor" strokeWidth="0.8" strokeDasharray="8 6" />
       {/* Small text at bottom */}
-      <text x="40" y="380" fill="currentColor" fontSize="10" fontFamily="Inter, sans-serif" opacity="0.4">Premium and Affordable Tier 1 & 2 panels · 25yr warranty</text>
+      <text x="40" y="380" fill="currentColor" fontSize="10" fontFamily="Inter, sans-serif" opacity="0.4">Ground mounted & rooftop · ASA EPC</text>
     </svg>
   ),
   // 02 — Free Energy Consultation: clipboard + lightbulb
@@ -67,7 +67,7 @@ const svgIllustrations = [
       <path className="svg-draw" d="M330 200 L345 200 L340 195 M345 200 L340 205" stroke="currentColor" strokeWidth="1" strokeLinecap="round" />
       {/* Ground */}
       <line className="svg-draw" x1="40" y1="340" x2="460" y2="340" stroke="currentColor" strokeWidth="0.8" strokeDasharray="8 6" />
-      <text x="40" y="380" fill="currentColor" fontSize="10" fontFamily="Inter, sans-serif" opacity="0.4">Free site survey · Zero obligation</text>
+      <text x="40" y="380" fill="currentColor" fontSize="10" fontFamily="Inter, sans-serif" opacity="0.4">Government approvals · Regulatory compliance</text>
     </svg>
   ),
   // 03 — Installation Service: tools + panel being installed
@@ -93,7 +93,7 @@ const svgIllustrations = [
       <path className="svg-draw" d="M120 210 L120 250 Q120 260 130 260 L155 260" stroke="currentColor" strokeWidth="1" fill="none" />
       {/* Ground */}
       <line className="svg-draw" x1="40" y1="340" x2="460" y2="340" stroke="currentColor" strokeWidth="0.8" strokeDasharray="8 6" />
-      <text x="40" y="380" fill="currentColor" fontSize="10" fontFamily="Inter, sans-serif" opacity="0.4">7 day installation · Professional setup</text>
+      <text x="40" y="380" fill="currentColor" fontSize="10" fontFamily="Inter, sans-serif" opacity="0.4">Experienced teams · Challenging terrains</text>
     </svg>
   ),
   // 04 — Monitoring & Tracking: dashboard/screen
@@ -125,7 +125,7 @@ const svgIllustrations = [
       <circle className="svg-draw" cx="100" cy="97" r="2" fill="currentColor" />
       {/* Ground */}
       <line className="svg-draw" x1="40" y1="340" x2="460" y2="340" stroke="currentColor" strokeWidth="0.8" strokeDasharray="8 6" />
-      <text x="40" y="380" fill="currentColor" fontSize="10" fontFamily="Inter, sans-serif" opacity="0.4">Real-time monitoring · SCADA dashboard</text>
+      <text x="40" y="380" fill="currentColor" fontSize="10" fontFamily="Inter, sans-serif" opacity="0.4">Real-time monitoring · Performance tracking</text>
     </svg>
   ),
   // 05 — Commercial Solar Projects: factory + large panels
@@ -156,7 +156,7 @@ const svgIllustrations = [
       <line className="svg-draw" x1="150" y1="310" x2="150" y2="340" stroke="currentColor" strokeWidth="1.2" />
       {/* Ground */}
       <line className="svg-draw" x1="40" y1="340" x2="460" y2="340" stroke="currentColor" strokeWidth="0.8" strokeDasharray="8 6" />
-      <text x="40" y="380" fill="currentColor" fontSize="10" fontFamily="Inter, sans-serif" opacity="0.4">Up to 5 MW · Ground-mount & carport</text>
+      <text x="40" y="380" fill="currentColor" fontSize="10" fontFamily="Inter, sans-serif" opacity="0.4">Up to 20 MW · Ground-mount & floating</text>
     </svg>
   ),
 ]
@@ -169,15 +169,50 @@ export default function ServicesOverview() {
   const sectionRef = useRef(null);
 
   useEffect(() => {
+    const fallbackServices = [
+      {
+        id: '1',
+        title: 'ASA Solar EPC',
+        short_description: 'End-to-end EPC services spanning ground mounted, rooftop, floating, and agrovoltaic solar installations. We manage the complete lifecycle from site survey and design to procurement, construction, and commissioning.'
+      },
+      {
+        id: '2',
+        title: 'Approvals & Liaisoning',
+        short_description: 'Complete management of government permits, regulatory clearances, and documentation. We coordinate with DISCOMs, MNRE, and State Nodal Agencies to ensure hassle-free and timely project commissioning.'
+      },
+      {
+        id: '3',
+        title: 'Transmission Lines & Substations',
+        short_description: 'Construction and laying of EHT/HT transmission lines up to 765 KV and high-voltage GIS/AIS substations spanning 33 KV to 400 KV, including specialized traction substations for Indian Railways.'
+      },
+      {
+        id: '4',
+        title: 'Asset Management & O&M',
+        short_description: 'Comprehensive operation, maintenance, and performance monitoring services for solar plants and power infrastructure. We ensure maximized plant uptime, extended asset life, and optimized ROI.'
+      },
+      {
+        id: '5',
+        title: 'Mega Commercial Projects',
+        short_description: 'Execution of large-scale commercial and industrial solar projects up to 20 MW. We provide bespoke ground-mount and floating solar solutions, integrating BESS for grid stabilization and peak load management.'
+      }
+    ];
+
     async function loadServices() {
-      const { data, error } = await supabase
-        .from('services')
-        .select('*')
-        .eq('is_published', true)
-        .order('created_at', { ascending: true });
-        
-      if (!error && data) {
-        setServicesData(data);
+      try {
+        const { data, error } = await supabase
+          .from('services')
+          .select('*')
+          .eq('is_published', true)
+          .order('created_at', { ascending: true });
+
+        if (!error && data && data.length > 0) {
+          setServicesData(data);
+        } else {
+          setServicesData(fallbackServices);
+        }
+      } catch (err) {
+        console.error("Error loading services:", err);
+        setServicesData(fallbackServices);
       }
       setLoading(false);
     }
@@ -212,7 +247,7 @@ export default function ServicesOverview() {
           className="font-black text-night-900 leading-[1.1] mb-16 md:mb-20 max-w-xl"
           style={{ fontSize: 'clamp(2rem, 4.5vw, 3.5rem)', letterSpacing: '-0.03em' }}
         >
-          Rooftop Solar for Homes & Businesses.
+          ASA Solar EPC Services.
         </h2>
 
         {/* Main grid: SVG left, list right */}
@@ -228,7 +263,7 @@ export default function ServicesOverview() {
             </div>
             {/* Small note below illustration */}
             <p className="text-[11px] text-night-300 leading-relaxed mt-4 max-w-xs">
-              That's why we're proud that so many clients trust us to deliver reliable, efficient, and sustainable solar solutions.
+              Every project reflects our focus on quality, honest work, and customer trust — that's why leading companies choose ASA EPC.
             </p>
           </div>
 
@@ -247,38 +282,34 @@ export default function ServicesOverview() {
                 <button
                   key={svc.id}
                   onClick={() => setActive(i)}
-                  className={`group w-full text-left border-t border-night-100 transition-all duration-500 ${
-                    i === servicesData.length - 1 ? 'border-b' : ''
-                  }`}
+                  className={`group w-full text-left border-t border-night-100 transition-all duration-500 ${i === servicesData.length - 1 ? 'border-b' : ''
+                    }`}
                 >
-                  <div className={`flex items-baseline gap-5 md:gap-8 py-5 md:py-6 transition-all duration-500 ${
-                    i === active ? 'opacity-100' : 'opacity-40 hover:opacity-70'
-                  }`}>
+                  <div className={`flex items-baseline gap-5 md:gap-8 py-5 md:py-6 transition-all duration-500 ${i === active ? 'opacity-100' : 'opacity-40 hover:opacity-70'
+                    }`}>
                     {/* Number Sequence Generator */}
                     <span className="text-sm font-mono text-night-400 flex-shrink-0 w-8">
                       /{String(i + 1).padStart(2, '0')}
                     </span>
                     {/* Title + description */}
                     <div className="flex-1">
-                      <p className={`font-semibold transition-all duration-500 ${
-                        i === active ? 'text-night-900 text-lg md:text-xl' : 'text-night-600 text-base md:text-lg'
-                      }`}>
+                      <p className={`font-semibold transition-all duration-500 ${i === active ? 'text-night-900 text-lg md:text-xl' : 'text-night-600 text-base md:text-lg'
+                        }`}>
                         {svc.title}
                       </p>
                       {/* Collapsible description */}
                       <div
-                        className={`overflow-hidden transition-all duration-500 ease-in-out ${
-                          i === active ? 'max-h-[600px] opacity-100 mt-2' : 'max-h-0 opacity-0'
-                        }`}
+                        className={`overflow-hidden transition-all duration-500 ease-in-out ${i === active ? 'max-h-[600px] opacity-100 mt-2' : 'max-h-0 opacity-0'
+                          }`}
                       >
                         <p className="text-sm text-night-400 leading-relaxed pr-4">
                           {svc.short_description || svc.description}
                         </p>
-                        
+
                         {/* Mobile SVG Illustration */}
                         {i === active && (
                           <div className="lg:hidden mt-6">
-                            <div 
+                            <div
                               key={`mobile-svg-${active}`}
                               className="flex justify-center svg-illustration is-visible text-night-500"
                               style={{ height: '220px', width: '100%' }}

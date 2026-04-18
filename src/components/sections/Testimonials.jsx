@@ -5,44 +5,44 @@ import { Star, Quote, ChevronLeft, ChevronRight } from 'lucide-react'
 
 const testimonials = [
   {
-    name: 'Rajesh Sharma',
-    role: 'Homeowner, Jaipur',
-    avatar: 'RS',
+    name: 'Bajaj Electrical',
+    role: 'Client, MPPTCL Projects',
+    avatar: 'BE',
     color: 'bg-night-900',
     stars: 5,
-    text: 'Installed a 5kW system in December. My electricity bill dropped from ₹4,800 to under ₹300. The team was professional, the installation was clean and the app monitoring is excellent. Worth every rupee!',
-    system: '5 kWp Residential',
-    saving: '94% bill reduction',
+    text: 'ASA EPC delivered our 132KV transmission line project in Bistan with exceptional quality and professionalism. Their team handled challenging terrain with ease and completed the project on schedule.',
+    system: '132KV Transmission Line',
+    saving: 'On-time delivery',
   },
   {
-    name: 'Priya Agarwal',
-    role: 'Owner, Agarwal Textile Mills, Pune',
-    avatar: 'PA',
+    name: 'L&T Construction',
+    role: 'Client, Multiple Projects',
+    avatar: 'LT',
     color: 'bg-night-700',
     stars: 5,
-    text: "Our factory electricity bill was over ₹3.5 lakh per month. Post SCA Tech's 200kW installation, we're saving ₹2.8 lakh monthly. ROI in under 3 years. Exceptional engineering team.",
-    system: '200 kWp Commercial',
-    saving: '₹2.8L/month saved',
+    text: "We've collaborated with ASA EPC on multiple transmission line and pressurized irrigation projects across Madhya Pradesh and Rajasthan. Their execution capabilities in challenging terrains are outstanding. The 765KV project in Nokha, Rajasthan was delivered with precision.",
+    system: '765KV T/L – Nokha, Rajasthan',
+    saving: 'Multi-project partner',
   },
   {
-    name: 'Dr. Arvind Pathak',
-    role: 'Clinic Owner, Hyderabad',
-    avatar: 'AP',
+    name: 'Dr. C.V. Raman University',
+    role: 'Bilaspur, Chhattisgarh',
+    avatar: 'CV',
     color: 'bg-night-600',
     stars: 5,
-    text: 'Power cuts were disrupting my clinic. SCA Tech installed a hybrid system with battery backup. Now we have uninterrupted power 24/7. The subsidy processing was seamless — they handled everything.',
-    system: '8 kWp Hybrid + Battery',
-    saving: '100% uptime',
+    text: 'ASA EPC installed a 150 KW rooftop solar system for our university campus. The installation was seamless, and we are already seeing significant energy savings. Their team handled all approvals and documentation efficiently.',
+    system: '150 KW Rooftop Solar',
+    saving: 'Significant energy savings',
   },
   {
-    name: 'Sunita Verma',
-    role: 'Homeowner, Delhi NCR',
-    avatar: 'SV',
+    name: 'KEC International',
+    role: 'RPG Group, Indian Railway Project',
+    avatar: 'KC',
     color: 'bg-night-500',
     stars: 5,
-    text: 'We were hesitant at first but the SCA Tech team explained everything clearly. Got ₹78,000 subsidy through PM Surya Ghar. Installation was done in just 4 days. Our neighbours have also installed now!',
-    system: '3 kWp On-grid',
-    saving: '₹78K subsidy received',
+    text: 'ASA EPC executed our 132KV traction substation project in Balaghat for Indian Railways with remarkable technical competence. Their expertise in substation construction is truly reliable.',
+    system: '132KV Traction Substation',
+    saving: 'Railway-grade quality',
   },
 ]
 
@@ -57,12 +57,12 @@ export default function Testimonials() {
           <div>
             <p className="section-tag">Client Stories</p>
             <h2 className="font-black text-night-900 leading-tight mb-6" style={{ fontSize: 'clamp(2rem, 4.5vw, 4rem)', letterSpacing: '-0.03em' }}>
-              Reviews for the Best{' '}
-              <span className="font-light text-night-400">Solar Company in India.</span>
+              Trusted by India's{' '}
+              <span className="font-light text-night-400">Leading Companies.</span>
             </h2>
             <div className="flex items-center gap-4 mb-8">
               <div className="flex -space-x-3">
-                {['RS', 'PA', 'AP', 'SV'].map((init, i) => (
+                {['BE', 'LT', 'CV', 'KC'].map((init, i) => (
                   <div key={i} className={`w-10 h-10 rounded-full border-2 border-white flex items-center justify-center text-white text-xs font-bold ${['bg-night-900','bg-night-700','bg-night-600','bg-night-500'][i]}`}>
                     {init}
                   </div>
@@ -72,7 +72,7 @@ export default function Testimonials() {
                 <div className="flex">
                   {[...Array(5)].map((_, i) => <Star key={i} className="w-4 h-4 text-night-900 fill-night-900" />)}
                 </div>
-                <p className="text-sm text-night-500 mt-0.5">1,200+ verified reviews</p>
+                <p className="text-sm text-night-500 mt-0.5">100+ projects delivered</p>
               </div>
             </div>
 
@@ -123,7 +123,7 @@ export default function Testimonials() {
               </div>
               <div className="mt-6 pt-6 border-t border-night-100 grid grid-cols-2 gap-4">
                 <div className="bg-night-50 rounded-xl p-3">
-                  <p className="text-xs text-night-400 mb-1">System</p>
+                  <p className="text-xs text-night-400 mb-1">Project</p>
                   <p className="font-bold text-night-900 text-sm">{testimonials[active].system}</p>
                 </div>
                 <div className="bg-night-100 rounded-xl p-3">

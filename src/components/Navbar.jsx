@@ -54,8 +54,8 @@ export default function Navbar() {
           {/* Logo */}
           <Link href="/" className="flex items-center group relative z-[60]">
             <img
-              src="/logos/sca-logo.png"
-              alt="SCA Tech Solar"
+              src="/logos/asa-epc-logo.png"
+              alt="ASA EPC Pvt. Ltd."
               className="h-[56px] w-auto object-contain"
             />
           </Link>
@@ -170,7 +170,7 @@ export default function Navbar() {
           <div className={`absolute bottom-8 left-8 right-8 mob-nav-link ${menuOpen ? 'mob-nav-link-visible' : ''}`}
             style={{ transitionDelay: menuOpen ? '0.5s' : '0s' }}>
             <p className="text-[10px] font-bold tracking-[0.2em] uppercase text-night-500 text-center">
-              SCA Tech Solar • Powering India
+              ASA EPC Pvt. Ltd. • Powering India & UAE
             </p>
           </div>
         </div>

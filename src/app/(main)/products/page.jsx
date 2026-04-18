@@ -1,7 +1,7 @@
 export const metadata = {
-  title: 'Solar Panels, Inverters & Batteries in India | SCA Tech Solar',
-  description: 'Premium Tier-1 solar panels, high-efficiency hybrid inverters, LiFePO4 batteries and complete solar kits.',
-  alternates: { canonical: 'https://scatechsolar.com/products' },
+  title: 'Solar Products & Equipment | ASA EPC Pvt. Ltd.',
+  description: 'Premium Tier-1 solar panels, high-efficiency inverters, batteries and complete solar equipment. Authorized Waaree Energies partner.',
+  alternates: { canonical: 'https://www.asa-epc.com/products' },
 };
 
 import ProductsPageClient from '@/components/sections/ProductsPageClient';

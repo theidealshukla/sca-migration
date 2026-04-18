@@ -1,8 +1,8 @@
 export const NAP = {
-  phone: '+91 98260 35454',
-  phoneHref: 'tel:+919826035454',
-  email: 'info@scatechsolar.com',
-  address: '149, Shrawan Chambers, RNT Marg, Chhoti Gwaltol, Indore — 452001',
-  addressShort: 'Indore (HQ) — 452001',
-  whatsapp: '+919826035454',
+  phone: '+91-7554920666',
+  phoneHref: 'tel:+917554920666',
+  email: 'mail@asa-epc.com',
+  address: 'Office B-22, Sector-C, Indrapuri, Near BHEL, Bhopal, MP – 462022',
+  addressShort: 'Bhopal (HQ) — 462022',
+  whatsapp: '+917554920666',
 };

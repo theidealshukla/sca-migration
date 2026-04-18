@@ -11,12 +11,12 @@ const inter = Inter({
 });
 
 export const metadata = {
-  metadataBase: new URL('https://scatechsolar.com'),
+  metadataBase: new URL('https://www.asa-epc.com'),
   title: {
-    default: 'SCA Tech Solar | Trusted Solar Panel Installation',
-    template: '%s | SCA Tech Solar'
+    default: 'ASA EPC Pvt. Ltd. | Solar EPC & Renewable Energy Solutions',
+    template: '%s | ASA EPC Pvt. Ltd.'
   },
-  description: 'India\'s trusted solar installation company. Residential, commercial & industrial solar solutions with PM Surya Ghar subsidy support.',
+  description: 'DPIIT-recognized solar EPC company delivering turnkey solar power plants, transmission lines, substations, BESS & asset management across India and UAE. 7+ years, 100+ projects.',
 };
 
 export default function RootLayout({ children }) {
@@ -30,21 +30,24 @@ export default function RootLayout({ children }) {
              __html: JSON.stringify({
                "@context": "https://schema.org",
                "@type": "Organization",
-               "name": "SCA Tech Solar",
-               "url": "https://scatechsolar.com",
-               "telephone": "+919826035454",
-               "email": "info@scatechsolar.com",
+               "name": "ASA EPC Pvt. Ltd.",
+               "url": "https://www.asa-epc.com",
+               "telephone": "+917554920666",
+               "email": "mail@asa-epc.com",
                "address": {
                  "@type": "PostalAddress",
-                 "streetAddress": "149, Shrawan Chambers, RNT Marg, Chhoti Gwaltol",
-                 "addressLocality": "Indore",
+                 "streetAddress": "Office B-22, Sector-C, Indrapuri, Near BHEL",
+                 "addressLocality": "Bhopal",
                  "addressRegion": "Madhya Pradesh",
-                 "postalCode": "452001",
+                 "postalCode": "462022",
                  "addressCountry": "IN"
                },
-               "areaServed": {"@type": "Country", "name": "India"},
-               "priceRange": "₹₹",
-               "openingHours": "Mo-Sa 09:00-19:00"
+               "areaServed": [
+                 {"@type": "Country", "name": "India"},
+                 {"@type": "Country", "name": "United Arab Emirates"}
+               ],
+               "priceRange": "₹₹₹",
+               "openingHours": "Mo-Sa 09:00-18:00"
              })
           }}
         />

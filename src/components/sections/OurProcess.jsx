@@ -7,26 +7,26 @@ import { motion, useScroll, useSpring } from 'framer-motion'
 const processSteps = [
   {
     num: '01',
-    title: 'Site Analysis',
-    desc: 'We conduct a free physical site survey, shadow analysis, and load audit to determine your exact energy needs.',
+    title: 'Survey & Planning',
+    desc: 'We conduct detailed site surveys, leveling, grading, shadow analysis, and engineering design to determine optimal system layout and energy yield.',
     icon: Target,
   },
   {
     num: '02',
-    title: 'Custom Design',
-    desc: 'Our engineering team creates a 3D layout of your roof to maximize solar yield and aesthetic integration.',
+    title: 'Procurement & Erection',
+    desc: 'Column post installation, MMS erection, PV module alignment, DC/AC cable laying and termination — executed by our experienced on-ground teams.',
     icon: Settings,
   },
   {
     num: '03',
-    title: 'Approvals & Paperwork',
-    desc: 'We handle all documentation—from MPWZ net metering approvals to processing your PM Surya Ghar subsidy.',
+    title: 'Approvals & Liaisoning',
+    desc: 'We handle all government approvals, regulatory compliance, and liaison with authorities — from initial applications to final permits, minimizing delays.',
     icon: ClipboardCheck,
   },
   {
     num: '04',
-    title: 'Installation & Grid Tie',
-    desc: 'Tier-1 panels are installed by certified technicians and commissioned quickly, ready to power your home.',
+    title: 'Testing & Commissioning',
+    desc: 'Full testing and commissioning of the entire system including transformer yard, control room, and transmission line — ready for grid connection.',
     icon: PlugZap,
   },
 ]
@@ -60,10 +60,10 @@ export default function OurProcess() {
             <div className="w-6 h-px bg-white/50" />
           </div>
           <h2 className="text-4xl md:text-5xl font-black mb-6 tracking-tight">
-              Our <span className="text-white/60">Solar Installation Process.</span>
+              Our <span className="text-white/60">EPC Construction Process.</span>
           </h2>
           <p className="text-white/60 max-w-2xl mx-auto text-sm md:text-base leading-relaxed">
-            From the first phone call to the moment you flip the switch, we ensure a seamless transition to clean, renewable solar energy.
+            From initial site survey to final commissioning, ASA EPC follows a detailed 16-step construction process ensuring timely and cost-effective project delivery.
           </p>
         </div>
 

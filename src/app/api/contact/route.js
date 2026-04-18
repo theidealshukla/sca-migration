@@ -63,19 +63,19 @@ export async function POST(req) {
 
       // Task 2: Customer confirmation email
       email ? transporter.sendMail({
-        from: `"SCA Tech Solar" <${process.env.EMAIL_USER}>`,
+        from: `"ASA EPC Pvt. Ltd." <${process.env.EMAIL_USER}>`,
         to: email,
-        subject: 'Thank you for contacting SCA Tech Solar! ☀️',
+        subject: 'Thank you for contacting ASA EPC Pvt. Ltd.! ☀️',
         html: `
           <div style="font-family: sans-serif; max-width: 600px; margin: 0 auto; color: #333;">
             <h2 style="color: #03a9f4;">Hello ${name},</h2>
-            <p>Thank you for reaching out to SCA Tech Solar. We have received your request for a Free Solar Survey for a <strong>${type}</strong> installation in <strong>${city}</strong>.</p>
-            <p>Our engineering expert will review your details and call you shortly at <strong>${phone}</strong> to confirm the exact time and schedule.</p>
+            <p>Thank you for reaching out to ASA EPC Pvt. Ltd. We have received your project enquiry for a <strong>${type}</strong> project in <strong>${city}</strong>.</p>
+            <p>Our engineering team will review your details and contact you shortly at <strong>${phone}</strong> to discuss next steps.</p>
             <hr style="border: 0; border-top: 1px solid #eee; margin: 20px 0;" />
             <p style="font-size: 14px; color: #777;">
-              SCA Tech Solar - India's Trusted EPC Company.<br>
-              Phone: +91 98260 35454<br>
-              Email: info@scatechsolar.com
+              ASA EPC Pvt. Ltd. - Exceptional. Economical. Eco-Friendly.<br>
+              Phone: +91-7554920666<br>
+              Email: mail@asa-epc.com
             </p>
           </div>
         `,
@@ -83,7 +83,7 @@ export async function POST(req) {
 
       // Task 3: Admin alert email
       (process.env.ALERTS_EMAIL || process.env.EMAIL_USER) ? transporter.sendMail({
-        from: `"SCA Bot" <${process.env.EMAIL_USER}>`,
+        from: `"ASA EPC Bot" <${process.env.EMAIL_USER}>`,
         to: process.env.ALERTS_EMAIL || process.env.EMAIL_USER,
         subject: `🚨 NEW LEAD: ${name} (${city}) - ${type}`,
         html: `
@@ -99,7 +99,7 @@ export async function POST(req) {
               <tr><td style="padding: 10px; border-bottom: 1px solid #eee; font-weight: bold;">Message:</td><td style="padding: 10px; border-bottom: 1px solid #eee;">${message || 'No additional message'}</td></tr>
             </table>
             <div style="margin-top: 25px; text-align: center;">
-              <a href="https://scatechsolar.com/admin/leads" style="background-color: #03a9f4; color: white; padding: 10px 20px; text-decoration: none; border-radius: 4px; font-weight: bold;">Open CRM Panel</a>
+              <a href="https://www.asa-epc.com/admin/leads" style="background-color: #03a9f4; color: white; padding: 10px 20px; text-decoration: none; border-radius: 4px; font-weight: bold;">Open CRM Panel</a>
             </div>
           </div>
         `,

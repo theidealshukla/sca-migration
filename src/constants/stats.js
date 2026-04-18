@@ -1,9 +1,9 @@
 export const STATS = {
-  foundedYear: 2008,
-  installations: '2,000+',
-  capacityMW: '45',
-  happyFamilies: '2,000+',
-  yearsExperience: '16+',
+  foundedYear: 2018,
+  installations: '100+',
+  capacityMW: '50',
+  happyFamilies: '100+',
+  yearsExperience: '7+',
   satisfaction: '99%',
-  serviceAreas: ['Delhi NCR','Mumbai','Bengaluru','Hyderabad','Chennai','Indore','Bhopal','Jaipur','Ahmedabad','Pune','Lucknow','Kolkata','Chandigarh','Ujjain','Dewas','Nagpur','Surat','Vadodara','Coimbatore','Kochi'],
+  serviceAreas: ['Bhopal','Guna','Raisen','Gwalior','Chhattarpur','Seoni','Dindori','Rajgarh','Delhi','Coimbatore','Nokha','Dubai'],
 };

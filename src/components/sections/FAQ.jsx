@@ -1,103 +1,91 @@
 "use client";
 
-import { NAP } from '@/constants/contact';
-
 import React, { useState } from 'react'
 import { Plus, Minus } from 'lucide-react'
 
 const faqs = [
   {
-    q: 'How much does a solar installation cost in India?',
-    a: 'A typical 3 kWp residential system costs ₹1.3–1.8 lakh before subsidy. After PM Surya Ghar subsidy of ₹78,000, net cost is ₹55,000–1,00,000. Commercial and industrial pricing is calculated per watt peak (₹45–55/Wp). Costs may vary slightly by region.',
+    q: 'What EPC services does ASA EPC offer?',
+    a: 'ASA EPC provides turnkey EPC services covering ground mounted solar, rooftop solar, floating solar, agrovoltaic systems, transmission lines (up to 765 KV), and substations (33KV to 400KV). We handle the entire project lifecycle from design and planning to execution and commissioning.',
   },
   {
-    q: 'What is the payback period for solar in India?',
-    a: 'With India\'s abundant sunshine averaging 250-300+ sunny days and rising electricity tariffs of ₹7–10/unit, payback periods are typically 3–5 years for residential and 2.5–4 years for commercial. After payback, you generate free electricity for the remaining 20+ years.',
+    q: 'What is ASA EPC\u2019s experience in the solar industry?',
+    a: 'ASA EPC has 7+ years of proven EPC execution experience with 100+ projects successfully delivered. Our founders, Ashutosh Pandey, Pushpraj Singh Chouhan, and Kunal Choudhary, bring 16+ years of individual experience each. We are DPIIT-recognized and an authorized Waaree Energies franchisee partner.',
   },
   {
-    q: 'Will solar work during power cuts?',
-    a: 'Standard on-grid systems do not work during outages (safety regulation). For 24/7 power, we offer hybrid systems with lithium battery backup. These provide 4–8 hours of backup for typical households.',
+    q: 'Does ASA EPC handle government approvals?',
+    a: 'Yes, we manage the entire approvals process including obtaining necessary permits and licenses, ensuring regulatory compliance, liaising with government agencies, and handling all documentation and follow-up to ensure timely project approvals.',
   },
   {
-    q: 'How do I apply for the PM Surya Ghar subsidy?',
-    a: 'SCA Tech handles the entire subsidy process at no extra cost. We register you on the PM Surya Ghar portal, coordinate with your local MPWZ for net meter, and ensure the subsidy is credited directly to your bank account.',
+    q: 'What is BESS and Green Hydrogen?',
+    a: 'BESS (Battery Energy Storage System) stores excess energy from renewables for later use, enhancing grid stability and efficiency. Green Hydrogen is a clean energy carrier produced by splitting water using renewable energy, offering a zero-emission alternative for power generation, transportation, and industrial applications.',
   },
   {
-    q: 'How long does installation take?',
-    a: 'Site survey on day 1. Equipment delivery on day 2–3. Physical installation takes 1–2 days. MPWZ net meter application is filed simultaneously and usually approved within 15–30 days.',
+    q: 'Where does ASA EPC operate?',
+    a: 'ASA EPC operates across India with projects in Madhya Pradesh, Rajasthan, Delhi, Tamilnadu, and other states. We also have an international office in Dubai, UAE through ASA PUMPS TRADING LLC.',
   },
   {
-    q: 'What maintenance is required for solar panels?',
-    a: 'Solar panels require minimal maintenance — mainly periodic cleaning to remove dust. In most Indian climates, cleaning every 2–3 months is sufficient. We offer Annual Maintenance Contracts starting ₹3,500/year including 2 cleanings and performance health checks.',
+    q: 'What asset management services does ASA EPC provide?',
+    a: 'We provide integrated asset management including Operation & Maintenance, Energy Audits, and Performance Monitoring with real-time tracking for optimal performance and longevity of power infrastructure.',
   },
   {
-    q: 'What warranties do you provide?',
-    a: 'We offer: 25-year linear performance warranty on Tier 1 and Tier 2 panels, 10-year product warranty on panels, 5–10 year warranty on inverters, and 1-year installation workmanship warranty from SCA Tech with ongoing support.',
+    q: 'Who are ASA EPC\'s major clients?',
+    a: 'Our notable clients include Bajaj, L&T Construction, KEC International (RPG Group), Shyam Steel, Waaree, Monte Carlo, DRDO, Dr. C.V. Raman University, and Novus Green among others.',
   },
   {
-    q: 'Can I get solar installed on a rented property?',
-    a: 'You can install solar on a rented property with the landlord\'s written consent. The system can be transferred if you move. Many landlords are agreeable as it increases property value.',
+    q: 'What types of substations does ASA EPC build?',
+    a: 'ASA EPC executes high-voltage substations including Gas Insulated Substations (GIS) and Air Insulated Substations (AIS) spanning 33KV to 400KV, as well as 132KV traction substations for railway applications.',
   },
 ]
 
 export default function FAQ() {
-  const [open, setOpen] = useState(0)
-
-  const faqSchema = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": faqs.map(faq => ({
-      "@type": "Question",
-      "name": faq.q,
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": faq.a
-      }
-    }))
-  };
+  const [openIdx, setOpenIdx] = useState(0)
 
   return (
-    <section id="faq" className="py-24 md:py-32 bg-white">
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-      />
+    <section id="faq" className="py-24 bg-night-50">
       <div className="max-w-7xl mx-auto px-5 md:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-16">
-          <div>
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-16">
+          {/* Left col */}
+          <div className="lg:col-span-4">
             <p className="section-tag">FAQ</p>
-            <h2 className="font-black text-night-900 leading-tight" style={{ fontSize: 'clamp(2rem, 4vw, 3.5rem)', letterSpacing: '-0.03em' }}>
-              Solar Panel Installation FAQs.
+            <h2 className="font-black text-night-900 leading-tight mb-4" style={{ fontSize: 'clamp(2rem, 4vw, 3rem)', letterSpacing: '-0.03em' }}>
+              Frequently asked questions.
             </h2>
-            <p className="text-night-500 text-sm leading-relaxed mt-4">
-              Have a question not covered here? Our experts are available Mon–Sat 9am–6pm.
+            <p className="text-night-500 text-sm leading-relaxed mb-6">
+              Can't find what you're looking for? Contact our team at mail@asa-epc.com or call +91-7554920666.
             </p>
-            <a href={`tel:${NAP.phone.replace(/\s/g, '')}`} className="inline-flex items-center gap-2 mt-6 text-sm font-bold text-solar-600 hover:text-solar-700 transition-colors">
-              Call us: {NAP.phone} →
-            </a>
-          </div>
-          <div className="lg:col-span-2">
-            <div className="divide-y divide-night-100">
-              {faqs.map((faq, i) => (
-                <div key={i} className="py-5">
-                  <button
-                    onClick={() => setOpen(open === i ? -1 : i)}
-                    className="w-full flex items-start gap-4 text-left group"
-                  >
-                    <span className={`mt-1 w-7 h-7 rounded-full flex-shrink-0 flex items-center justify-center border-2 transition-all duration-300 ${open === i ? 'border-solar-500 bg-solar-500 text-white' : 'border-night-200 text-night-400 group-hover:border-solar-400'
-                      }`}>
-                      {open === i ? <Minus className="w-3.5 h-3.5" /> : <Plus className="w-3.5 h-3.5" />}
-                    </span>
-                    <span className={`font-semibold text-base transition-colors duration-300 ${open === i ? 'text-solar-600' : 'text-night-800 group-hover:text-night-900'}`}>
-                      {faq.q}
-                    </span>
-                  </button>
-                  <div className={`overflow-hidden transition-all duration-500 ${open === i ? 'max-h-96 opacity-100 mt-3' : 'max-h-0 opacity-0'}`}>
-                    <p className="text-night-500 text-sm leading-relaxed pl-11">{faq.a}</p>
-                  </div>
-                </div>
-              ))}
+            <div className="flex items-center gap-2 text-xs font-semibold text-night-400">
+              <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
+              {faqs.length} common questions answered
             </div>
+          </div>
+
+          {/* Right col — accordions */}
+          <div className="lg:col-span-8">
+            {faqs.map((faq, i) => {
+              const isOpen = i === openIdx
+              return (
+                <button
+                  key={i}
+                  onClick={() => setOpenIdx(isOpen ? -1 : i)}
+                  className="block w-full text-left border-b border-night-200 last:border-b-0 transition-colors"
+                >
+                  <div className="flex items-start justify-between gap-4 py-5">
+                    <h3 className={`font-semibold leading-snug transition-colors duration-300 ${isOpen ? 'text-night-900' : 'text-night-700'}`}>
+                      {faq.q}
+                    </h3>
+                    <div className={`flex-shrink-0 w-7 h-7 rounded-full border flex items-center justify-center transition-all duration-300 ${
+                      isOpen ? 'bg-night-900 border-night-900 text-white rotate-180' : 'border-night-300 text-night-400'
+                    }`}>
+                      {isOpen ? <Minus className="w-3.5 h-3.5" /> : <Plus className="w-3.5 h-3.5" />}
+                    </div>
+                  </div>
+                  <div className={`overflow-hidden transition-all duration-500 ease-in-out ${isOpen ? 'max-h-40 pb-5' : 'max-h-0'}`}>
+                    <p className="text-night-500 text-sm leading-relaxed pr-8">{faq.a}</p>
+                  </div>
+                </button>
+              )
+            })}
           </div>
         </div>
       </div>

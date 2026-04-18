@@ -14,10 +14,10 @@ export default function Hero() {
   }, []);
 
   const content = {
-    tagline: 'SOLAR ENERGY · INDORE & BEYOND',
-    heading: ['Solar Panel', 'Installation for', 'Your Home.'],
-    sub: 'As a leading Solar EPC company, we deliver premium and affordable rooftop solar installations for homes and businesses. Headquartered in Indore with offices in Mumbai, Pune, Jalgaon, and Kota.',
-    video: 'https://res.cloudinary.com/dyc2xmcym/video/upload/v1775673934/7211094-uhd_3840_2160_30fps_jq4q1e.mp4',
+    tagline: 'SOLAR EPC · BHOPAL & BEYOND',
+    heading: ['ASA Solar', 'EPC Solutions for', 'Homes and Businesses.'],
+    sub: 'ASA EPC Pvt. Ltd. — a DPIIT-recognized startup delivering end-to-end EPC services for solar power plants, transmission lines, substations, BESS and asset management. 7+ years. 100+ projects.',
+    video: 'https://res.cloudinary.com/dcnxgazmb/video/upload/q_auto/f_auto/v1776507931/13198260-uhd_3840_2160_24fps_aqczix.mp4',
     poster: 'https://images.unsplash.com/photo-1509391366360-2e959784a276?w=1200&q=80&auto=format&fit=crop'
   }
 
@@ -33,8 +33,8 @@ export default function Hero() {
           playsInline
           className="w-full h-full object-cover scale-105"
         >
-          <source 
-            src={content.video} 
+          <source
+            src={content.video}
             type="video/mp4"
           />
         </video>
@@ -94,11 +94,11 @@ export default function Hero() {
             style={{ animation: 'fadeUp 0.7s 0.7s ease-out forwards' }}
           >
             <Link href="/contact" className="inline-flex items-center gap-2 bg-white text-night-900 px-7 py-3.5 rounded-full font-semibold text-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-0.5">
-              Get Free Solar Assessment
+              Get a Free Consultation
               <ArrowRight className="w-4 h-4" />
             </Link>
-            <Link href="/#calculator" className="btn-outline-white text-sm">
-              Calculate Your Savings
+            <Link href="/services" className="btn-outline-white text-sm">
+              Explore Our Services
             </Link>
           </div>
 
@@ -107,7 +107,7 @@ export default function Hero() {
             className="flex flex-wrap items-center gap-3 mt-8 opacity-0"
             style={{ animation: 'fadeUp 0.7s 0.85s ease-out forwards' }}
           >
-            {['MPWZ Approved', '25yr Warranty', 'EMI @ 0%', 'Subsidy Support'].map(b => (
+            {['DPIIT Recognized', 'Waaree Partner', '100+ Projects', '7+ Years Experience'].map(b => (
               <span key={b} className="px-3 py-1 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 text-white/70 text-xs font-semibold tracking-wide">
                 {b}
               </span>
@@ -122,8 +122,8 @@ export default function Hero() {
           <Zap className="w-5 h-5 text-white" />
         </div>
         <div>
-          <p className="text-night-900 font-black text-xl leading-none">3.2 kW</p>
-          <p className="text-night-500 text-xs mt-0.5 font-medium">Live generation now</p>
+          <p className="text-night-900 font-black text-xl leading-none">50+ MW</p>
+          <p className="text-night-500 text-xs mt-0.5 font-medium">Capacity delivered</p>
         </div>
         <div className="w-2 h-2 rounded-full bg-green-400 animate-pulse-slow" />
       </div>

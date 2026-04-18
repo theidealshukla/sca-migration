@@ -1,12 +1,12 @@
 export const metadata = {
-  title: 'SCA Tech Solar | Trusted Solar Panel Installation',
-  description: 'India\'s trusted solar EPC company. Residential 3-10kW, commercial and industrial rooftop solar with PM Surya Ghar subsidy support.',
-  alternates: { canonical: 'https://scatechsolar.com' },
+  title: 'ASA EPC Pvt. Ltd. | Solar EPC & Renewable Energy Solutions',
+  description: 'DPIIT-recognized solar EPC company. 7+ years, 100+ projects. Turnkey solar power plants, transmission lines, substations, BESS & asset management across India and UAE.',
+  alternates: { canonical: 'https://www.asa-epc.com' },
   openGraph: {
-    title: 'SCA Tech Solar | Trusted Solar Panel Installation',
-    description: 'Premium and Affordable rooftop solar for homes and businesses.',
-    url: 'https://scatechsolar.com',
-    siteName: 'SCA Tech Solar',
+    title: 'ASA EPC Pvt. Ltd. | Solar EPC & Renewable Energy Solutions',
+    description: 'Turnkey EPC services for solar power plants, transmission lines, substations and renewable energy infrastructure.',
+    url: 'https://www.asa-epc.com',
+    siteName: 'ASA EPC Pvt. Ltd.',
     type: 'website',
   }
 };
@@ -31,32 +31,34 @@ import ContactSection from '@/components/sections/ContactSection'
 const localBusinessSchema = {
   "@context": "https://schema.org",
   "@type": "Organization",
-  "name": "SCA Tech Solar",
-  "description": "India's trusted solar installation company offering rooftop solar for homes, businesses, and industries.",
-  "url": "https://scatech.netlify.app",
-  "telephone": "+919826035454",
-  "email": "info@scatechsolar.com",
+  "name": "ASA EPC Pvt. Ltd.",
+  "description": "DPIIT-recognized solar EPC company delivering turnkey solar power plants, transmission lines, substations, BESS and asset management services across India and UAE.",
+  "url": "https://www.asa-epc.com",
+  "telephone": "+917554920666",
+  "email": "mail@asa-epc.com",
   "address": {
     "@type": "PostalAddress",
-    "streetAddress": "149, Shrawan Chambers, RNT Marg, Chhoti Gwaltol",
-    "addressLocality": "Indore",
+    "streetAddress": "Office B-22, Sector-C, Indrapuri, Near BHEL",
+    "addressLocality": "Bhopal",
     "addressRegion": "Madhya Pradesh",
-    "postalCode": "452001",
+    "postalCode": "462022",
     "addressCountry": "IN"
   },
   "geo": {
     "@type": "GeoCoordinates",
-    "latitude": "22.7196",
-    "longitude": "75.8577"
+    "latitude": "23.2599",
+    "longitude": "77.4126"
   },
-  "image": "https://scatech.netlify.app/icons/favicon.svg",
-  "priceRange": "₹₹",
+  "image": "https://www.asa-epc.com/icons/favicon.svg",
+  "priceRange": "₹₹₹",
   "openingHours": "Mo-Sa 09:00-18:00",
-  "areaServed": {"@type": "Country", "name": "India"},
+  "areaServed": [
+    {"@type": "Country", "name": "India"},
+    {"@type": "Country", "name": "United Arab Emirates"}
+  ],
   "sameAs": [
-    "https://www.facebook.com/scatechsolar",
-    "https://www.instagram.com/scatech.indore",
-    "https://www.indiamart.com/sca-tech/"
+    "https://www.asa-epc.com",
+    "https://www.asasolar.in"
   ]
 }
 
@@ -72,14 +74,14 @@ export default function Home() {
           "@context": "https://schema.org",
           "@type": "FAQPage",
           "mainEntity": [
-            {"@type": "Question", "name": "How much does a solar installation cost in India?", "acceptedAnswer": {"@type": "Answer", "text": "A typical 3 kWp residential system costs ₹1.3–1.8 lakh before subsidy. After PM Surya Ghar subsidy of ₹78,000, net cost is ₹55,000–1,00,000. Commercial and industrial pricing is calculated per watt peak (₹45–55/Wp). Costs may vary slightly by region."}},
-            {"@type": "Question", "name": "What is the payback period for solar in India?", "acceptedAnswer": {"@type": "Answer", "text": "With India's abundant sunshine averaging 250-300+ sunny days and rising electricity tariffs of ₹7–10/unit, payback periods are typically 3–5 years for residential and 2.5–4 years for commercial. After payback, you generate free electricity for the remaining 20+ years."}},
-            {"@type": "Question", "name": "Will solar work during power cuts?", "acceptedAnswer": {"@type": "Answer", "text": "Standard on-grid systems do not work during outages (safety regulation). For 24/7 power, we offer hybrid systems with lithium battery backup. These provide 4–8 hours of backup for typical households."}},
-            {"@type": "Question", "name": "How do I apply for the PM Surya Ghar subsidy?", "acceptedAnswer": {"@type": "Answer", "text": "SCA Tech handles the entire subsidy process at no extra cost. We register you on the PM Surya Ghar portal, coordinate with your local MPWZ for net meter, and ensure the subsidy is credited directly to your bank account."}},
-            {"@type": "Question", "name": "How long does installation take?", "acceptedAnswer": {"@type": "Answer", "text": "Site survey on day 1. Equipment delivery on day 2–3. Physical installation takes 1–2 days. MPWZ net meter application is filed simultaneously and usually approved within 15–30 days."}},
-            {"@type": "Question", "name": "What maintenance is required for solar panels?", "acceptedAnswer": {"@type": "Answer", "text": "Solar panels require minimal maintenance — mainly periodic cleaning to remove dust. In most Indian climates, cleaning every 2–3 months is sufficient. We offer Annual Maintenance Contracts starting ₹3,500/year including 2 cleanings and performance health checks."}},
-            {"@type": "Question", "name": "What warranties do you provide?", "acceptedAnswer": {"@type": "Answer", "text": "We offer: 25-year linear performance warranty on Tier 1 and Tier 2 panels, 10-year product warranty on panels, 5–10 year warranty on inverters, and 1-year installation workmanship warranty from SCA Tech with ongoing support."}},
-            {"@type": "Question", "name": "Can I get solar installed on a rented property?", "acceptedAnswer": {"@type": "Answer", "text": "You can install solar on a rented property with the landlord's written consent. The system can be transferred if you move. Many landlords are agreeable as it increases property value."}}
+            {"@type": "Question", "name": "What EPC services does ASA EPC offer?", "acceptedAnswer": {"@type": "Answer", "text": "ASA EPC provides turnkey EPC services covering ground mounted solar, rooftop solar, floating solar, agrovoltaic systems, transmission lines (up to 765 KV), and substations (33KV to 400KV). We handle the entire project lifecycle from design and planning to execution and commissioning."}},
+            {"@type": "Question", "name": "What is ASA EPC's experience in the solar industry?", "acceptedAnswer": {"@type": "Answer", "text": "ASA EPC has 7+ years of proven EPC execution experience with 100+ projects successfully delivered. Our founders bring 16+ years of individual experience each. We are a DPIIT-recognized Startup India company and an authorized Waaree Energies franchisee partner."}},
+            {"@type": "Question", "name": "Does ASA EPC handle government approvals?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, ASA EPC manages the entire approvals process including obtaining necessary permits and licenses, ensuring regulatory compliance, liaising with government agencies, and handling all documentation and follow-up to ensure timely approvals."}},
+            {"@type": "Question", "name": "What is BESS and Green Hydrogen?", "acceptedAnswer": {"@type": "Answer", "text": "BESS (Battery Energy Storage System) stores excess energy from renewables for later use, enhancing grid stability and efficiency. Green Hydrogen is a clean energy carrier produced by splitting water using renewable energy, offering a zero-emission alternative for power generation, transportation, and industrial applications."}},
+            {"@type": "Question", "name": "Where does ASA EPC operate?", "acceptedAnswer": {"@type": "Answer", "text": "ASA EPC operates across India with projects in Madhya Pradesh, Rajasthan, Delhi, Tamilnadu, and other states. We also have an international office in Dubai, UAE through ASA PUMPS TRADING LLC."}},
+            {"@type": "Question", "name": "What asset management services does ASA EPC provide?", "acceptedAnswer": {"@type": "Answer", "text": "We provide integrated asset management including Operation & Maintenance, Energy Audits, and Performance Monitoring with real-time tracking for optimal performance and longevity of power infrastructure."}},
+            {"@type": "Question", "name": "Who are ASA EPC's major clients?", "acceptedAnswer": {"@type": "Answer", "text": "Our notable clients include Bajaj, L&T Construction, KEC International (RPG Group), Shyam Steel, Waaree, Monte Carlo, DRDO, and Dr. C.V. Raman University among others."}},
+            {"@type": "Question", "name": "What types of substations does ASA EPC build?", "acceptedAnswer": {"@type": "Answer", "text": "ASA EPC executes high-voltage substations including Gas Insulated Substations (GIS) and Air Insulated Substations (AIS) spanning 33KV to 400KV, as well as 132KV traction substations for railway applications."}}
           ]
         }) }}
       />

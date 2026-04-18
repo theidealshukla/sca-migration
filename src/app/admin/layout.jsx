@@ -89,12 +89,12 @@ export default function AdminLayout({ children }) {
     let loginPassword = loginForm.password;
     
     if (idLow === 'admin') {
-      loginEmail = 'admin@scatechsolar.com';
+      loginEmail = 'admin@asa-epc.com';
       if (loginForm.password === '123' || loginForm.password === '123456') {
-        loginPassword = 'scatechsolar123';
+        loginPassword = 'asaepc123';
       }
     }
-    if (idLow === 'user') loginEmail = 'user@scatechsolar.com';
+    if (idLow === 'user') loginEmail = 'user@asa-epc.com';
 
     const { error } = await supabase.auth.signInWithPassword({
       email: loginEmail,
@@ -147,14 +147,14 @@ export default function AdminLayout({ children }) {
           
           <div className="relative z-10 max-w-lg text-white">
             <div className="inline-flex items-center justify-center mb-8">
-              <img src="/logos/sca-logo.png" alt="SCA Tech Solar" className="h-[70px] w-auto object-contain" />
+              <img src="/logos/asa-epc-logo.png" alt="ASA EPC" className="h-[70px] w-auto object-contain" />
             </div>
             <h1 className="text-4xl lg:text-5xl font-bold tracking-tight mb-6">
-              SCA Tech Solar<br />
+              ASA EPC<br />
               <span className="text-night-400">Command Center.</span>
             </h1>
             <p className="text-lg text-night-300 leading-relaxed max-w-md">
-              A powerful, centralized CRM designed to accelerate your solar sales pipeline and manage customer relationships with elegant precision.
+              A powerful, centralized CRM designed to manage your EPC project pipeline and client relationships with elegant precision.
             </p>
           </div>
         </div>
@@ -164,7 +164,7 @@ export default function AdminLayout({ children }) {
           <div className="w-full max-w-[380px]">
             <div className="mb-10 text-center lg:text-left">
               <div className="lg:hidden inline-flex items-center justify-center mb-6">
-                <img src="/logos/sca-logo.png" alt="SCA Tech Solar" className="h-[44px] w-auto object-contain" />
+                <img src="/logos/asa-epc-logo.png" alt="ASA EPC" className="h-[44px] w-auto object-contain" />
               </div>
               <h2 className="text-2xl font-bold text-night-900 tracking-tight">Log in to your account</h2>
               <p className="text-night-500 text-sm mt-2">Enter your admin or member credentials to proceed.</p>
@@ -185,7 +185,7 @@ export default function AdminLayout({ children }) {
                   value={loginForm.identifier}
                   onChange={(e) => setLoginForm({ ...loginForm, identifier: e.target.value })}
                   className="w-full px-3.5 py-2.5 rounded-lg border border-night-200 bg-white focus:border-night-900 focus:ring-1 focus:ring-night-900 outline-none text-sm text-night-900 placeholder-night-400 transition-all shadow-sm"
-                  placeholder="name@scatechsolar.com"
+                  placeholder="name@asa-epc.com"
                 />
               </div>
 
@@ -240,9 +240,9 @@ export default function AdminLayout({ children }) {
         <div className="h-16 flex items-center px-5 border-b border-[#EBEBEB] shrink-0 justify-between">
           <div className="flex items-center gap-3 overflow-hidden">
             <div className="w-8 h-8 rounded-lg flex items-center justify-center shrink-0">
-              <img src="/logos/sca-logo.png" alt="SCA Tech" className="w-[35px] h-[35px] object-contain" />
+              <img src="/logos/asa-epc-logo.png" alt="ASA EPC" className="w-[35px] h-[35px] object-contain" />
             </div>
-            {!collapsed && <span className="font-semibold text-[15px] tracking-tight whitespace-nowrap">SCA CRM Workspace</span>}
+            {!collapsed && <span className="font-semibold text-[15px] tracking-tight whitespace-nowrap">ASA EPC Workspace</span>}
           </div>
           <button onClick={() => setMobileOpen(false)} className="lg:hidden p-1 text-night-500 hover:text-night-900 transition-colors">
             <X className="w-5 h-5" />

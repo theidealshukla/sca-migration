@@ -6,7 +6,7 @@ import { NAP } from '../constants/contact';
 
 export default function FloatingSocials() {
   const [isOpen, setIsOpen] = useState(false);
-  const whatsappUrl = `https://wa.me/${NAP.whatsapp.replace(/[^0-9]/g, '')}?text=${encodeURIComponent('Hey, I want to know about solar installation')}`;
+  const whatsappUrl = `https://wa.me/${NAP.whatsapp.replace(/[^0-9]/g, '')}?text=${encodeURIComponent('Hello, I want to enquire about your EPC services')}`;
 
   return (
     <>
@@ -26,7 +26,7 @@ export default function FloatingSocials() {
             </svg>
           </a>
           <a
-            href="https://www.instagram.com/scatechsolar/"
+            href="https://www.asa-epc.com"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Follow us on Instagram"

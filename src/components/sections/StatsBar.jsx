@@ -6,9 +6,9 @@ import React, { useEffect, useRef, useState } from 'react'
 
 const stats = [
   { value: parseInt(STATS.yearsExperience), suffix: '+', label: 'Years Experience', sub: `Since ${STATS.foundedYear}` },
-  { value: parseInt(STATS.capacityMW), suffix: 'MW', label: 'Installed Capacity', sub: 'Indore, Mumbai, Pune, Jalgaon, Kota' },
-  { value: parseInt(STATS.happyFamilies.replace(/,/g, '')), suffix: '+', label: 'Happy Families', sub: 'Zero electricity bills' },
-  { value: parseInt(STATS.satisfaction), suffix: '%', label: 'Client Satisfaction', sub: '5-star rated support' },
+  { value: parseInt(STATS.capacityMW), suffix: 'MW', label: 'Capacity Delivered', sub: 'MP, Rajasthan, Delhi, TN, UAE' },
+  { value: parseInt(STATS.happyFamilies.replace(/,/g, '')), suffix: '+', label: 'Projects Completed', sub: 'Solar, T/L & Substations' },
+  { value: parseInt(STATS.satisfaction), suffix: '%', label: 'Client Satisfaction', sub: 'Trusted by L&T, Bajaj, KEC' },
 ]
 
 function CountUp({ target, suffix, duration = 2000 }) {
@@ -57,7 +57,7 @@ export default function StatsBar() {
           <div className="marquee-inner whitespace-nowrap">
             {[...Array(2)].map((_, idx) => (
               <span key={idx} className="inline-flex items-center gap-6 text-white text-xs font-bold tracking-[0.2em] uppercase">
-                {['MPWZ Certified', '·', 'ISO 9001:2015', '·', 'MPWZ Empanelled', '·', '25 Year Warranty', '·', 'Government Subsidy Support', '·', 'Zero Interest EMI', '·', 'Indore · Mumbai · Pune · Jalgaon · Kota', '·'].map((t, i) => (
+                {['DPIIT Recognized', '·', 'Startup India Certified', '·', 'Waaree Authorized Partner', '·', '100+ Projects Delivered', '·', 'MPPWD Registered', '·', 'ISO Compliant', '·', 'Bhopal · MP · Rajasthan · Delhi · UAE', '·'].map((t, i) => (
                   <span key={i}>{t}</span>
                 ))}
               </span>

@@ -15,10 +15,10 @@ const footerLinks = {
     { label: 'Press & Media', path: '/contact' },
   ],
   Services: [
-    { label: 'Residential Solar', path: '/services' },
-    { label: 'Commercial Solar', path: '/services' },
-    { label: 'Industrial Solar', path: '/services' },
-    { label: 'O&M Services', path: '/services' },
+    { label: 'EPC Services', path: '/services' },
+    { label: 'Approvals & Liaisoning', path: '/services' },
+    { label: 'BESS & Green Hydrogen', path: '/services' },
+    { label: 'Asset Management', path: '/services' },
   ],
   Products: [
     { label: 'Solar Panels', path: '/products' },
@@ -28,8 +28,8 @@ const footerLinks = {
   ],
   Support: [
     { label: 'Get Free Quote', path: '/contact' },
-    { label: 'Subsidy Info', path: '/contact' },
-    { label: 'EMI Options', path: '/contact' },
+    { label: 'Project Enquiry', path: '/contact' },
+    { label: 'O&M Services', path: '/contact' },
     { label: 'FAQ', path: '/#faq' },
   ],
 }
@@ -45,13 +45,13 @@ export default function Footer() {
           <div className="lg:col-span-2">
             <Link href="/" className="flex items-center mb-6">
               <img 
-                src="/logos/sca-logo.png" 
-                alt="SCA Tech Solar" 
+                src="/logos/asa-epc-logo.png" 
+                alt="ASA EPC Pvt. Ltd." 
                 className="h-[90px] w-auto object-contain"
               />
             </Link>
             <p className="text-night-400 text-sm leading-relaxed mb-6 max-w-xs">
-              Powering India's clean energy future since 2008. Supplier of Tier-1 inverters and high-efficiency bifacial panels.
+              Delivering exceptional, economical, and eco-friendly energy solutions since 2018. DPIIT-recognized startup and authorized Waaree Energies franchisee partner.
             </p>
             <div className="flex flex-col gap-3 mb-8">
               <a href={`tel:${NAP.phone.replace(/\s/g, '')}`} className="flex items-center gap-3 text-sm text-night-400 hover:text-white transition-colors">
@@ -64,21 +64,21 @@ export default function Footer() {
               </a>
               <div className="flex items-start gap-3 text-sm text-night-400">
                 <MapPin className="w-4 h-4 text-night-500 flex-shrink-0 mt-0.5" />
-                <span>{NAP.address.split(',')[0] + ',' + NAP.address.split(',')[1] + ',' + NAP.address.split(',')[2]}, {NAP.addressShort}</span>
+                <span>{NAP.address}</span>
               </div>
             </div>
             <div className="flex items-center gap-3">
               <a
-                href="https://www.instagram.com/scatechsolar/"
+                href="https://www.asa-epc.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                aria-label="Follow us on Instagram"
-                className="w-9 h-9 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-night-500 hover:bg-gradient-to-br hover:from-[#f9ce34] hover:via-[#ee2a7b] hover:to-[#6228d7] hover:text-white hover:border-transparent transition-all duration-300"
+                aria-label="Visit ASA EPC website"
+                className="w-9 h-9 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-night-500 hover:bg-solar-500 hover:text-white hover:border-transparent transition-all duration-300"
               >
-                <Instagram className="w-4 h-4" />
+                <ArrowUpRight className="w-4 h-4" />
               </a>
               <a
-                href={`https://wa.me/${NAP.whatsapp.replace(/[^0-9]/g, '')}?text=${encodeURIComponent('Hey, I want to know about solar installation')}`}
+                href={`https://wa.me/${NAP.whatsapp.replace(/[^0-9]/g, '')}?text=${encodeURIComponent('Hello, I want to enquire about your EPC services')}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Chat with us on WhatsApp"
@@ -119,7 +119,7 @@ export default function Footer() {
       {/* SEO Text Block */}
       <div className="max-w-7xl mx-auto px-5 md:px-8 py-6">
         <p className="text-[10px] md:text-xs text-night-600 leading-relaxed text-center max-w-4xl mx-auto">
-          SCA Tech Solar is India's top-rated solar company offering professional solar panel installation for homes, businesses, and industrial units. Headquartered in Indore with offices in Mumbai, Pune, Jalgaon, and Kota. We authorize top-tier premium inverters, provide advanced bifacial panels, and assist with PM Surya Ghar scheme subsidy processes.
+          ASA EPC Pvt. Ltd. is a DPIIT-recognized solar EPC company headquartered in Bhopal, Madhya Pradesh with an international office in Dubai, UAE. We deliver turnkey EPC services for ground mounted solar, rooftop solar, floating solar, agrovoltaic systems, transmission lines, substations, BESS, green hydrogen, and asset management. Authorized Waaree Energies franchisee partner for Bhopal, MP.
         </p>
       </div>
 
@@ -128,7 +128,7 @@ export default function Footer() {
       {/* Bottom bar */}
       <div className="max-w-7xl mx-auto px-5 md:px-8 py-5 flex flex-col md:flex-row items-center justify-between gap-3">
         <p className="text-night-600 text-xs">
-          © 2026 SCA Tech Solar. All rights reserved.
+          © 2026 ASA EPC Pvt. Ltd. All rights reserved.
         </p>
         <div className="flex items-center gap-5">
           <a href="#" className="text-night-600 text-xs hover:text-night-400 transition-colors">Privacy Policy</a>
@@ -141,7 +141,7 @@ export default function Footer() {
       {/* Big brand text — like reference */}
       <div className="overflow-hidden border-t border-white/5">
         <p className="font-display text-[clamp(3rem,18vw,14rem)] font-black text-white/[0.04] leading-none tracking-tighter select-none text-center pb-4 whitespace-nowrap">
-          SCA TECH
+          ASA EPC
         </p>
       </div>
     </footer>

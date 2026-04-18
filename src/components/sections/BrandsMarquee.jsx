@@ -3,13 +3,13 @@
 import React from 'react';
 
 const brands = [
-  { src: '/images/brands/wipro.avif',        alt: 'Wipro' },
-  { src: '/images/brands/nestle.avif',        alt: 'Nestlé' },
-  { src: '/images/brands/ltimindtree.avif',   alt: 'LTIMindtree' },
-  { src: '/images/brands/raymond.avif',       alt: 'Raymond' },
-  { src: '/images/brands/clean-science.avif', alt: 'Clean Science' },
-  { src: '/images/brands/gabriel.avif',       alt: 'Gabriel' },
-  { src: '/images/brands/mumbai-port.avif',   alt: 'Mumbai Port Authority' },
+  { src: '/images/brands/wipro.avif',        alt: 'Bajaj' },
+  { src: '/images/brands/nestle.avif',        alt: 'L&T Construction' },
+  { src: '/images/brands/ltimindtree.avif',   alt: 'KEC International' },
+  { src: '/images/brands/raymond.avif',       alt: 'Shyam Steel' },
+  { src: '/images/brands/clean-science.avif', alt: 'Waaree' },
+  { src: '/images/brands/gabriel.avif',       alt: 'Monte Carlo' },
+  { src: '/images/brands/mumbai-port.avif',   alt: 'Novus Green' },
 ];
 
 export default function BrandsMarquee() {
@@ -27,10 +27,10 @@ export default function BrandsMarquee() {
             className="font-black text-night-900 leading-tight mb-4"
             style={{ fontSize: 'clamp(1.8rem, 4vw, 3.2rem)', letterSpacing: '-0.03em' }}
           >
-            Brands We&apos;ve Worked With
+            Trusted by Industry Leaders
           </h2>
           <p className="text-night-400 text-sm md:text-base max-w-xl mx-auto">
-            Projects executed in association with <span className="font-semibold text-night-600">Intellect Group</span>.
+            Projects executed for <span className="font-semibold text-night-600">Bajaj, L&T, KEC, Shyam Steel, Waaree</span> and more.
           </p>
         </div>
 

@@ -3,68 +3,61 @@
 import React from 'react'
 
 import Link from 'next/link';
-import { IndianRupee, CheckCircle2, ArrowRight, AlertCircle } from 'lucide-react'
+import { ArrowRight, IndianRupee, Leaf, BadgeCheck, Award, Zap, Clock } from 'lucide-react'
 
 const benefits = [
-  'Up to ₹78,000 subsidy for 3 kW system',
-  'Up to ₹30,000 for 1–2 kW systems',
-  'Additional state top-ups available in select states',
-  'No processing fees — we handle all paperwork',
-  'Subsidy credited directly to your bank',
-  'Applicable for all MPWZ consumers',
+  { icon: BadgeCheck, label: 'DPIIT Recognized Startup' },
+  { icon: Award, label: 'Authorized Waaree Partner' },
+  { icon: IndianRupee, label: 'Cost-Effective Solutions' },
+  { icon: Leaf, label: 'Eco-Friendly Clean Energy' },
+  { icon: Zap, label: '50+ MW Capacity Delivered' },
+  { icon: Clock, label: 'On-Time Project Completion' },
 ]
 
 export default function SubsidyBanner() {
   return (
-    <section className="py-16 md:py-20 bg-night-900 relative overflow-hidden">
-      {/* Decorative circles */}
-      <div className="absolute top-0 right-0 w-96 h-96 bg-white/5 rounded-full translate-x-1/2 -translate-y-1/2 pointer-events-none" />
-      <div className="absolute bottom-0 left-0 w-64 h-64 bg-night-800 rounded-full -translate-x-1/2 translate-y-1/2 pointer-events-none" />
+    <section className="py-20 md:py-28 bg-night-950 text-white relative overflow-hidden">
+      {/* decorative circles */}
+      <div className="absolute top-0 left-0 w-96 h-96 bg-solar-500/10 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2 pointer-events-none" />
+      <div className="absolute bottom-0 right-0 w-80 h-80 bg-solar-500/10 rounded-full blur-3xl translate-x-1/3 translate-y-1/3 pointer-events-none" />
 
-      <div className="max-w-7xl mx-auto px-5 md:px-8 relative">
+      <div className="max-w-7xl mx-auto px-5 md:px-8 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+
+          {/* Left */}
           <div>
-            <div className="inline-flex items-center gap-2 bg-white/10 rounded-full px-4 py-2 mb-6">
-              <AlertCircle className="w-4 h-4 text-white/60" />
-              <span className="text-white/70 text-xs font-bold tracking-widest uppercase">PM Surya Ghar Scheme · 2025</span>
-            </div>
-            <h2 className="font-black text-white leading-tight mb-4" style={{ fontSize: 'clamp(2rem, 4.5vw, 4rem)', letterSpacing: '-0.03em' }}>
-              PM Surya Ghar Subsidy — ₹78,000 Available.
-            </h2>
-            <p className="text-white/50 text-base md:text-lg leading-relaxed mb-8">
-              The Government of India's PM Surya Ghar: Muft Bijli Yojana offers direct benefit transfer subsidies to all eligible households. SCA Tech handles the entire registration and claim process for you — for free.
+            <p className="text-xs font-bold tracking-[0.2em] uppercase text-solar-400 mb-4">
+              Why ASA EPC
             </p>
-            <Link href="/contact" className="inline-flex items-center gap-2 bg-white text-night-900 px-7 py-3.5 rounded-full font-bold text-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-0.5">
-              Claim Your Subsidy — Free Consultation
-              <ArrowRight className="w-4 h-4" />
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-black leading-tight mb-6">
+              Exceptional. Economical. <br/>
+              <span className="text-solar-400">Eco-Friendly.</span>
+            </h2>
+            <p className="text-night-300 text-base md:text-lg leading-relaxed mb-8 max-w-lg">
+              ASA EPC delivers turnkey renewable energy solutions — from solar power plants and transmission lines to BESS and asset management. Trusted by Bajaj, L&T, KEC, and 100+ clients across India and UAE.
+            </p>
+
+            <Link
+              href="/contact"
+              className="inline-flex items-center gap-2 bg-white text-night-900 font-bold px-8 py-4 rounded-full hover:shadow-2xl hover:-translate-y-0.5 transition-all duration-300"
+            >
+              Get a Free Consultation <ArrowRight className="w-4 h-4" />
             </Link>
           </div>
-          <div>
-            <div className="bg-white/5 backdrop-blur-sm rounded-3xl p-7 border border-white/10">
-              <div className="flex items-center gap-3 mb-6">
-                <div className="w-12 h-12 bg-white rounded-2xl flex items-center justify-center">
-                  <IndianRupee className="w-6 h-6 text-night-900" />
+
+          {/* Right */}
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
+            {benefits.map((b, i) => {
+              const Icon = b.icon
+              return (
+                <div key={i} className="bg-white/5 border border-white/10 rounded-2xl p-5 hover:bg-white/10 transition-colors duration-300 group">
+                  <Icon className="w-6 h-6 text-solar-400 mb-3 group-hover:scale-110 transition-transform duration-300" />
+                  <p className="text-sm font-semibold text-white/80 leading-snug">{b.label}</p>
                 </div>
-                <div>
-                  <p className="text-white font-black text-2xl font-display">₹78,000+</p>
-                  <p className="text-white/40 text-sm">Maximum subsidy available</p>
-                </div>
-              </div>
-              <div className="grid grid-cols-1 gap-3">
-                {benefits.map((benefit, i) => (
-                  <div key={i} className="flex items-start gap-3">
-                    <CheckCircle2 className="w-4 h-4 text-white/30 flex-shrink-0 mt-0.5" />
-                    <p className="text-white/70 text-sm font-medium">{benefit}</p>
-                  </div>
-                ))}
-              </div>
-              <div className="mt-6 pt-6 border-t border-white/10">
-                <p className="text-white/30 text-xs">
-                  * Subject to eligibility. Available for on-grid systems connected to the MPWZ grid. Subsidy slabs as per MPWZ notifications.
-                </p>
-              </div>
-            </div>
+              )
+            })}
           </div>
+
         </div>
       </div>
     </section>

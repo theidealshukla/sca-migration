@@ -5,34 +5,34 @@ import { STATS } from '@/constants/stats'
 
 const reasons = [
   {
-    stat: '100%',
-    title: 'MPWZ Certified',
-    desc: 'Every installation meets MPWZ guidelines and standards for net metering eligibility.',
+    stat: 'DPIIT',
+    title: 'Startup India Recognized',
+    desc: 'ASA EPC is a DPIIT-recognized startup under the Startup India initiative by the Ministry of Commerce and Industries, Government of India.',
   },
   {
-    stat: '7 Days',
-    title: '7-Day Installation',
-    desc: 'From site survey to commissioning — our streamlined process gets your system live fast.',
+    stat: '100+',
+    title: 'Projects Delivered',
+    desc: 'Over 100 projects successfully completed across solar power plants, transmission lines, and substations — from 50 KW rooftop to 20 MW ground mounted systems.',
   },
   {
-    stat: 'Multi-City',
-    title: 'Regional Expertise',
-    desc: 'Looking for a reliable solar installer near you? Headquartered in Indore with offices in Mumbai, Pune, Jalgaon, and Kota, we have deep knowledge of local utility rules, subsidies and grid conditions.',
+    stat: 'Waaree',
+    title: 'Authorized Franchisee Partner',
+    desc: 'We are an authorized Waaree Energies Limited franchisee partner for Bhopal, Madhya Pradesh — ensuring access to premium quality solar modules.',
   },
   {
-    stat: '365 Days',
-    title: '24/7 Support',
-    desc: 'Round-the-clock remote monitoring and responsive on-site service across all our installations.',
+    stat: '765KV',
+    title: 'High-Voltage Expertise',
+    desc: 'Proven experience in executing transmission lines up to 765 KV and substations from 33KV to 400KV, including 132KV traction substations for Indian Railways.',
   },
   {
-    stat: 'Tier 1 & 2',
-    title: 'Premium and Affordable Hardware',
-    desc: 'We install Tier 1 and Tier 2 rated panels — Jinko, LONGi, Waaree — with 25-year performance warranties.',
+    stat: '5 States',
+    title: 'Pan-India & International',
+    desc: 'Operations across Madhya Pradesh, Rajasthan, Delhi, Tamilnadu, and internationally in Dubai, UAE through ASA PUMPS TRADING LLC.',
   },
   {
-    stat: '₹78,000+',
-    title: 'Subsidy & EMI Support',
-    desc: 'Navigating the rooftop solar subsidy India can be confusing. We handle PM Surya Ghar subsidy paperwork end-to-end across all states. No-cost EMIs available through our bank partners.',
+    stat: 'End-to-End',
+    title: 'Complete Project Lifecycle',
+    desc: 'One-stop solution covering design, procurement, construction, commissioning, approvals, liaisoning, and ongoing asset management — all under one roof.',
   },
 ]
 
@@ -81,11 +81,11 @@ export default function WhyChooseUs() {
               className="font-black text-night-900 leading-[1.08]"
               style={{ fontSize: 'clamp(2rem, 4.5vw, 3.8rem)', letterSpacing: '-0.03em' }}
             >
-              Your Trusted Solar Partner.
+              Your Trusted EPC Partner.
             </h2>
           </div>
           <p className="text-night-400 text-base md:text-lg leading-relaxed lg:max-w-md lg:ml-auto">
-            With {STATS.yearsExperience} years, {STATS.installations} installations and {STATS.capacityMW} MW deployed, our track record speaks for itself.
+            With {STATS.yearsExperience} years, {STATS.installations} projects and {STATS.capacityMW} MW deployed, our track record speaks for itself.
           </p>
         </div>
 
@@ -98,26 +98,26 @@ export default function WhyChooseUs() {
               {/* Big number */}
               <div className="mb-8">
                 <p className="text-night-300 text-xs font-semibold tracking-[0.2em] uppercase mb-3">
-                  Avg. Bill Reduction
+                  Projects Delivered
                 </p>
                 <p
                   className="font-display font-black text-night-900 leading-none"
                   style={{ fontSize: 'clamp(4rem, 10vw, 8rem)', letterSpacing: '-0.04em' }}
                 >
-                  <AnimatedNumber value={85} suffix="–90%" />
+                  <AnimatedNumber value={100} suffix="+" />
                 </p>
                 <p className="text-night-400 text-sm mt-3 leading-relaxed">
-                  Average electricity bill reduction for our residential clients.
+                  Successful project deliveries across solar, transmission, and substation infrastructure.
                 </p>
               </div>
 
               {/* Mini stats row */}
               <div className="grid grid-cols-2 gap-px bg-night-100 rounded-xl overflow-hidden">
                 {[
-                  { label: 'Avg. Payback', value: '4.2 Yr' },
-                  { label: 'System Life', value: '25+ Yr' },
-                  { label: 'CO₂ Offset/Yr', value: '4.8 T' },
-                  { label: 'Generation/Yr', value: '8,500+' },
+                  { label: 'Founder Exp.', value: '16+ Yr' },
+                  { label: 'Voltage Range', value: '765 KV' },
+                  { label: 'States Covered', value: '5+' },
+                  { label: 'Founded', value: '2018' },
                 ].map(item => (
                   <div key={item.label} className="bg-white p-4">
                     <p className="font-display font-black text-night-900 text-lg">{item.value}</p>
@@ -130,7 +130,7 @@ export default function WhyChooseUs() {
               <div className="mt-8 relative rounded-2xl overflow-hidden h-48 hidden lg:block">
                 <img
                   src="https://images.unsplash.com/photo-1521618755572-156ae0cdd74d?w=800&q=80&auto=format"
-                  alt="SCA Tech Solar team installing panels"
+                  alt="ASA EPC team at project site"
                   className="w-full h-full object-cover"
                   loading="lazy"
                   decoding="async"
@@ -139,7 +139,7 @@ export default function WhyChooseUs() {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-night-950/60 to-transparent" />
                 <p className="absolute bottom-4 left-4 right-4 text-white text-xs font-medium leading-relaxed">
-                  "Reliable, efficient, and sustainable solar — that's our promise to India."
+                  "Every project reflects our focus on quality, honest work, and customer trust."
                 </p>
               </div>
             </div>

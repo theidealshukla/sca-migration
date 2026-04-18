@@ -285,7 +285,7 @@ export default function AdminSettings() {
               </div>
               <div className="space-y-1">
                 <label className="text-[12px] font-bold text-night-700 uppercase tracking-widest flex items-center gap-1.5"><Mail className="w-3.5 h-3.5" /> Sign-in Identifier (Email)</label>
-                <input required type="email" value={form.email} onChange={e => setForm({...form, email: e.target.value})} className="w-full px-3 py-2 rounded-lg border border-[#EBEBEB] bg-[#FAFAFA] focus:bg-white focus:border-night-900 focus:ring-1 focus:ring-night-900 outline-none text-[13px] transition-all" placeholder="name@scatechsolar.com" />
+                <input required type="email" value={form.email} onChange={e => setForm({...form, email: e.target.value})} className="w-full px-3 py-2 rounded-lg border border-[#EBEBEB] bg-[#FAFAFA] focus:bg-white focus:border-night-900 focus:ring-1 focus:ring-night-900 outline-none text-[13px] transition-all" placeholder="name@asa-epc.com" />
               </div>
               <div className="space-y-1">
                 <label className="text-[12px] font-bold text-night-700 uppercase tracking-widest flex items-center gap-1.5"><Briefcase className="w-3.5 h-3.5" /> Access Clearances</label>

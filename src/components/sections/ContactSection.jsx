@@ -52,10 +52,10 @@ export default function ContactSection() {
         <div className="text-center mb-16">
           <p className="section-tag mx-auto justify-center">Get Started</p>
           <h2 className="font-black text-night-900 leading-tight" style={{ fontSize: 'clamp(2rem, 4.5vw, 4rem)', letterSpacing: '-0.03em' }}>
-            Book Free Solar Survey Anywhere in India — <span className="font-light text-night-400">no obligation.</span>
+            Get Your Free <span className="font-light text-night-400">Project Consultation.</span>
           </h2>
           <p className="text-night-500 mt-4 max-w-xl mx-auto">
-            Our expert will visit your site, assess your roof, check your bills and give you an exact quote — completely free of charge.
+            Tell us about your project requirements. Our engineering team will prepare a detailed proposal within 24 hours — completely free of charge.
           </p>
         </div>
 
@@ -83,7 +83,7 @@ export default function ContactSection() {
             <div className="p-5 bg-night-950 rounded-2xl border border-white/5">
               <p className="text-white font-black text-lg mb-2">Service Areas</p>
               <div className="flex flex-wrap gap-2">
-                {['Delhi NCR', 'Mumbai', 'Bengaluru', 'Hyderabad', 'Chennai', 'Indore', 'Bhopal', 'Jaipur', 'Ahmedabad', 'Pune', '+ 10 more'].map(city => (
+                {['Bhopal', 'Guna', 'Raisen', 'Gwalior', 'Chhattarpur', 'Seoni', 'Dindori', 'Rajgarh', 'Delhi', 'Coimbatore', 'Dubai UAE'].map(city => (
                   <span key={city} className="px-2.5 py-1 bg-white/10 rounded-full text-white/60 text-xs font-medium">{city}</span>
                 ))}
               </div>
@@ -97,15 +97,15 @@ export default function ContactSection() {
                 <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mb-5">
                   <CheckCircle2 className="w-8 h-8 text-green-600" />
                 </div>
-                <h3 className="text-2xl font-black text-night-900 mb-2">Survey Booked!</h3>
-                <p className="text-night-500 max-w-sm">Our solar expert will call you within 2 hours to confirm your free site survey appointment.</p>
+                <h3 className="text-2xl font-black text-night-900 mb-2">Enquiry Received!</h3>
+                <p className="text-night-500 max-w-sm">Our engineering team will contact you within 24 hours with a detailed project proposal.</p>
                 <button onClick={() => setSubmitted(false)} className="mt-6 btn-primary">
                   Submit Another
                 </button>
               </div>
             ) : (
               <form onSubmit={handleSubmit}>
-                <h3 className="text-xl font-black text-night-900 mb-6">Book Your Free Survey</h3>
+                <h3 className="text-xl font-black text-night-900 mb-6">Request a Free Consultation</h3>
 
                 {error && (
                   <div className="mb-4 p-3 bg-red-50 border border-red-200 rounded-xl text-red-700 text-sm font-medium">
@@ -118,7 +118,7 @@ export default function ContactSection() {
                     { id: 'name', label: 'Full Name', placeholder: 'Rajesh Sharma', type: 'text', required: true },
                     { id: 'phone', label: 'Mobile Number', placeholder: '+91 98765 43210', type: 'tel', required: true },
                     { id: 'email', label: 'Email Address', placeholder: 'rajesh@email.com', type: 'email' },
-                    { id: 'city', label: 'City / Area', placeholder: 'e.g. Mumbai, Delhi NCR, Bengaluru', type: 'text', required: true },
+                    { id: 'city', label: 'City / Area', placeholder: 'e.g. Bhopal, Delhi, Gwalior', type: 'text', required: true },
                   ].map(field => (
                     <div key={field.id}>
                       <label className="block text-xs font-bold text-night-600 uppercase tracking-wider mb-1.5">
@@ -139,7 +139,7 @@ export default function ContactSection() {
                 <div className="mb-4">
                   <label className="block text-xs font-bold text-night-600 uppercase tracking-wider mb-1.5">System Type *</label>
                   <div className="flex flex-wrap gap-2">
-                    {['Residential', 'Commercial', 'Industrial', 'Not Sure'].map(t => (
+                    {['Solar EPC', 'Transmission/Substation', 'BESS/Green Hydrogen', 'O&M/Asset Mgmt', 'Other'].map(t => (
                       <button
                         key={t}
                         type="button"
@@ -160,7 +160,7 @@ export default function ContactSection() {
                   <label className="block text-xs font-bold text-night-600 uppercase tracking-wider mb-1.5">Monthly Bill / Message</label>
                   <textarea
                     rows={3}
-                    placeholder="My monthly electricity bill is around ₹3,000. I have a 2-storey house with a flat roof..."
+                    placeholder="Describe your project requirements, site location, and approximate capacity needed..."
                     value={form.message}
                     onChange={e => setForm({ ...form, message: e.target.value })}
                     className="w-full px-4 py-3 rounded-xl border border-night-200 focus:border-night-400 focus:ring-2 focus:ring-night-100 outline-none text-sm text-night-900 placeholder-night-300 transition-all resize-none"
@@ -175,7 +175,7 @@ export default function ContactSection() {
                     </>
                   ) : (
                     <>
-                      Book Free Site Survey
+                      Submit Project Enquiry
                       <ArrowRight className="w-4 h-4" />
                     </>
                   )}

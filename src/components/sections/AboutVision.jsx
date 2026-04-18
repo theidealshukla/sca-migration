@@ -7,36 +7,36 @@ import { ArrowUpRight, ChevronLeft, ChevronRight } from 'lucide-react'
 
 const cards = [
   {
-    pill: '+ RESIDENTIAL',
-    title: 'Home Solar',
-    value: '3 kW – 10 kW',
-    desc: 'Cut your electricity bill by up to 90%. On-grid and hybrid systems with net metering support.',
+    pill: '+ EPC SERVICES',
+    title: 'Solar Power Plants',
+    value: '1 MW – 20 MW',
+    desc: 'ASA EPC for ground mounted, rooftop, floating solar, and agrovoltaic systems — from design to commissioning.',
     color: 'bg-night-50 border-night-200',
     accent: 'text-night-500',
     img: 'https://images.unsplash.com/photo-1611365892117-00ac5ef43c90?w=600&q=80&auto=format',
-    alt: '3kW residential solar system installation by SCA Tech',
+    alt: 'Ground mounted solar power plant by ASA EPC',
     dark: false,
   },
   {
-    pill: '+ COMMERCIAL',
-    title: 'Business Solar',
-    value: '10 kW – 100 kW',
-    desc: 'Reduce operating costs, earn REC credits and meet your corporate green targets.',
+    pill: '+ TRANSMISSION',
+    title: 'Transmission & Substations',
+    value: '33KV – 765KV',
+    desc: 'Extra High Tension & High Tension transmission lines and GIS/AIS substations spanning 33KV to 400KV.',
     color: 'bg-night-50 border-night-200',
     accent: 'text-night-500',
     img: 'https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?w=600&q=80&auto=format',
-    alt: 'Commercial solar system installation by SCA Tech',
+    alt: 'Transmission line construction by ASA EPC',
     dark: false,
   },
   {
-    pill: '+ INDUSTRIAL',
-    title: 'Industrial Solar',
-    value: '50 kW – 500 kW',
-    desc: 'Ground-mount and carport solutions for factories, warehouses and industrial parks.',
+    pill: '+ EMERGING TECH',
+    title: 'BESS & Green Hydrogen',
+    value: 'Next-Gen Energy',
+    desc: 'Battery Energy Storage Systems and Green Hydrogen solutions for grid stability and zero-emission power generation.',
     color: 'bg-night-950 border-night-800',
     accent: 'text-white/50',
     img: 'https://images.unsplash.com/photo-1497440001374-f26997328c1b?w=600&q=80&auto=format',
-    alt: 'Industrial solar factory installation by SCA Tech',
+    alt: 'Battery energy storage system by ASA EPC',
     dark: true,
   },
 ]
@@ -63,14 +63,14 @@ export default function AboutVision() {
         {/* Top row — editorial style */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 mb-12 md:mb-20 items-end">
           <div>
-            <p className="section-tag">2024 · About SCA Tech</p>
+            <p className="section-tag">2024 · About ASA EPC</p>
             <h2 className="font-black text-night-900 leading-tight" style={{ fontSize: 'clamp(1.8rem, 5vw, 4.5rem)', letterSpacing: '-0.03em' }}>
-              Your Trusted <span className="font-light text-night-400">Solar Partner</span>
+              Your Trusted <span className="font-light text-night-400">EPC Partner</span>
             </h2>
           </div>
           <div className="flex flex-col justify-end gap-4 md:gap-6">
             <p className="text-night-500 text-sm md:text-base lg:text-lg leading-relaxed">
-              SCA Tech Solar was founded with a single mission: to make premium and affordable solar energy accessible to every home and business. Headquarters: Indore. Offices in: Mumbai, Pune, Jalgaon, Kota. We combine German-engineered panels with nationwide expertise and after-sales service you can rely on.
+              ASA EPC Pvt. Ltd. was incorporated in 2018 with a clear vision: delivering exceptional, economical, and eco-friendly energy solutions. Headquartered in Bhopal with an international office in Dubai, UAE. We are a DPIIT-recognized startup and authorized Waaree Energies franchisee partner, combining deep technical expertise with 100+ successful projects across India and the Middle East.
             </p>
             <Link href="/about" className="inline-flex items-center gap-2 text-sm font-bold text-night-900 group">
               More about us
@@ -84,7 +84,7 @@ export default function AboutVision() {
         {/* Big scrolling text — hidden on mobile to save space */}
         <div className="overflow-hidden mb-10 md:mb-16 -mx-5 md:-mx-8 hidden md:block">
           <p className="whitespace-nowrap font-display font-black text-night-100 leading-none select-none" style={{ fontSize: 'clamp(3rem, 12vw, 10rem)', letterSpacing: '-0.04em' }}>
-            Clean Energy · Solar Power · Indore · Mumbai · Pune ·&nbsp;
+            Clean Energy · Solar EPC · Bhopal · India · UAE ·&nbsp;
           </p>
         </div>
 

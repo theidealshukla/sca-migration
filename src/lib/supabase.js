@@ -8,7 +8,7 @@ export const supabase = createClient(supabaseUrl, supabaseAnonKey);
 export const logSystemActivity = async (actionType, entityType, description, entityId = null) => {
   try {
     const { data: { session } } = await supabase.auth.getSession();
-    const email = session?.user?.email || 'admin@scatechsolar.com';
+    const email = session?.user?.email || 'admin@asa-epc.com';
     
     await supabase.from('system_logs').insert([{
       user_email: email,

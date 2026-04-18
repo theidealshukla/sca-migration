@@ -5,7 +5,7 @@ import { MessageCircle, X, Send, Loader2, Bot, User, Sparkles } from 'lucide-rea
 
 const WELCOME_MESSAGE = {
   role: 'assistant',
-  content: "Hey there! ☀️ I'm SCA Solar Assistant. Ask me anything about solar panels, installation costs, subsidies, or our services. How can I help you go solar today?"
+  content: "Hey there! ☀️ I'm ASA EPC Assistant. Ask me anything about solar EPC services, transmission projects, BESS, or asset management. How can I help you today?"
 };
 
 export default function Chatbot() {
@@ -43,7 +43,7 @@ export default function Chatbot() {
     } catch {
       setMessages(prev => [...prev, {
         role: 'assistant',
-        content: "I'm having trouble connecting right now. Please call us at +91 98260 35454 or try again."
+        content: "I'm having trouble connecting right now. Please call us at +91-7554920666 or try again."
       }]);
     } finally {
       setIsTyping(false);
@@ -51,9 +51,9 @@ export default function Chatbot() {
   };
 
   const quickQuestions = [
-    "Solar panel cost?",
-    "PM Surya Ghar subsidy?",
-    "Installation timeline?",
+    "Solar EPC services?",
+    "Transmission line projects?",
+    "BESS & Green Hydrogen?",
   ];
 
   return (
@@ -80,7 +80,7 @@ export default function Chatbot() {
               <Sparkles style={{ width: 18, height: 18, color: '#fff' }} />
             </div>
             <div style={{ flex: 1, minWidth: 0 }}>
-              <p className="chatbot-header-title">SCA Solar Assistant</p>
+              <p className="chatbot-header-title">ASA EPC Assistant</p>
               <p className="chatbot-header-sub">AI-Powered • Replies instantly</p>
             </div>
             <button onClick={() => setIsOpen(false)} className="chatbot-header-close">
@@ -132,7 +132,7 @@ export default function Chatbot() {
               ref={inputRef}
               value={input}
               onChange={(e) => setInput(e.target.value)}
-              placeholder="Ask about solar..."
+              placeholder="Ask about EPC services..."
               disabled={isTyping}
               className="chatbot-input"
             />
@@ -149,7 +149,7 @@ export default function Chatbot() {
           </form>
 
           <div className="chatbot-footer">
-            SCA Tech Solar • AI-Powered Support
+            ASA EPC Pvt. Ltd. • AI-Powered Support
           </div>
         </div>
       )}
