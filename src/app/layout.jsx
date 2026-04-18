@@ -16,7 +16,7 @@ export const metadata = {
     default: 'ASA EPC Pvt. Ltd. | Solar EPC & Renewable Energy Solutions',
     template: '%s | ASA EPC Pvt. Ltd.'
   },
-  description: 'DPIIT-recognized solar EPC company delivering turnkey solar power plants, transmission lines, substations, BESS & asset management across India and UAE. 7+ years, 100+ projects.',
+  description: 'DPIIT-recognized solar EPC company delivering ASA solar power plants, transmission lines, substations, BESS & asset management across India and UAE. 7+ years, 100+ projects.',
 };
 
 export default function RootLayout({ children }) {

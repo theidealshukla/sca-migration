@@ -1,6 +1,6 @@
 export const metadata = {
   title: 'EPC Services | ASA EPC Pvt. Ltd.',
-  description: 'Turnkey EPC services: solar power plants, transmission lines (up to 765KV), substations (33KV-400KV), BESS, Green Hydrogen, and integrated asset management.',
+  description: 'ASA EPC services: solar power plants, transmission lines (up to 765KV), substations (33KV-400KV), BESS, Green Hydrogen, and integrated asset management.',
   alternates: { canonical: 'https://www.asa-epc.com/services' },
 };
 
@@ -16,7 +16,7 @@ const services = [
   {
     icon: Factory,
     title: 'EPC Services',
-    tagline: 'Turnkey Solar Power Plant Solutions.',
+    tagline: 'ASA Solar Power Plant Solutions.',
     desc: 'ASA EPC delivers complete EPC services for ground mounted solar, rooftop solar, floating solar, and agrovoltaic systems. From site survey and leveling to module alignment, cable laying, and final commissioning — we handle the complete 16-step construction process with experienced on-ground teams.',
     points: ['Ground mounted solar (1 MW – 20 MW)', 'Rooftop solar systems', 'Floating solar installations', 'Agrovoltaic systems', 'Transmission lines up to 765 KV', 'Substations (33KV to 400KV, GIS & AIS)'],
     video: 'https://res.cloudinary.com/dyc2xmcym/video/upload/v1775673934/7211094-uhd_3840_2160_30fps_jq4q1e.mp4',
@@ -103,7 +103,7 @@ export default function Services() {
             Comprehensive EPC Services.
           </h1>
           <p className="text-night-300 max-w-xl text-base md:text-lg leading-relaxed mb-6">
-            From solar power plants to high-voltage transmission lines — ASA EPC delivers turnkey energy solutions backed by 7+ years of expertise.
+            From solar power plants to high-voltage transmission lines — ASA EPC delivers ASA energy solutions backed by 7+ years of expertise.
           </p>
           <Link href="/contact" className="btn-primary">
             Get Free Consultation <ArrowRight className="w-4 h-4" />

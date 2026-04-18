@@ -119,7 +119,7 @@ export default function Footer() {
       {/* SEO Text Block */}
       <div className="max-w-7xl mx-auto px-5 md:px-8 py-6">
         <p className="text-[10px] md:text-xs text-night-600 leading-relaxed text-center max-w-4xl mx-auto">
-          ASA EPC Pvt. Ltd. is a DPIIT-recognized solar EPC company headquartered in Bhopal, Madhya Pradesh with an international office in Dubai, UAE. We deliver turnkey EPC services for ground mounted solar, rooftop solar, floating solar, agrovoltaic systems, transmission lines, substations, BESS, green hydrogen, and asset management. Authorized Waaree Energies franchisee partner for Bhopal, MP.
+          ASA EPC Pvt. Ltd. is a DPIIT-recognized solar EPC company headquartered in Bhopal, Madhya Pradesh with an international office in Dubai, UAE. We deliver ASA EPC services for ground mounted solar, rooftop solar, floating solar, agrovoltaic systems, transmission lines, substations, BESS, green hydrogen, and asset management. Authorized Waaree Energies franchisee partner for Bhopal, MP.
         </p>
       </div>
 

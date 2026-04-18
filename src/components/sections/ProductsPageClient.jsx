@@ -21,7 +21,7 @@ export default function ProductsPageClient() {
             Comprehensive EPC Solutions & Clean Energy Products
           </h1>
           <p className="text-night-500 max-w-xl text-base md:text-lg leading-relaxed">
-            From ground-mounted solar farms to 765 KV transmission lines, BESS, and Green Hydrogen — we deliver turnkey energy solutions across India and UAE.
+            From ground-mounted solar farms to 765 KV transmission lines, BESS, and Green Hydrogen — we deliver ASA energy solutions across India and UAE.
           </p>
         </div>
       </div>

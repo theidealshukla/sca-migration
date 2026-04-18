@@ -6,7 +6,7 @@ import { Plus, Minus } from 'lucide-react'
 const faqs = [
   {
     q: 'What EPC services does ASA EPC offer?',
-    a: 'ASA EPC provides turnkey EPC services covering ground mounted solar, rooftop solar, floating solar, agrovoltaic systems, transmission lines (up to 765 KV), and substations (33KV to 400KV). We handle the entire project lifecycle from design and planning to execution and commissioning.',
+    a: 'ASA EPC provides ASA EPC services covering ground mounted solar, rooftop solar, floating solar, agrovoltaic systems, transmission lines (up to 765 KV), and substations (33KV to 400KV). We handle the entire project lifecycle from design and planning to execution and commissioning.',
   },
   {
     q: 'What is ASA EPC\u2019s experience in the solar industry?',

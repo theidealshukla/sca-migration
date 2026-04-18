@@ -1,10 +1,10 @@
 export const metadata = {
   title: 'ASA EPC Pvt. Ltd. | Solar EPC & Renewable Energy Solutions',
-  description: 'DPIIT-recognized solar EPC company. 7+ years, 100+ projects. Turnkey solar power plants, transmission lines, substations, BESS & asset management across India and UAE.',
+  description: 'DPIIT-recognized solar EPC company. 7+ years, 100+ projects. ASA solar power plants, transmission lines, substations, BESS & asset management across India and UAE.',
   alternates: { canonical: 'https://www.asa-epc.com' },
   openGraph: {
     title: 'ASA EPC Pvt. Ltd. | Solar EPC & Renewable Energy Solutions',
-    description: 'Turnkey EPC services for solar power plants, transmission lines, substations and renewable energy infrastructure.',
+    description: 'ASA EPC services for solar power plants, transmission lines, substations and renewable energy infrastructure.',
     url: 'https://www.asa-epc.com',
     siteName: 'ASA EPC Pvt. Ltd.',
     type: 'website',
@@ -32,7 +32,7 @@ const localBusinessSchema = {
   "@context": "https://schema.org",
   "@type": "Organization",
   "name": "ASA EPC Pvt. Ltd.",
-  "description": "DPIIT-recognized solar EPC company delivering turnkey solar power plants, transmission lines, substations, BESS and asset management services across India and UAE.",
+  "description": "DPIIT-recognized solar EPC company delivering ASA solar power plants, transmission lines, substations, BESS and asset management services across India and UAE.",
   "url": "https://www.asa-epc.com",
   "telephone": "+917554920666",
   "email": "mail@asa-epc.com",
@@ -74,7 +74,7 @@ export default function Home() {
           "@context": "https://schema.org",
           "@type": "FAQPage",
           "mainEntity": [
-            {"@type": "Question", "name": "What EPC services does ASA EPC offer?", "acceptedAnswer": {"@type": "Answer", "text": "ASA EPC provides turnkey EPC services covering ground mounted solar, rooftop solar, floating solar, agrovoltaic systems, transmission lines (up to 765 KV), and substations (33KV to 400KV). We handle the entire project lifecycle from design and planning to execution and commissioning."}},
+            {"@type": "Question", "name": "What EPC services does ASA EPC offer?", "acceptedAnswer": {"@type": "Answer", "text": "ASA EPC provides ASA EPC services covering ground mounted solar, rooftop solar, floating solar, agrovoltaic systems, transmission lines (up to 765 KV), and substations (33KV to 400KV). We handle the entire project lifecycle from design and planning to execution and commissioning."}},
             {"@type": "Question", "name": "What is ASA EPC's experience in the solar industry?", "acceptedAnswer": {"@type": "Answer", "text": "ASA EPC has 7+ years of proven EPC execution experience with 100+ projects successfully delivered. Our founders bring 16+ years of individual experience each. We are a DPIIT-recognized Startup India company and an authorized Waaree Energies franchisee partner."}},
             {"@type": "Question", "name": "Does ASA EPC handle government approvals?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, ASA EPC manages the entire approvals process including obtaining necessary permits and licenses, ensuring regulatory compliance, liaising with government agencies, and handling all documentation and follow-up to ensure timely approvals."}},
             {"@type": "Question", "name": "What is BESS and Green Hydrogen?", "acceptedAnswer": {"@type": "Answer", "text": "BESS (Battery Energy Storage System) stores excess energy from renewables for later use, enhancing grid stability and efficiency. Green Hydrogen is a clean energy carrier produced by splitting water using renewable energy, offering a zero-emission alternative for power generation, transportation, and industrial applications."}},

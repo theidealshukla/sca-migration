@@ -34,7 +34,7 @@ export default function SubsidyBanner() {
               <span className="text-solar-400">Eco-Friendly.</span>
             </h2>
             <p className="text-night-300 text-base md:text-lg leading-relaxed mb-8 max-w-lg">
-              ASA EPC delivers turnkey renewable energy solutions — from solar power plants and transmission lines to BESS and asset management. Trusted by Bajaj, L&T, KEC, and 100+ clients across India and UAE.
+              ASA EPC delivers ASA renewable energy solutions — from solar power plants and transmission lines to BESS and asset management. Trusted by Bajaj, L&T, KEC, and 100+ clients across India and UAE.
             </p>
 
             <Link
